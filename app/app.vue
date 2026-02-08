@@ -1,4 +1,12 @@
 <script setup>
+  useSeoMeta({
+    title: "JIMMY's WEB SITE",
+    ogTitle: "JIMMY's WEB SITE",
+    description: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
+    ogDescription: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
+    ogImage: 'https://jimmy-waiwai.github.io//waiwai-test2/images/takaraimage.jpg',
+    twitterCard: 'summary_large_image',
+  })
 </script>
 
 <template>
@@ -15,14 +23,11 @@
 <style>
   .noto-sans {
     font-family: "Noto Sans JP", sans-serif;
-    font-weight: 300;
   }
   .noto-serif {
     font-family: "Noto Serif JP", serif;
-    font-weight: 400;
   }
   .klee-one {
     font-family: "Klee One", cursive;
-    font-weight: 400;
   }
 </style>

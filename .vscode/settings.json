@@ -1,0 +1,14 @@
+{
+  // Tailwindの補完を有効にする
+  "tailwindCSS.experimental.classRegex": [
+    ["class:\\s*['\"]([^'\"]*)['\"]", "['\"]([^'\"]*)['\"]"]
+  ],
+  // Vueファイルを対象にする
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // クラス名の補完を文字列の中でも機能させる
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}

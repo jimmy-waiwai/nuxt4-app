@@ -28,7 +28,7 @@ useHead({
 </script>
 
 <template>
-  <div class="noto-serif">
+  <div class="noto-serif font-[400]">
     <slot />
   </div>
 </template>
