@@ -1,0 +1,87 @@
+<script setup>
+const teamProps = ref({ team: "flower" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              ロミオとジュリエット'99
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                花組バウホール公演・６／１９～７／４
+              </p>
+              <p><strong>ブラボー！&emsp;植田景子先生っ！！</strong></p>
+              <p>花組バウホール公演、評判通りの素晴らしい舞台でした！</p>
+              <p>
+                <strong>「～'99」</strong
+                >と名付ける事によって大きく変わったのはビジュアル。時代背景にとらわれない衣装、装置、照明、どれをとっても先生のこだわりが感じられ、繊細でとても美しい。特にセットと照明の色合いが気に入りました。
+              </p>
+              <p>
+                天使が紐解く「ロミオとジュリエット」の古びた書籍。そして聞こえる人々の争いの声。その奥、光の中現れるロミオとジュリエットの横たわる姿・・。冒頭からムードたっぷりの耽美な世界が繰り広げられ、全てが気が利いていて、見せます、酔えます！
+              </p>
+              <p>
+                内容はストレートに、シェイクスピアの有名な台詞もそのままに、かの有名な悲劇を再現。でも前述のビジュアルのおかげで、こちらも古典として構えることなく、ストレートに物語に酔うことができたような気がします。最後には涙が止まりませんでした。これ程の舞台は、バウでは近年なかったような気がします。
+              </p>
+              <p>
+                大人っぽい容姿、クールなイメージの<strong>水夏希</strong>に、ロミオはどうだろう？&emsp;と不安がありましたが、作らず、<strong>素直に若さをぶつけて、ロミオを自分のものにしていました</strong>。その持ち味のまま、植田先生の意図した舞台化にあった、<strong>今の私達が見てステキに見えるロミオ</strong>になれていたと思います。舞踏会のシーンでロザラインと踊る時のムードなんて、水ならではですよね(^_^;)。数々のバレエシーンも美しく、歌も十分及第点。この作品に当たる事ができて、本当に良かったですね！！
+              </p>
+              <p>
+                ジュリエットには、いよいよ登場の<strong>彩乃かなみ</strong>。デビューに相応しい若さ、瑞々しさがジュリエットにピッタリでした。最近の娘役にはめずらしくまだまだ丸いですが(^_^;)、歌はかなりのものだし、それ以外は文句のつけようもありません。<strong>終盤、毒を手に入れてからの迫力</strong>には目をみはるものがあり、今後も非常に楽しみです。
+              </p>
+              <p>
+                <strong>眉月凰</strong
+                >が、パリス伯爵を美しく見せてくれて、久しぶりの歌も頼もしい。マーキューシオの<strong>彩吹真央</strong>も衣装、髪型が良く似合い、台詞の明瞭さでは一番。
+              </p>
+              <p>
+                その他では、まず天使の<strong>花央レミ</strong>がピッタリの役所で、表情、動きも良く、印象に残ります。道化の<strong>仙堂花歩</strong>も達者。薬屋の<strong>紫蘭ますみ</strong>の無気味さ、ピーターの<strong>悠真倫</strong>も良い。この辺りの若手の使い方が・・、上手いですね～、植田先生。
+              </p>
+              <p>
+                又、ティボルトの<strong>貴月あゆむ</strong>、乳母の<strong>幸美杏奈</strong>、キャピレット夫人の<strong>貴柳みどり</strong>、そして何と言っても、ロレンス神父の<strong>汝鳥伶</strong>の説得力ある心地よい台詞が、物語を締めていました。
+              </p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★★★<span class="text-gray-400"></span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>

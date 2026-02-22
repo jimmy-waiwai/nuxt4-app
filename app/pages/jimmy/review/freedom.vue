@@ -1,0 +1,85 @@
+<script setup>
+const teamProps = ref({ team: "cosmos" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              FREEDOM
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                宙組・バウホール公演・6/15～23
+              </p>
+              <p>
+                まずまず良い舞台で、<strong>樹里咲穂、夢輝のあ、遠野あすか</strong>共上手くて、安心して物語を楽しめました。<br />
+                物語には違和感なく、大きな不満はなかったのですが、カルメンを通して<strong>「自由」</strong>を追求しようとするメッセージというか・・<strong>パワー</strong>のようなものが、「FREEDOM」というタイトルや、プログラムの木村先生の言葉程には強く伝わらなかったのが物足りなかったです。<br />
+                同じ最近の宙組公演として、どうしても<strong>「激情」</strong>が浮かぶのですが、自由を求めるカルメン(樹里)と、カルメンを束縛しようとするジョーシー(遠野あすか)の心の葛藤、<strong>追いつめられていく緊迫感</strong>があまり書かれていないので、最後ジョーシーがカルメンを撃つのが、まぁ、理由は分かるのですが、ちょっと唐突に感じられたのが残念でした。<br />
+                「激情」も演出に不満はあったのですが、<strong>カルメンとホセの心の葛藤に身にせまる迫力があった</strong>分、やっぱり良い舞台だったんだなぁ・・、と思わせられました。
+              </p>
+              <p>
+                初主演の<strong>樹里</strong>。最初自動車工場での騒ぎや、ウエスタン・バーでロレッタやシャルロットをかわす所など、<strong>慣れた大人っぽいかっこ良さ</strong>がありました。<strong>歌はどのナンバーもさすがに迫力あります</strong>ね。ただ非常にキザにかっこ良く見せられてはいましたが、モテてモテて仕方がない・・というカルメンの強い華やかさや押しのようなものが感じられなかったのが、仕方がないかもしれないけれどつらい所。樹里ならもっと軽く奔放な役柄(それこそ木村先生の「自由」をもっと強調した役)とした方が、本来の魅力が出たのではないかな～、という気がしました。衣装も、スーツ姿はステキでしたが、ウエスタンの衣装や、特に金のガウン姿には品がなくてびっくりしました(すみません^_^;)。衣装が悪いのかもしれないけれど・・。
+              </p>
+              <p>
+                <strong>遠野</strong
+                >は「Crossroad」の頃から比べると、<strong>随分すっきりとあか抜けて、キレイになったな</strong>、と思いました。最近TVや雑誌で見る素顔は、最近の女子高生みたい(言い方がおばさんクサいけど・・)ですが、舞台は随分大人っぽくて、ギャップに驚いてしまいます(^_^;)。スタイルが良くて、序盤のロングタイトスカートが良く似合っていて、ラブシーンで見える足も、すごくキレイでしたね(^_^;)。最後の赤のドレス、フィナーレの黒のドレスも大人っぽくてステキでした。<strong>歌も上手くて感心</strong>。花總まりに続く宙組若手娘役の中ではやはりピカ一かな、と思いました。
+              </p>
+              <p>
+                <strong>夢輝</strong
+                >のクラークは、「激情」のミカエラのイメージで見ると、<strong>ずっと激しくジョーシーを思っている人</strong>に作られていて、予想以上に熱い男でした(^_^;)。南部から出てきた、という設定で、衣装もカルメンにも言われている通りイマイチあか抜けないのですが、スラっとした立ち姿が良いです。静かな理の通った男のようで、母親が眠っている隣で、キレるまで激しく歌い、飛び起きた母親に「ちょっと机につまずいて・・」と言う所なんて、ちょっと裏表が激しすぎて恐い気も・・(^_^;)。<strong>あそこまで強い男なら、力ずくでもジョーシーを取り戻せそう</strong>な気はしました。
+              </p>
+              <p>
+                他では<strong>真中ひかる</strong>がすごく良い女の役で、歌うまで真中だと気づかない程キレイに化けていてびっくりしました。しぐさはちょっと恐い所はありましたが(^_^;)、見た目はステキでしたね。<strong>高翔みず希</strong>は思ったよりも良い人の役で、温かさが良かったです。同期の樹里とのコンビも次いつ見られるのか？&emsp;と思うと寂しいですね。
+              </p>
+              <p>
+                後は<strong>菊穂りな</strong>、<strong>毬穂えりな</strong>が前大劇場公演の頃から気になっているのですが、上手くて頼もしい。男役では<strong>月丘七央</strong>がキレイで目立ちました。港の場面の演技では、ちょっと幸和希を思いだしたのですが・・私だけかな(^_^;)。
+              </p>
+              <p>
+                二幕の<strong>南部のコーラス</strong>が迫力あって、姿月あさとの影響かな・・と思ったりもしました。ソロの<strong>天羽珠紀</strong>、<strong>音乃いづみ</strong>も上手かったです(プログラムに役名が載っていて良かった・・)。
+              </p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>

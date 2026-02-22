@@ -1,0 +1,86 @@
+<script setup>
+const teamProps = ref({ team: "flower" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              冬&emsp;物&emsp;語
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                花組バウホール公演・1/28～2/6
+              </p>
+              <p>
+                作品に関しては、<strong>初演とほぼ同じ</strong>でした。良ければ下の初演の公演評をご覧下さいね。
+              </p>
+              <p>
+                <strong>今回の再演</strong
+                >にははっきり言って疑問がありました。私の記憶に残っているバウでの同じ主演者の再演と言えば、<strong>杜けあきの「ヴァレンチノ」</strong>、昭和天皇崩御で途中休演となってしまった<strong>一路真輝の「ツーロンの薔薇」</strong>位。余程の事がない限り、再演はないはずなのに、<strong
+                  >何故この「冬物語」が再演されるのか？</strong
+                >
+              </p>
+              <p>
+                ひょっとしたら、脚本が書き改められて、すごく良くなっているかも。そしたら、見逃したら損よね・・と、わずかな期待を持ってチケットを取りましたが、ぜーんぜん変わっていません。いや、細かく言えば、黒子が出てきたり、照明や衣装が若干良くなっていたような気がしますが、作品内容は全然変わってない。結局、<strong>衣装を借りるのにお金がかかるので、東京だけでは勿体ないからバウでも再演してしまおう</strong>(あくまで推測ですが)とか、そんな裏事情以外に、この作品が再演される理由が全く分かりません。
+              </p>
+              <p>
+                <strong>児玉先生</strong
+                >はこの作品を一体どう思われているんでしょうね。別に書き直さなくても十分な作品だと思われているのでしょうか。植田景子先生や荻田先生が再演の折りにガラッと作品を書き直して絶賛されているのですから(出演者が変わっているからではありますが)、新人ですし、<strong>春野寿美礼の為にも、別の新作を作り直すくらいの気概を見せて欲しかった</strong>です。
+              </p>
+              <p>
+                <strong>春野、瀬奈じゅん</strong
+                >は初演の時と比べて落ち着きが出ていて良かったです。<strong>春野</strong>は喉の調子が悪いようで、得意の歌が十分に聴かせられなかったのが残念でしたが、それでも十分上手い。初演では激情して変な行動に出ているように見えましたが(^_^;)、今回は狂気を静かに見せていて、恐ろしく感じられたのが面白かったです。<strong>瀬奈</strong>は難しい歌舞伎の場面に、大きさと迫力が出ていましたね。
+              </p>
+              <p>
+                <strong>彩吹真央</strong
+                >は相変わらずスカッとする出来映えで頼もしい。彦三郎が<strong>一樹千尋</strong>になって、ずっと良くなりました(すみません)。十郎太の<strong>桜一花</strong>も可愛らしい。
+              </p>
+              <p>
+                宝塚で、人気のある新人が主演なのですから、<strong>どんな作品でもある程度の観客は動員できます。</strong>バウは「実験劇場」であるべきですし、冒険作も大歓迎です。でも、もう少し<strong>主演の春野が良く見えるような、観客が喜ぶような作品を書いてあげないと・・。商業なんですし、春野にも将来がかかっているんです(^_^;)。</strong>この舞台が感動を呼んでいるのは、春野、瀬奈ら、出演者の熱演の力です。私が星二つにしたい所を三つにしたのも、出演者の力です(^_^;)。
+              </p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>

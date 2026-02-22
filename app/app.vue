@@ -1,12 +1,13 @@
 <script setup>
-  useSeoMeta({
-    title: "JIMMY's WEB SITE",
-    ogTitle: "JIMMY's WEB SITE",
-    description: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
-    ogDescription: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
-    ogImage: 'https://jimmy-waiwai.github.io//waiwai-test2/images/takaraimage.jpg',
-    twitterCard: 'summary_large_image',
-  })
+useSeoMeta({
+  title: "JIMMY's WEB SITE",
+  ogTitle: "JIMMY's WEB SITE",
+  description: "waiwai.ciao.jp より移転しました。JIMMYのホームページです。",
+  ogDescription: "waiwai.ciao.jp より移転しました。JIMMYのホームページです。",
+  ogImage:
+    "https://jimmy-waiwai.github.io//waiwai-test2/images/takaraimage.jpg",
+  twitterCard: "summary_large_image",
+});
 </script>
 
 <template>
@@ -21,13 +22,16 @@
 </template>
 
 <style>
-  .noto-sans {
-    font-family: "Noto Sans JP", sans-serif;
-  }
-  .noto-serif {
-    font-family: "Noto Serif JP", serif;
-  }
-  .klee-one {
-    font-family: "Klee One", cursive;
-  }
+.noto-sans {
+  font-family: "Noto Sans JP", sans-serif;
+}
+.noto-serif {
+  font-family: "Noto Serif JP", serif;
+}
+.klee-one {
+  font-family: "Klee One", cursive;
+}
+.poiret-one {
+  font-family: "Poiret One", sans-serif;
+}
 </style>

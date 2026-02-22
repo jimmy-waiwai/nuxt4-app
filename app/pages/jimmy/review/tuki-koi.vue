@@ -1,0 +1,118 @@
+<script setup>
+const teamProps = ref({ team: "moon" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              春ふたたび／恋天狗
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                月組バウホール公演・1/28～2/4
+              </p>
+              <p>
+                バウ・ワークショップシリーズも第三弾。発表を聞いた時から楽しみにしていましたが、予想以上に演出家によって違いが見られ、ファンにはたまらない面白さです(^_^;)。<br />
+                その第三弾は<strong>月組</strong>。一幕目は<strong>月船さらら</strong>主演の<strong>「春ふたたび」</strong>、二幕目は<strong>北翔海莉</strong>主演の<strong>「恋天狗」</strong>。2/2の2時30分公演を観てきました。
+              </p>
+              <p>
+                まず<strong>「春ふたたび」</strong>。<strong>児玉先生</strong>演出という事で、また宙組の<strong>川上先生</strong>版とは随分違っていました。プロローグで村人たちが踊る時の持ち物が、音の出るものだったり、群衆芝居の時も皆がより声を出したり、動いたりしていて、活気があったのが良かった点ですね。さすが場数が違うのかな・・と思いました。
+              </p>
+              <p>
+                ただ主役の<strong>道忠の演技</strong>だけが気になりました。威厳を出そうとしているのは分かるのですが、テンポが悪いです。芝居の流れが、道忠の台詞によってのみ、中断させられるような、気持ちの悪さがありました。左衛門の<strong>光樹すばる</strong>など、村人たちは良い台詞を聞かせてくれていたのですが・・。<br />
+                昔「ダル・レークの恋」の新人公演の時、児玉先生の指導によって、台詞が全てゆったりとしたものになって不評だったという伝説(?)を思い出しました。今回はどこまで先生の指導によるものだったんでしょうね？
+              </p>
+              <p>
+                主演の道忠(<strong>月船さらら</strong>)。そういう訳で、台詞が自然でなく、声が良い訳でもなく、妙な台詞の間の悪さが気になって仕方なかったです。肩を張った大仰な芝居も、私はイマイチ。<br />
+                ただ、相変わらず愛華みれ似で、非常に美しかったですね。<br />
+                基本的に、殿様役者ではないとも思います。「おーい春風さん」や「恋天狗」の方が、持ち味に合いそうな気がしますね。
+              </p>
+              <p>
+                やすの<strong>城火呂絵</strong>は一度演じているとあって、観ていて安心。出雲綾ほど重々しくなかったのも良い。<br />
+                <strong>光樹</strong
+                >は前述の通りで頼もしく、<strong>宝生ルミ</strong>も珍演・怪演役者のイメージがあったのですが、今回はしっとりと引いた演技でなかなか。
+              </p>
+              <p>
+                村人では三郎次の<strong>青樹泉</strong>、与五の<strong>白鳥かすが</strong>、平六の<strong>麻吹由衣加</strong>がまずまず上手い。よの(<strong>城咲あい</strong>)ときの(<strong>美夢ひまり</strong>)もやすをなじる件がキツくなりすぎなかったのが良いですね。
+              </p>
+              <p>
+                家来の二人(<strong>龍真咲・榎登也</strong>)は今回も美形揃いで嬉しい(^_^;)。宙組版よりは、二人とも、立ったり座ったりして、演技する余地は、あったみたいですね。<br />
+                歌手が<strong>青葉みちる</strong>で、良い声でした。でも、ラストの村人全員が出てしまっては、やすの思いが無意味になってしまうんですよね。その辺りの事、児玉先生は、村人に知れてしまった・・という物語になって、良いと思っておられるのかなぁ～。
+              </p>
+              <p>
+                <strong>「恋天狗」</strong
+                >は<strong>荻田先生</strong>演出。それに新公で好演続きの<strong>北翔主演</strong>とあって、レベル的には非常に期待できる組み合わせでしたが、その期待通りでした。ものすご～く、面白かったです。二回観たいと思ったのは初めてかも(^_^;)。
+              </p>
+              <p>
+                <strong>演出</strong
+                >もかなり違っていましたね。振付、配役、なにもかも。<br />
+                小天狗の風貌、化けた弥太には隠しきれなかった羽がついていたり、小天狗は団扇を持ったり、楓を持ったり、そんな細かい工夫が良く分かりました。<br />
+                星組評で挙げた豪華すぎるプロロークシーンはやはりありませんでした・・。もう、何も言うまい・・！<br />
+                月船以外の出演者全員を、ちゃんと出演させ、権六とお夏の役所をそれぞれ三人ずつに増やすのも、面白味になっていて成功。弥太と天狗の対決場面を村人全員で観ている演出も面白かったです。
+              </p>
+              <p>
+                弥太の<strong>北翔</strong>。落ち着いたイメージがあるので、明るい作品はどうかな？&emsp;と思っていましたが、やはり上手い、上手い。<br />
+                小天狗が化けている方の弥太は、飛んだり跳ねたりハシャギまくっての熱演で、<strong>正に体力勝負！</strong>&emsp;といった感じ。でも、激しい振りも、伸び伸びと動けていて、観ていて気持ち良いですね。<br />
+                庄屋や娘達におだてられて、良い気になっている件も<strong>気持ちよくパワフル(笑)</strong>。声も良い。
+              </p>
+              <p>
+                特筆したいのが<strong>ラスト</strong>。「弥太さんを許して下さい」と祈るお八重を、やっと優しい気持ちが分かった！&emsp;というように見つめる弥太。それから二人寄り添って退場するまでの芝居が、甘さがあって良かった～。<br />
+                それまでどれだけバカ演っていても(笑)、その件の甘さだけで、全て帳消しにして、弥太が主役の演じる二枚目の役に見えました。やはり主役はこうでなければ！
+              </p>
+              <p>
+                <strong>美鳳あや</strong
+                >はタイプとしては星組の仙堂花歩に似ていると思うのですが、やはり上手い人でした。小柄で、思ったより可憐な感じもして、良かったと思います。<br />
+                小天狗の<strong>彩那音</strong>も可愛い。もっと声が安定すると良いですね。
+              </p>
+              <p>
+                お冬の<strong>城</strong>が、ちょっと見られない役柄で楽しい。その娘三人(<strong>城咲・妃鳳こころ・美夢</strong>)も、庄屋の娘がそんなに色気あって良いの？&emsp;という位、色気ムンムンの演技で面白い。<strong>妃鳳</strong>は初舞台の頃から美人だと思っていましたが、低い声での妙演で、昔の檀れいを思い出しました(^_^;)。もう少し活躍している所が見てみたいです。
+              </p>
+              <p>
+                権六・権七・権八の<strong>青樹、夏輝れお、龍真咲</strong>もなかなか。松市の<strong>姿樹えり緒</strong>、竹次の<strong>白鳥</strong>、梅三の<strong>綾月せり</strong>も良かったです。竹庵は何と若手の<strong>麻吹由衣加</strong>。思い切ったおじいちゃん芝居でしたが、割と自然でしたね。
+              </p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>

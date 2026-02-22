@@ -1,0 +1,127 @@
+<script setup>
+const teamProps = ref({ team: "flower" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              SPEAKEASY／スナイパー
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                花組・宝塚大劇場公演・５／１５～６／２２
+              </p>
+              <p><strong>「ＳＰＥＡＫＥＡＳＹ」</strong></p>
+              <p>
+                ミキちゃんらしい舞台ですね(^_^;)。<strong>面白かった</strong>です。
+              </p>
+              <p>
+                雪組ファンとしては、「春櫻賦」で<strong>谷正純先生</strong>に対して怒りまくっていたので(^_^;)、<strong>ちゃんとした話も作れるんだ(失礼な)と、ちょっと見直しました</strong>。原作があるからかな？
+              </p>
+              <p>
+                <strong>ゴルチェの衣装</strong
+                >はさすがに豪華です。でも、男役のスーツって、長年の舞台で研究され尽くした(^_^;)、あの独特の形のものが、一番美しく見えると思うんです。まあ、前のＫＥＮＺＯよりはましだと思いますが(^_^;)。
+              </p>
+              <p><strong>「スナイパー」</strong></p>
+              <p>
+                石田昌也先生のショー、結構好きだったんですが、どうしちゃったんでしょう？
+              </p>
+              <p>これは、ミキちゃんファンが怒っても仕方がないと思いますね。</p>
+              <p>
+                まず、<strong>ミキちゃんのかっこ良い場面が少ない</strong>！
+                <strong>これはサヨナラ公演なんですから致命的</strong
+                >ですね。普通の二枚目が、「アウシュビッツ」と最後の大階段のソロ(これは良かった！)だけとは寂しすぎます。
+              </p>
+              <p>
+                「ハリマオ」はきっと東京では別の場面に変わると予想します(^_^;)。
+              </p>
+              <p>
+                これがサヨナラの<strong>ミキちゃん</strong>。客席からの登場と同時に「キャー(^_^;)」と歓声があがってしまうのが、すごいですね。<strong>人気スターの貫禄</strong>を感じます。
+              </p>
+              <p>
+                もう、何というか、全然二枚目じゃない人物なんですよ。マック・ザ・ナイフって。でも<strong>魅力的で、とにかく楽しいミキちゃんそのままの人物</strong>。そんな彼が、舞台の上を縦横無尽に活躍するのですから、物語としては十分に楽しめます(^_^;)。
+              </p>
+              <p>
+                ギラギラしていて、濃いー(^_^;)キャラクターは、宝塚としては異色で、<strong>こんな舞台、ミキちゃん以外では当分見られない</strong>でしょうね。
+              </p>
+              <p>
+                「俺は美学には拘るほうでね」という時のお決まりの動き(^_^;)とか、ベットをプレゼントされた時の「心優しき悪党どもよ・・(間)・・ありがとう」のオチのつけ方(^_^;)とか、<strong>ちょっと吉本っぽい</strong>と思いません？
+                面白いケド・・。谷先生の演出のせい？
+              </p>
+              <p>
+                とにかくかわいくて、アイドルっぽかったミキちゃんが、こんなに<strong>個性を極めて、堂々と君臨</strong>するとは思いませんでした。<strong>大地真央でも高汐巴でもない「ミキちゃんらしさ」</strong>はきっと後々まで語り継がれるでしょうね。
+              </p>
+              <p>
+                <strong>ほさちちゃん(千ほさち)</strong
+                >も相変わらずハジケてます(^_^;)。キレイです。パパラッチの場面の銀橋ソロで、ヒゲを付けるのはやめた方が良いと思うなぁ。せっかくの銀橋ソロなのに、勿体無いです。かっこ良く歌って、「本当は女の子なんだもーん」とやるだけでも、十分に面白いと思うのですが。
+              </p>
+              <p>
+                <strong>タモさん(愛華みれ)</strong
+                >はようやく頼もしくなってきましたね。パパラッチが多少バドっぽいケド(^_^;)、鮮やかな衣装が似合っていてキレイ。<strong>チャーリー(匠ひびき)</strong>もポジションが上がって、活躍していました。仕立て屋さんが可愛かった(^_^;)。<strong>伊織直加</strong>が、今回は芝居の方もなかなかの二枚目で目立ちました。
+              </p>
+              <p>
+                <strong>詩乃優花</strong
+                >も良い役で、ミキちゃんとの歴史も長いだけに、感慨一入でした。気持ちよい芝居＆ダンス、大好きだったので、寂しいです。
+              </p>
+              <p>
+                <strong>渚あき</strong
+                >も良いですね。「産まれるー」がカワイイ(^_^;)。ショーでのパーサー姿もイケてます。「若い子には負けない」なんて歌詞、まだまだ言って欲しくないです(^_^;)。
+              </p>
+              <p>
+                後、<strong>矢吹翔</strong>の警官もナイスでした(^_^;)。ショーでの活躍も嬉しいです。
+              </p>
+              <p>
+                若手も華やか。<strong>マクフィスの手下たち</strong>は、これから観劇する際の、お楽しみになりそう(^_^;)。特に<strong>瀬奈じゅん</strong>は新公主役だし、パレードでは真ん中で歌っているし、今回目立ちますね。
+              </p>
+              <p>
+                でも、一言だけ言わせて下さい！
+                <strong>男役陣、あまりにも歌えなさすぎます</strong>(^_^;)！
+                だれか、一人くらい、ちゃんと聞かせて(^_^;)。
+              </p>
+              <p>暴言失礼しました(^_^;)。</p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>

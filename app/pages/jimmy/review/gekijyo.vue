@@ -1,0 +1,106 @@
+<script setup>
+const teamProps = ref({ team: "cosmos" });
+const textTitle = ref("text-slate-600");
+if (teamProps.value.team === "flower") {
+  textTitle.value = "text-pink-700";
+}
+if (teamProps.value.team === "moon") {
+  textTitle.value = "text-yellow-700";
+}
+if (teamProps.value.team === "snow") {
+  textTitle.value = "text-green-700";
+}
+if (teamProps.value.team === "star") {
+  textTitle.value = "text-sky-700";
+}
+if (teamProps.value.team === "cosmos") {
+  textTitle.value = "text-purple-700";
+}
+</script>
+
+<template>
+  <div>
+    <NuxtLayout name="jimmy" :team="teamProps.team">
+      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+        <div class="w-48 flex-none pb-16 hidden lg:block">
+          <JimmyMenu :team="teamProps.team" />
+        </div>
+        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+          <div class="pt-8">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+              :class="textTitle"
+            >
+              激情／ザ・レビュー'99
+            </h2>
+            <div
+              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
+            >
+              <p class="text-right" :class="textTitle">
+                宙組大劇場公演・６／２５～８／９
+              </p>
+              <p>
+                「激情」は<strong>柴田＆謝</strong>シリーズの第二弾。今回も大満足でした。特筆しなければならないのが<strong>日比野克彦</strong>による<strong>装置の美しさ！</strong>&emsp;舞台のまわりや花道の赤い光など、斬新で、さすがと唸らされました。<strong>有村淳の衣装も良い</strong>。
+              </p>
+              <p>
+                ただし、物語の<strong>ラストの場面はカットして欲しかった</strong>です。妙に宝塚的演出で私には興醒めでした。華やかで美しすぎる装置も唐突です。
+              </p>
+              <p>
+                <strong>「ザ・レビュー'99」</strong
+                >は、「ノバ・ボサ・ノバ」に引き続き、二組で上演される今年の目玉のショーですが、残念ながらそれほどの名作とは言えないものでした。まず、メインと思われる<strong>「夢人」</strong>が、初演当時は絶賛されたものだったのかもしれませんが、今の私が見る限り、面白くない上に長過ぎます。もっと他に良い場面はなかったのでしょうか。それに<strong>全体に衣装が悪い！</strong>&emsp;これが、相当足を引っ張っているような気がしました。
+              </p>
+              <p>
+                出演者で見ると、やはり今回も<strong>姿月あさとと花總まりのトップコンビの力が絶大</strong>でした。
+              </p>
+              <p>
+                オフのイメージからか、淡白な印象のあった<strong>姿月</strong>に「激情」のホセとは・・と、見る前には危惧がありましたが、うっかりしていました(^_^;)。そう、<strong>舞台の姿月は違う</strong>のです！&emsp;「エリザベート」のトートで<strong>「直情的で、押しまくる男らしいトート」</strong>という姿月独自の持ち味を、はっきりと見た所だったのに！
+              </p>
+              <p>
+                今回のホセも、そのトートの延長線上にある役だと思いました。とにかく全てはカルメンの為・・<strong>どうにも自制がきかなくなってしまった不器用な男を力強く演じて男らしい</strong>。見た目は立派ながら、溢れる思いを多くのナンバーに託して、<strong>声に、表情に見せる憂いがたまらなく魅力的</strong>でした。全体に、とても色気が出るようになってきましたね。
+              </p>
+              <p>
+                ショーでもその魅力が溢れて、<strong>プロローグの「アイ・ラブ・レビュー」の歌い方</strong>が色っぽい(^_^;)！&emsp;<strong>白の衣装のタンゴ</strong>はうっとりする美しさです。
+              </p>
+              <p>
+                そして<strong>オペレッタ</strong>では、私事ですが、一路真輝ファンだったので腰を抜かしそうになりました(^_^;)！&emsp;<strong>「君こそ我が心の全て」を姿月で聞くことになろうとは</strong>・・。懐かしくて、涙が出そう・・でしたが、短くて少し残念でした。上手かっただけに、全部聞きたかったです。
+              </p>
+              <p>
+                <strong>アトランティック・オーシャン</strong
+                >では黒エンビの端正さがさすが。花總との大人っぽいデュエットもムード満点でした。<strong>夢人</strong>は、冒頭の少年姿が一番！&emsp;姿月ならではの可愛らしさです。<strong>フィナーレ</strong>のデュエットもみずみずしい。
+              </p>
+              <p>
+                <strong>カルメンの花總まり</strong
+                >。本当に素晴らしい娘役ですね！&emsp;宙組になって以降、「エクスカリバー」のロザライン、エリザベートと、十分の出来ながら、少し落ち着きすぎの感があったのと、痩せすぎて美貌が落ちているのではないかとの心配がありましたが、今回のカルメンは<strong>ずっと見続けている私でも目の覚めるような美しさ！</strong>&emsp;登場の際のインパクトの強さ、連行の際の誘惑の迫力、自然と客席からも拍手の起こったフラメンコのソロ、<strong>どれも今の花總でしか考えられない様な、突出した頼もしさ</strong>を感じます。
+              </p>
+              <p>
+                ショーでは、<strong>プロローグのダルマ姿</strong>が一番！&emsp;今更ですが、足長いです～(^_^;)。後は<strong>オペレッタの気品ある姿</strong>が花總の本領で、何度見ても良い(^_^;)。でも、ここは姿月の衣装とのバランスを考えて、もっと良い衣装にしてあげて欲しかったですね。その点含めて、衣装でかなり損をしている気がしますが、多くの姿月とのデュエットは文句ない美しさでした。
+              </p>
+              <p>
+                <strong>和央ようか</strong
+                >もだんだんと頼もしさが増してきましたね。<strong>メリメ</strong>の方は理性的で、ホセとの対比が出ていましたし、<strong>ガルシア</strong>でのホセとの対決シーンは、長身の二人だけに迫力ありました。ショーでも、今回は<strong>落ち着いた雰囲気</strong>を全面に出していて、大人っぽくなったな、と思いました。<strong>間奏曲のジゴロの場面</strong>が、かっこ良かったですね。
+              </p>
+              <p>
+                <strong>湖月わたるはエスカミリオ</strong
+                >。人気のマタドールという文句なくかっこ良い役で、<strong>登場の時の爽やかさ</strong>は湖月ならでは。非常にキザに、かっこつけているのですが、その辺りがいまいちサマになっていないのが物足りない。もっと色気が欲しいですね。ショーでも、<strong>ロケット</strong>、アトランティック・オーシャンの<strong>銀橋で歌う男</strong>の、覇気ある爽やかさが良いです。
+              </p>
+              <p>
+                以下の陣容では、若手にもようやく色々な注目株が見えるようになって、<strong>やっと「宙組」メンバーにも慣れてきたような気がしました</strong>(^_^;)。相変わらず中堅の職人グループが頼もしいことに変わりはないですが、<strong>樹里咲穂</strong>が折角組替えしてきているのに、それ程やり甲斐のある役ではなかったのが残念でした。<strong>夢輝のあ</strong>のキリリとした美しさと端正な動きも目につきましたし、<strong>久遠麻耶</strong>の色気ある目にも注目。もっと有望な若手を売り出して欲しいですね。
+              </p>
+              <p :class="textTitle">
+                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+          <JimmyReviewList :team="teamProps.team" />
+        </div>
+      </div>
+      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+        <JimmyReviewList :team="teamProps.team" />
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
+
+<style scoped></style>
