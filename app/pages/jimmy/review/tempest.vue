@@ -1,88 +1,90 @@
 <script setup>
-const teamProps = ref({ team: "cosmos" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'cosmos',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            TEMPEST
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              TEMPEST
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                宙組バウホール公演・９／４～９／１２
-              </p>
-              <p>
-                こんなに星5つを続けて出すのもどうかと思いましたが、出しちゃいますよ～(^_^;)。良かったです！&emsp;チケットがあれば、もう一度観たい位。また<strong>これからが楽しみな演出家の登場</strong>と言えそうです、<strong>齋藤先生</strong>！
-              </p>
-              <p>
-                まず出演者に振られた役がどれもとても魅力的だったのが嬉しい。
-              </p>
-              <p>
-                ファーディナンドの<strong>湖月</strong>。「夜明けの天使たち」は東京のみで見られなかったし、最近私にとっては消化不良な舞台が多かっただけに、<strong>久しぶりに素敵な湖月を観た！</strong>&emsp;という感じです(^_^;)。軍服や黒のスーツ、コートが良く似合い、REMEMBERの場のミランダ(陵)とのシーン、ラストのアニタ(南城ひかり)とのシーンも、身長の高さが生きて包容力があったし、湖月自身もすごく大人っぽく見えてかっこ良かった！&emsp;又、そんなハードな面ばかりでなく、ミランダに「結婚しよう！」という時や、父親との芝居の中で見える、<strong>純粋な目</strong>(^_^;)、が魅力的で、<strong>「湖月の魅力って、こんな所なのかな～。」</strong>と思ったりもしました。後はもう少し歌に声量があれば、文句ないんですけどね(^_^;)。
-              </p>
-              <p>
-                バウ初ヒロインとなった<strong>陵</strong>。まず、冒頭の白い衣装も良く似合い、美しく出られていたのが好印象。上手いのは期待通りで、特に優しい声がスキなんですよ(^_^;)。ファーディナンドとプロスペロー(夢輝)の二人から「俺の宝石」と言われる程の華やかさに物足りない嫌いはありましたが、<strong>この舞台のレベルアップは彼女の力が大きい</strong>です。
-              </p>
-              <p>
-                プロスペローの<strong>夢輝</strong>。良い役で、実力、魅力を発揮していましたね。二幕のアロンゾー(大峯)との対決から、殺される辺りまでは、本当に素敵な場面の連続で、<strong>プロスペローの方が主役に見えた位</strong>(^_^;)。夢輝も最初はあまりにも悪役に見えてしまって驚きましたが、キリッとした立ち姿が良いし、歌も上手い。最後の旅に出ようとする所も、大人っぽくてステキでしたね～。
-              </p>
-              <p>
-                アニタの<strong>南城</strong>も、ドライな持ち味が生きてかっこ良く、しかも純粋で可愛い所もあって、とても良かったです。衣装も良く似合っていました。最後の告白の場面、ファーディナンドとのシーン、すごーく良かったです。あそこでファーディナンドがアニタを選んでくれたのが嬉しいっ！&emsp;
-              </p>
-              <p>
-                エアリエルの<strong>朝比奈慶</strong>。狂言回し的な所では、台詞の聞きづらい所があったのが気になりましたが、特殊なメイクや青のカツラが似合って、危険で美しい存在としてのムード満点。思い切った演技が非常に面白かったです。ステファニー(出雲彩)を誘う辺りも、もう妖しくって・・たまりませんね～(^_^;)。
-              </p>
-              <p>
-                その他の出演者もなかなか豪華、個性派揃いで、大峯真友、出雲、美々杏里、祐輝薫、寿つかさ、華宮あいり等、皆にしっかり役が書かれているのが嬉しかった。
-              </p>
-              <p>
-                その本筋だけでも十分面白いのに、<strong>全てエアリエルの弄ぶ幻のようにしてしまい、ラストがはっきりしない</strong>所が好みの分かれる所かもしれません。でも、私は<strong>それも良いな、と思いました</strong>。後、話は逸れますが、<strong>プロスペローがファーディナンドをムチで打つ場面</strong>は、<strong>「はばたけ黄金の翼よ」の麻美れい</strong>を思い出して、ドキドキしました(^_^;)。あそこで<strong>「アニタには手を出すな！」</strong>という所もステキ(^_^;)。もうちょっと苦しそうに痛がってくれると、尚色っぽくて良いんだけど(^_^;)。あぁ～、本当にもう一回観たくなってきました(^_^;)。
-              </p>
-              <p>
-                以上、魅力ある場面を沢山挙げましたが、ファーディナンド、ミランダ、プロスペロー、アニタの四重唱などもあり、宝塚らしい熱いラブ・ロマンスを堪能できる内容だったのが何より嬉しかったです。次回の齋藤先生の作品が楽しみです。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★★<span class="text-gray-400"></span>)
-              </p>
-            </div>
+              宙組バウホール公演・９／４～９／１２
+            </p>
+            <p>
+              こんなに星5つを続けて出すのもどうかと思いましたが、出しちゃいますよ～(^_^;)。良かったです！&emsp;チケットがあれば、もう一度観たい位。また<strong>これからが楽しみな演出家の登場</strong>と言えそうです、<strong>齋藤先生</strong>！
+            </p>
+            <p>まず出演者に振られた役がどれもとても魅力的だったのが嬉しい。</p>
+            <p>
+              ファーディナンドの<strong>湖月</strong>。「夜明けの天使たち」は東京のみで見られなかったし、最近私にとっては消化不良な舞台が多かっただけに、<strong>久しぶりに素敵な湖月を観た！</strong>&emsp;という感じです(^_^;)。軍服や黒のスーツ、コートが良く似合い、REMEMBERの場のミランダ(陵)とのシーン、ラストのアニタ(南城ひかり)とのシーンも、身長の高さが生きて包容力があったし、湖月自身もすごく大人っぽく見えてかっこ良かった！&emsp;又、そんなハードな面ばかりでなく、ミランダに「結婚しよう！」という時や、父親との芝居の中で見える、<strong>純粋な目</strong>(^_^;)、が魅力的で、<strong>「湖月の魅力って、こんな所なのかな～。」</strong>と思ったりもしました。後はもう少し歌に声量があれば、文句ないんですけどね(^_^;)。
+            </p>
+            <p>
+              バウ初ヒロインとなった<strong>陵</strong>。まず、冒頭の白い衣装も良く似合い、美しく出られていたのが好印象。上手いのは期待通りで、特に優しい声がスキなんですよ(^_^;)。ファーディナンドとプロスペロー(夢輝)の二人から「俺の宝石」と言われる程の華やかさに物足りない嫌いはありましたが、<strong>この舞台のレベルアップは彼女の力が大きい</strong>です。
+            </p>
+            <p>
+              プロスペローの<strong>夢輝</strong>。良い役で、実力、魅力を発揮していましたね。二幕のアロンゾー(大峯)との対決から、殺される辺りまでは、本当に素敵な場面の連続で、<strong>プロスペローの方が主役に見えた位</strong>(^_^;)。夢輝も最初はあまりにも悪役に見えてしまって驚きましたが、キリッとした立ち姿が良いし、歌も上手い。最後の旅に出ようとする所も、大人っぽくてステキでしたね～。
+            </p>
+            <p>
+              アニタの<strong>南城</strong>も、ドライな持ち味が生きてかっこ良く、しかも純粋で可愛い所もあって、とても良かったです。衣装も良く似合っていました。最後の告白の場面、ファーディナンドとのシーン、すごーく良かったです。あそこでファーディナンドがアニタを選んでくれたのが嬉しいっ！&emsp;
+            </p>
+            <p>
+              エアリエルの<strong>朝比奈慶</strong>。狂言回し的な所では、台詞の聞きづらい所があったのが気になりましたが、特殊なメイクや青のカツラが似合って、危険で美しい存在としてのムード満点。思い切った演技が非常に面白かったです。ステファニー(出雲彩)を誘う辺りも、もう妖しくって・・たまりませんね～(^_^;)。
+            </p>
+            <p>
+              その他の出演者もなかなか豪華、個性派揃いで、大峯真友、出雲、美々杏里、祐輝薫、寿つかさ、華宮あいり等、皆にしっかり役が書かれているのが嬉しかった。
+            </p>
+            <p>
+              その本筋だけでも十分面白いのに、<strong>全てエアリエルの弄ぶ幻のようにしてしまい、ラストがはっきりしない</strong>所が好みの分かれる所かもしれません。でも、私は<strong>それも良いな、と思いました</strong>。後、話は逸れますが、<strong>プロスペローがファーディナンドをムチで打つ場面</strong>は、<strong>「はばたけ黄金の翼よ」の麻美れい</strong>を思い出して、ドキドキしました(^_^;)。あそこで<strong>「アニタには手を出すな！」</strong>という所もステキ(^_^;)。もうちょっと苦しそうに痛がってくれると、尚色っぽくて良いんだけど(^_^;)。あぁ～、本当にもう一回観たくなってきました(^_^;)。
+            </p>
+            <p>
+              以上、魅力ある場面を沢山挙げましたが、ファーディナンド、ミランダ、プロスペロー、アニタの四重唱などもあり、宝塚らしい熱いラブ・ロマンスを堪能できる内容だったのが何より嬉しかったです。次回の齋藤先生の作品が楽しみです。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★★<span class="text-gray-400" />)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

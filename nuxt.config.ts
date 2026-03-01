@@ -1,29 +1,44 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  // 1. Nuxt 4 のディレクトリ構造と新機能を有効化
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/icon', '@nuxt/eslint'],
   devtools: { enabled: true },
+
   app: {
-    baseURL: "/waiwai-test2/",
-    // baseURL: process.env.NODE_ENV === 'production' ? '/waiwai-test2/' : '/',
-    buildAssetsDir: "assets",
+    // ベースURLの設定
+    baseURL: '/waiwai-test2/',
+    buildAssetsDir: 'assets',
     head: {
-      title: "JIMMY's WEB SITE",
+      title: 'JIMMY\'s WEB SITE',
       htmlAttrs: {
-        lang: "ja",
+        lang: 'ja',
       },
       link: [
         {
-          rel: "icon",
-          type: "image/x-icon",
-          href: "/waiwai-test2/favicon.ico",
+          rel: 'icon',
+          type: 'image/x-icon',
+          // baseURLが適用されるため、先頭のパスを省略可能にするのが一般的です
+          // 可能なら、href: 'favicon.ico',
+          href: '/waiwai-test2/favicon.ico',
         },
       ],
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/icon", "@nuxt/eslint"],
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  // 2025年の互換性日付（最新機能を使用）
+  compatibilityDate: '2025-07-15',
   eslint: {
     config: {
-      stylistic: true, // <---
+      // これを true にすることで、Prettier 不要でコードが綺麗になります
+      stylistic: {
+        indent: 2, // インデントはスペース2つ
+        quotes: 'single', // シングルクォートを使用
+        semi: true, // セミコロンを入れる
+        commaDangle: 'always-multiline', // 末尾のカンマ設定
+      },
     },
   },
 });

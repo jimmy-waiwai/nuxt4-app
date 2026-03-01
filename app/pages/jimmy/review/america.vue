@@ -1,109 +1,105 @@
 <script setup>
-const teamProps = ref({ team: "snow" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'snow',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            アメリカン・パイ
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              アメリカン・パイ
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                雪組バウホール公演・6/14～23
-              </p>
-              <p>
-                <strong>萩尾望都</strong
-                >さんの原作は読んだのですが、ほぼ、その原作通り。<strong>透明感のある作品世界が素直に表現</strong>されていて、感動できる物語でした。<br />
-                小柳先生自身も述べられていましたが、<strong>先生の作品に対する強い愛情</strong>を感じます。
-              </p>
-              <p>
-                あの短編を二時間の宝塚の舞台にできるのだろうか？&emsp;とも思っていたのですが、これも素直～に、二時間に伸ばしていましたね(^_^;)。<br />
-                原作を損なってはいないけれど、原作以上のものもない。<br />
-                <strong>宝塚っぽくないこの短編を、宝塚化する事の意義</strong
-                >までは、この舞台からは感じられないような気がしました。<br />
-                例えば宮澤賢治の世界を見事に宝塚化した「イーハトーヴ夢」のようには・・。
-              </p>
-              <p>
-                私は<strong>小柳先生</strong>にかなり期待しているので、求めているハードルが高いのですけれど。<br />
-                某先生のように、<strong>「変じゃなかったらOK。」という訳にはいかない</strong>んです(^_^;)。
-              </p>
-              <p>
-                まず「アメリカン・パイ」の<strong>作品</strong>と、リューにピッタリの<strong>山科愛の存在ありき</strong>、で始まった作品でしょう。<br />
-                <strong>貴城けい</strong
-                >なら、まだこれからどんどん主演の作品が用意されるでしょうし、その中の一つとしてなら、この辛抱役も良い経験になるかな？&emsp;という所。<br />
-                ハンサムでない、ロック・ミュージシャンのグラン・パ役を、正統派二枚目、ヨーロピアン貴公子系(^_^;)の貴城に、という時点で、既に「？」です。<br />
-                それでも長髪にスラリとラフな衣装を着こなした姿は美しかったですし、大きな事件が起こる訳でもない、淡々とした物語をそれなりに二幕もののドラマとして盛り上げたのは、<strong>貴城の熱演による力</strong>が大きかったと思います。
-              </p>
-              <p>
-                <strong>山科</strong
-                >はこの上ない当たり役。少年と見間違う髪型、衣装が良く似合うのも、本公演で何度も子役を振り当てられていた彼女ならでは。<br />
-                さらに、新人公演やバウ公演で最近感じていた通り、芝居にハートが感じられる人で、台詞も上手かったです。ベールを届けられる件には泣かされました(;_;)。
-              </p>
-              <p>
-                フィナーレの貴城とのデュエットで見せた、<strong>白いドレスの少女姿</strong>は、びっくりする位可愛かったですね！<br />
-                ここだけの話、<strong>あの貴城が</strong>・・おじさんに見えました(^_^;)。どこかで見た「幼女誘拐」の文字がチラついたのは、私だけではない筈です・・。
-              </p>
-              <p>
-                <strong>壮一帆</strong
-                >は・・一言で言えば悪友か。もう少し背景の見える役だったら良かったのにと思いますが・・。黒っぽい化粧、髪型も似合い、良く演っていました。<br />
-                <strong>磯野千尋</strong
-                >が軽妙なおじさま役で良い。若手ばかりのメンバーを盛り上げてくれていました。
-              </p>
-              <p>
-                芸達者なイメージのある<strong>雪組若手</strong>ですが、今回はさすがに苦戦か。段取りじみてテンポが悪く、芝居が上手く回っていない気がします。<br />
-                このあたりは演出家や上級生の指導力もあるのかも。<br />
-                <strong>麻樹ゆめみ</strong
-                >の歌、<strong>天勢いづる</strong>の台詞の確かさが良い。<strong>奏乃はると</strong>もまずまず。<br />
-                ジュリーの<strong>宙輝れいや</strong>は、上手くて丁寧だけれど、ちょっとゴツいかな・・(^_^;)。
-              </p>
-              <p>
-                <strong>凰稀かなめ</strong
-                >が二枚目の役で、文句なく二枚目でした。ギターを弾く際のカッコつけっ振りが可愛かったです。凰稀に限らず全体にですが、もっと性格をつけて、派手に演ってくれても良い気がします。<br />
-                退団の<strong>汐夏ゆりさ</strong>も、おバカっぽい役柄でしたが可愛い。少女のソロダンスはさすがにキレイでした。<br />
-                下級生たちは総じて<strong>少年・少女役でダンスナンバーのみ</strong>の出演でしたが、良く揃っていました。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              雪組バウホール公演・6/14～23
+            </p>
+            <p>
+              <strong>萩尾望都</strong>さんの原作は読んだのですが、ほぼ、その原作通り。<strong>透明感のある作品世界が素直に表現</strong>されていて、感動できる物語でした。<br>
+              小柳先生自身も述べられていましたが、<strong>先生の作品に対する強い愛情</strong>を感じます。
+            </p>
+            <p>
+              あの短編を二時間の宝塚の舞台にできるのだろうか？&emsp;とも思っていたのですが、これも素直～に、二時間に伸ばしていましたね(^_^;)。<br>
+              原作を損なってはいないけれど、原作以上のものもない。<br>
+              <strong>宝塚っぽくないこの短編を、宝塚化する事の意義</strong>までは、この舞台からは感じられないような気がしました。<br>
+              例えば宮澤賢治の世界を見事に宝塚化した「イーハトーヴ夢」のようには・・。
+            </p>
+            <p>
+              私は<strong>小柳先生</strong>にかなり期待しているので、求めているハードルが高いのですけれど。<br>
+              某先生のように、<strong>「変じゃなかったらOK。」という訳にはいかない</strong>んです(^_^;)。
+            </p>
+            <p>
+              まず「アメリカン・パイ」の<strong>作品</strong>と、リューにピッタリの<strong>山科愛の存在ありき</strong>、で始まった作品でしょう。<br>
+              <strong>貴城けい</strong>なら、まだこれからどんどん主演の作品が用意されるでしょうし、その中の一つとしてなら、この辛抱役も良い経験になるかな？&emsp;という所。<br>
+              ハンサムでない、ロック・ミュージシャンのグラン・パ役を、正統派二枚目、ヨーロピアン貴公子系(^_^;)の貴城に、という時点で、既に「？」です。<br>
+              それでも長髪にスラリとラフな衣装を着こなした姿は美しかったですし、大きな事件が起こる訳でもない、淡々とした物語をそれなりに二幕もののドラマとして盛り上げたのは、<strong>貴城の熱演による力</strong>が大きかったと思います。
+            </p>
+            <p>
+              <strong>山科</strong>はこの上ない当たり役。少年と見間違う髪型、衣装が良く似合うのも、本公演で何度も子役を振り当てられていた彼女ならでは。<br>
+              さらに、新人公演やバウ公演で最近感じていた通り、芝居にハートが感じられる人で、台詞も上手かったです。ベールを届けられる件には泣かされました(;_;)。
+            </p>
+            <p>
+              フィナーレの貴城とのデュエットで見せた、<strong>白いドレスの少女姿</strong>は、びっくりする位可愛かったですね！<br>
+              ここだけの話、<strong>あの貴城が</strong>・・おじさんに見えました(^_^;)。どこかで見た「幼女誘拐」の文字がチラついたのは、私だけではない筈です・・。
+            </p>
+            <p>
+              <strong>壮一帆</strong>は・・一言で言えば悪友か。もう少し背景の見える役だったら良かったのにと思いますが・・。黒っぽい化粧、髪型も似合い、良く演っていました。<br>
+              <strong>磯野千尋</strong>が軽妙なおじさま役で良い。若手ばかりのメンバーを盛り上げてくれていました。
+            </p>
+            <p>
+              芸達者なイメージのある<strong>雪組若手</strong>ですが、今回はさすがに苦戦か。段取りじみてテンポが悪く、芝居が上手く回っていない気がします。<br>
+              このあたりは演出家や上級生の指導力もあるのかも。<br>
+              <strong>麻樹ゆめみ</strong>の歌、<strong>天勢いづる</strong>の台詞の確かさが良い。<strong>奏乃はると</strong>もまずまず。<br>
+              ジュリーの<strong>宙輝れいや</strong>は、上手くて丁寧だけれど、ちょっとゴツいかな・・(^_^;)。
+            </p>
+            <p>
+              <strong>凰稀かなめ</strong>が二枚目の役で、文句なく二枚目でした。ギターを弾く際のカッコつけっ振りが可愛かったです。凰稀に限らず全体にですが、もっと性格をつけて、派手に演ってくれても良い気がします。<br>
+              退団の<strong>汐夏ゆりさ</strong>も、おバカっぽい役柄でしたが可愛い。少女のソロダンスはさすがにキレイでした。<br>
+              下級生たちは総じて<strong>少年・少女役でダンスナンバーのみ</strong>の出演でしたが、良く揃っていました。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

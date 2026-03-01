@@ -1,80 +1,83 @@
 <script setup>
-const teamProps = ref({ team: "snow" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'snow',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            ささら笹舟
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              ささら笹舟
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                雪組・バウホール公演・4/22～5/5
-              </p>
-              <p>
-                良かったです。<strong>谷先生の日本物～</strong>、という先入観は裏切られる事なく、信長(箙かおる)が光秀(貴城けい)を痛めつける所とか、登勢(灯奈美)を幸四郎(貴城)自ら殺さねばならない所とか、<strong>どこかで観たような演出</strong>が盛りだくさんで、そういう場面は正直うんざりしてしまったのですが(^_^;)、今回は私の中で<strong>出演者の魅力</strong>が勝ちました。また、今回の作品の違う所は・・ちゃんとラブシーンがあった事(宝塚なら当たり前であって欲しいんですけど・・)。貴城と紺野まひるが美しく、主役らしい華やかさに溢れ、久しぶりにうっとりと物語に酔いしれる事ができました。
-              </p>
-              <p>
-                初主役の<strong>貴城</strong>は、開演アナウンスから並々ならぬ気迫が感じられ、物語も冒頭部分はいつになくテンションが高くて観ていて疲れる気もしましたが、物語が進むにつれて、それが理想主義者で気位の高い若者、光秀だからこその役作りであった事が分かります。瑞々しい二枚目振りは、日本物であっても十分に発揮されていて、舞台のセンターで見栄を切る振りが、どれも華やかでサマになっていたのには感心。歌も・・、ちょっと声を潰しているのでしょうか？&emsp;思ったよりは声量がなかったですが、それでも最近の若手にしては十分上手いです。
-              </p>
-              <p>
-                <strong>紺野</strong
-                >は同じ谷先生の「アナジ」から久しぶりのヒロインですが、あの頃から思うとさすがに随分成長したんだな、と思います。まず、衣装が予想以上に似合っていたし、台詞もいつものようにパサついた所が気にならなくて、全体に今までにない頼もしさを感じました。
-              </p>
-              <p>
-                他ではまず信長の<strong>箙</strong>。化粧で私達が知る信長像に非常に近づけていたのに感心。谷先生らしい血も涙もない悪人ではなく、信長なりの人柄が見えたのが良かったです(そう思うと、今回の作品はマシだったのかもしれません)。<strong>本能寺の変</strong>の場は、濃姫の愛耀子も上手くて、格好良さもありました(でも、切腹で暗転、拍手・・となる演出は相変わらずで、あまり気持ちよくないです)。秀吉の<strong>未沙のえる</strong>もそれらしい人柄が出ていて面白い。
-              </p>
-              <p>
-                家臣では<strong>蘭香レア</strong>が目元が涼やかで、フレッシュな稔幸のよう。<strong>音月桂</strong>は化粧がまだ慣れていなくて女っぽく見えました。<strong>未来優希</strong>が歌になると必ず名乗り出るのが笑えましたが(^_^;)、あの程度の役では勿体ない気も。<strong>美郷真也</strong>も同様、あまり個性が出せる役でなかったですが、もちろん<strong>汝鳥伶</strong>も含めて家臣五人は皆上手かったです。<strong>蒼海拓</strong>も若手ながら頼もしい。
-              </p>
-              <p>
-                そして<strong>風早優</strong>の長兵衛。ほとんどダミーの人影と、吹き替えの貴城の台詞との演技で大変だったと思いますが、上手く場を持たせたのは立派でした。
-              </p>
-              <p>
-                アンコールに全員の挨拶がなかったのは初主役だけに残念。下級生の頃からずっと注目していた貴城だけに、堂々とした主役振りは感慨深いものがありました。アンコールの拍手にも、ただ一人で「ありがとうございました」と挨拶しただけだったのですが、幕が閉まるまでの長い間に、<strong>始めて役を離れて垣間見せた少しの微笑み</strong>に、客席全体から「可愛い～(*^｡^*)」と声が上がっていたのも印象的でした。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              雪組・バウホール公演・4/22～5/5
+            </p>
+            <p>
+              良かったです。<strong>谷先生の日本物～</strong>、という先入観は裏切られる事なく、信長(箙かおる)が光秀(貴城けい)を痛めつける所とか、登勢(灯奈美)を幸四郎(貴城)自ら殺さねばならない所とか、<strong>どこかで観たような演出</strong>が盛りだくさんで、そういう場面は正直うんざりしてしまったのですが(^_^;)、今回は私の中で<strong>出演者の魅力</strong>が勝ちました。また、今回の作品の違う所は・・ちゃんとラブシーンがあった事(宝塚なら当たり前であって欲しいんですけど・・)。貴城と紺野まひるが美しく、主役らしい華やかさに溢れ、久しぶりにうっとりと物語に酔いしれる事ができました。
+            </p>
+            <p>
+              初主役の<strong>貴城</strong>は、開演アナウンスから並々ならぬ気迫が感じられ、物語も冒頭部分はいつになくテンションが高くて観ていて疲れる気もしましたが、物語が進むにつれて、それが理想主義者で気位の高い若者、光秀だからこその役作りであった事が分かります。瑞々しい二枚目振りは、日本物であっても十分に発揮されていて、舞台のセンターで見栄を切る振りが、どれも華やかでサマになっていたのには感心。歌も・・、ちょっと声を潰しているのでしょうか？&emsp;思ったよりは声量がなかったですが、それでも最近の若手にしては十分上手いです。
+            </p>
+            <p>
+              <strong>紺野</strong>は同じ谷先生の「アナジ」から久しぶりのヒロインですが、あの頃から思うとさすがに随分成長したんだな、と思います。まず、衣装が予想以上に似合っていたし、台詞もいつものようにパサついた所が気にならなくて、全体に今までにない頼もしさを感じました。
+            </p>
+            <p>
+              他ではまず信長の<strong>箙</strong>。化粧で私達が知る信長像に非常に近づけていたのに感心。谷先生らしい血も涙もない悪人ではなく、信長なりの人柄が見えたのが良かったです(そう思うと、今回の作品はマシだったのかもしれません)。<strong>本能寺の変</strong>の場は、濃姫の愛耀子も上手くて、格好良さもありました(でも、切腹で暗転、拍手・・となる演出は相変わらずで、あまり気持ちよくないです)。秀吉の<strong>未沙のえる</strong>もそれらしい人柄が出ていて面白い。
+            </p>
+            <p>
+              家臣では<strong>蘭香レア</strong>が目元が涼やかで、フレッシュな稔幸のよう。<strong>音月桂</strong>は化粧がまだ慣れていなくて女っぽく見えました。<strong>未来優希</strong>が歌になると必ず名乗り出るのが笑えましたが(^_^;)、あの程度の役では勿体ない気も。<strong>美郷真也</strong>も同様、あまり個性が出せる役でなかったですが、もちろん<strong>汝鳥伶</strong>も含めて家臣五人は皆上手かったです。<strong>蒼海拓</strong>も若手ながら頼もしい。
+            </p>
+            <p>
+              そして<strong>風早優</strong>の長兵衛。ほとんどダミーの人影と、吹き替えの貴城の台詞との演技で大変だったと思いますが、上手く場を持たせたのは立派でした。
+            </p>
+            <p>
+              アンコールに全員の挨拶がなかったのは初主役だけに残念。下級生の頃からずっと注目していた貴城だけに、堂々とした主役振りは感慨深いものがありました。アンコールの拍手にも、ただ一人で「ありがとうございました」と挨拶しただけだったのですが、幕が閉まるまでの長い間に、<strong>始めて役を離れて垣間見せた少しの微笑み</strong>に、客席全体から「可愛い～(*^｡^*)」と声が上がっていたのも印象的でした。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

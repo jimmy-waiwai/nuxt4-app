@@ -1,107 +1,104 @@
 <script setup>
-const teamProps = ref({ team: "flower" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'flower',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            マ ノ ン
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              マ ノ ン
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                花組バウホール公演・4/28～5/7
-              </p>
-              <p>
-                花組バウホール公演<strong>「マノン」</strong>。4/30と5/6の2回、観てきました。
-              </p>
-              <p>
-                物語は、ものすごく変な事もないのですが、ポイントが中途半端になってしまっていて、平淡な印象。これでは「つまらない話」だと思われても仕方ないですね。原作を知っているだけに、残念です。
-              </p>
-              <p>
-                <strong>マノン(彩乃かなみ)</strong
-                >の<strong>ロドリゴ(瀬奈じゅん)</strong>への仕打ちも甘くなっているし、<strong>レスコー(蘭寿とむ)</strong>が二番手役になってしまって、ロドリゴと<strong>ミゲル(壮一帆)</strong>との無償の友情の感動が薄くなってしまったのも残念。
-              </p>
-              <p>
-                父親に半年間閉じこめられて、本人も心を入れ替えて学問に励もうとした時に、<strong>マノンに再会してしまった為に何もかも歯止めがきかくなくって・・</strong>という展開もなく、<strong>持ち金全てを兵士の買収に費やしてでも、モロッコへ連行されていくマノンのそばについていこうとするロドリゴ</strong>、という衝撃的な冒頭シーンもありません(役名、地名は今回の公演のものに合わせました)。<br />
-                一体、中村先生は原作のどこに思い入れがあったのでしょうか？
-              </p>
-              <p>
-                ヒーローは弱くてはいけないのか、ヒロインは純情でなければならないのか。そんなに変えなくても、十分宝塚に乗せられる純愛作品であり、魅力的な主人公だったと思います。
-              </p>
-              <p>
-                舞台をスペインにしたのは、明るくしようとする意図だったようですが、それもあまり効果があったとは思えませんでした。マノンが好きなのは、やはり華やかなパリの町、オペラ座の舞台の方が、イメージに合っている気がします。
-              </p>
-              <p>
-                初主演の<strong>瀬奈</strong>。プロローグ、フィナーレのダンスが一番！&emsp;さすがに初主演らしく気が入っていて見せてくれました。大柄で華やかな彩乃をすっぽり包める大きさがあるのが良く、足が長くて、衣装もどれも良く似合っていました。
-              </p>
-              <p>
-                後は歌、台詞共、声が弱いのが気になります。芝居は非常に丁寧で、きっと一つ一つの台詞に沢山の思いを込めているのだろうな、というのが観ていて分かるのですが(^_^;)、それを客席に伝える声量、表現力が弱いです。<br />
-                しかし二度目の観劇の時には、随分熱演でカバーできていたと思いました。
-              </p>
-              <p>
-                <strong>彩乃</strong
-                >は華やかで美しく、多くの男達を虜にするマノン役に無理がなかったです。上記の通り中途半端に甘い役になってしまったのが残念ですが、宝石を見た時や、男性と軽く話している時の表情が魅力的で、役柄を良く表現していると思いました。
-              </p>
-              <p>
-                レスコーの<strong>蘭寿</strong>。マノンはもちろん、おそらくロドリゴよりも年上の設定であろう役柄で、幕前の<strong>エレーナ(沢樹くるみ)</strong>との芝居などは「がんばって背伸びしているな・・」という気はしたのですが(^_^;)、それにしても堂々とした出来映えで感心しました。<br />
-                歌も多かったですが、自然に芝居の一部として歌えていたのが気持ち良く、歌はそれほど得意なイメージがなかっただけに、上手くなったのだろうな、と思いました。<br />
-                プロローグ、フィナーレも、群舞では大体一番良い位置にいたのですが、押しが強くて良く目立ち、ついつい彼女の方を見てしまいました。
-              </p>
-              <p>
-                <strong>沢樹</strong
-                >も上手く、蘭寿とは良いコンビ。もう少し良い役を見てみたいですね。
-              </p>
-              <p>
-                その他では何と言っても<strong>夏美よう</strong>。良い役になっていて、大人で、かっこ良かったですね～。花組が羨ましいです(^_^;)。<br />
-                <strong>矢吹翔</strong
-                >も上手かったですが、瀬奈が淡泊だっただけに、ちょっといやらし過ぎる気も(^_^;)。
-              </p>
-              <p>
-                <strong>壮</strong
-                >は儚げで、優しい友人にピッタリ。冒頭の乱闘シーンで秘かにロドリゴに助勢して、押しつぶされているのが可愛かったです(^_^;)。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              花組バウホール公演・4/28～5/7
+            </p>
+            <p>花組バウホール公演<strong>「マノン」</strong>。4/30と5/6の2回、観てきました。</p>
+            <p>
+              物語は、ものすごく変な事もないのですが、ポイントが中途半端になってしまっていて、平淡な印象。これでは「つまらない話」だと思われても仕方ないですね。原作を知っているだけに、残念です。
+            </p>
+            <p>
+              <strong>マノン(彩乃かなみ)</strong>の<strong>ロドリゴ(瀬奈じゅん)</strong>への仕打ちも甘くなっているし、<strong>レスコー(蘭寿とむ)</strong>が二番手役になってしまって、ロドリゴと<strong>ミゲル(壮一帆)</strong>との無償の友情の感動が薄くなってしまったのも残念。
+            </p>
+            <p>
+              父親に半年間閉じこめられて、本人も心を入れ替えて学問に励もうとした時に、<strong>マノンに再会してしまった為に何もかも歯止めがきかくなくって・・</strong>という展開もなく、<strong>持ち金全てを兵士の買収に費やしてでも、モロッコへ連行されていくマノンのそばについていこうとするロドリゴ</strong>、という衝撃的な冒頭シーンもありません(役名、地名は今回の公演のものに合わせました)。<br>
+              一体、中村先生は原作のどこに思い入れがあったのでしょうか？
+            </p>
+            <p>
+              ヒーローは弱くてはいけないのか、ヒロインは純情でなければならないのか。そんなに変えなくても、十分宝塚に乗せられる純愛作品であり、魅力的な主人公だったと思います。
+            </p>
+            <p>
+              舞台をスペインにしたのは、明るくしようとする意図だったようですが、それもあまり効果があったとは思えませんでした。マノンが好きなのは、やはり華やかなパリの町、オペラ座の舞台の方が、イメージに合っている気がします。
+            </p>
+            <p>
+              初主演の<strong>瀬奈</strong>。プロローグ、フィナーレのダンスが一番！&emsp;さすがに初主演らしく気が入っていて見せてくれました。大柄で華やかな彩乃をすっぽり包める大きさがあるのが良く、足が長くて、衣装もどれも良く似合っていました。
+            </p>
+            <p>
+              後は歌、台詞共、声が弱いのが気になります。芝居は非常に丁寧で、きっと一つ一つの台詞に沢山の思いを込めているのだろうな、というのが観ていて分かるのですが(^_^;)、それを客席に伝える声量、表現力が弱いです。<br>
+              しかし二度目の観劇の時には、随分熱演でカバーできていたと思いました。
+            </p>
+            <p>
+              <strong>彩乃</strong>は華やかで美しく、多くの男達を虜にするマノン役に無理がなかったです。上記の通り中途半端に甘い役になってしまったのが残念ですが、宝石を見た時や、男性と軽く話している時の表情が魅力的で、役柄を良く表現していると思いました。
+            </p>
+            <p>
+              レスコーの<strong>蘭寿</strong>。マノンはもちろん、おそらくロドリゴよりも年上の設定であろう役柄で、幕前の<strong>エレーナ(沢樹くるみ)</strong>との芝居などは「がんばって背伸びしているな・・」という気はしたのですが(^_^;)、それにしても堂々とした出来映えで感心しました。<br>
+              歌も多かったですが、自然に芝居の一部として歌えていたのが気持ち良く、歌はそれほど得意なイメージがなかっただけに、上手くなったのだろうな、と思いました。<br>
+              プロローグ、フィナーレも、群舞では大体一番良い位置にいたのですが、押しが強くて良く目立ち、ついつい彼女の方を見てしまいました。
+            </p>
+            <p>
+              <strong>沢樹</strong>も上手く、蘭寿とは良いコンビ。もう少し良い役を見てみたいですね。
+            </p>
+            <p>
+              その他では何と言っても<strong>夏美よう</strong>。良い役になっていて、大人で、かっこ良かったですね～。花組が羨ましいです(^_^;)。<br>
+              <strong>矢吹翔</strong>も上手かったですが、瀬奈が淡泊だっただけに、ちょっといやらし過ぎる気も(^_^;)。
+            </p>
+            <p>
+              <strong>壮</strong>は儚げで、優しい友人にピッタリ。冒頭の乱闘シーンで秘かにロドリゴに助勢して、押しつぶされているのが可愛かったです(^_^;)。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

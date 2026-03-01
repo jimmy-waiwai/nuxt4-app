@@ -1,172 +1,153 @@
 <script setup>
-const teamProps = ref({ team: "sonota" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'default',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            専科・エンカレッジ・コンサート
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              専科・エンカレッジ・コンサート
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                宝塚バウホール公演・・8/29～30
-              </p>
-              <p>
-                <strong>専科「エンカレッジ・コンサート」</strong
-                >観てきました！<br />
-                プログラムご紹介しますね。
-              </p>
-              <p>
-                第一部<br />
-                1．オー マイ サンシャイン&emsp;&emsp;全員<br />
-                2．LUCK BE A LADY&emsp;&emsp;萬あきら<br />
-                3．エストレリータ&emsp;&emsp;邦なつき<br />
-                4．I Cain't Say No!&emsp;&emsp;邦<br />
-                5．この愛よ永遠に -TAKARAZUKA FOREVER-&emsp;&emsp;一樹千尋<br />
-                6．あやめ売り&emsp;&emsp;京三紗<br />
-                7．Eyes on Me&emsp;&emsp;京<br />
-                8．筏流し&emsp;&emsp;男役全員<br />
-                9．グラナダ&emsp;&emsp;汝鳥伶<br />
-                10．おお我が人生&emsp;&emsp;箙かおる<br />
-                11．O'l Man River&emsp;&emsp;箙<br />
-                12．想い出のサントロペ&emsp;&emsp;矢代鴻<br />
-                13．愛は君のよう&emsp;&emsp;立ともみ<br />
-                14．風に立つライオン&emsp;&emsp;立
-              </p>
-              <p>
-                第二部<br />
-                1．ああ宝塚 わが宝塚&emsp;&emsp;全員<br />
-                2．ラスト レター&emsp;&emsp;一樹<br />
-                3．空の扉&emsp;&emsp;矢代<br />
-                4．アコーディオン弾き&emsp;&emsp;萬<br />
-                5．最後のダンス&emsp;&emsp;萬<br />
-                6．命の別名&emsp;&emsp;京<br />
-                7．宝塚わが心の故郷&emsp;&emsp;邦<br />
-                8．Over The Rainbow&emsp;&emsp;一樹<br />
-                9．愛の宝石&emsp;&emsp;一樹<br />
-                10．パリ カナイユ&emsp;&emsp;立<br />
-                11．愛・それは…&emsp;&emsp;汝鳥<br />
-                12．THE ROSE&emsp;&emsp;汝鳥<br />
-                13．清く正しく美しく&emsp;&emsp;箙<br />
-                14．You've Got A Friend&emsp;&emsp;矢代<br />
-                15．夢 (Dream)&emsp;&emsp;矢代<br />
-                16．ビューティフル ラブ&emsp;&emsp;全員
-              </p>
-              <p>
-                <strong>いや～、良かった！&emsp;さすが専科</strong
-                >だと見直しました。<br />
-                都合をつけて、当日サバキを目当てに駆けつけましたが、その甲斐がありました。3000円は安い！&emsp;と思います。<br />
-                歌の上手い生徒さんは、各組に沢山いるのですが、やはり見せ方、聞かせ方が違うんですね。<br />
-                <strong>
-                  「各々自分の聞かせ方を心得ている」<br />
-                  「3回しか公演がないのは残念。もう1回やって、客席に全生徒を座らせて、勉強させたい。」<br /> </strong
-                >とは吉崎先生の言葉ですが、本当にその通りだと思いました。
-              </p>
-              <p>
-                曲数は、<strong>矢代、一樹</strong>は4曲、あとのメンバーは3曲でしたが、歌唱力を考えると妥当だと思います。この二人は、さすが何度も本公演で歌を聞いた事があるだけあって、「歌手」だと感じました。<br />
-                多い2曲は、第二部の(2．3．)の<strong>小林公平氏</strong>作詞の新曲。・・作詞、お好きなんですね(^_^;)。
-              </p>
-              <p>
-                一番<strong>「歌が好き！」</strong>という喜びを感じさせてくれたのが<strong>箙</strong>。中でも<strong
-                  >「O'l Man River」</strong
-                >はバウ「ショーボート」で聞かせてくれた名曲。再び、たっぷりと聞かせてくれて嬉しかったです。<br />
-                <strong>「清く正しく美しく」</strong
-                >にはびっくり。本来なら娘役さんにソプラノで歌って欲しいナンバーですが、低音でしっかりと歌ってくれたのは目新しく、黒エンビ姿と共に、端正な良さを感じさせてくれました。
-              </p>
-              <p>
-                <strong>一樹</strong
-                >は歌手と言っても、ソロを聴いたのは久しぶりな気がします。しかし、<strong>「ラストレター」</strong>でその歌唱力の確かさを改めて感じました。ナンバーでは、<strong
-                  >「Over The Rainbow」</strong
-                >が爽やかで、いかにも一樹に合っているような気がします。
-              </p>
-              <p>
-                <strong>邦</strong
-                >は、開演アナウンスも担当していました。娘役で一番下級生だからでしょうか・・(^_^;)。<br />
-                歌は<strong>「宝塚わが心の故郷」</strong>を歌ったせいか、初風諄を思い出させるような堂々としたソプラノで、びっくりしました。
-              </p>
-              <p>
-                <strong>汝鳥</strong
-                >は<strong>「グラナダ」</strong>が良かったですね。その曲の前のトークから、秘かにバラの花を抱えてスタンバっているのが面白かったです(^_^;)。そのバラを投げるのかと思ったのですが、<strong>「誰も拾ってくれなかったら悲しいしね(←矢代)」</strong>と、抱えたままだったのが残念(^_^;)。私がもらえたら絶対大事にしたのに～。席が後方だったので、絶対もらえなかったと思いますが・・。<br />
-                <strong>「愛・それは…」</strong
-                >は研2の頃に、トップスターさんが歌っていた曲で、憧れていた曲だそうです。「随分時間がかかりましたが、やっと歌う事ができました。」という言葉に、ジーンと来てしまいました。
-              </p>
-              <p>
-                <strong>京</strong
-                >は、舞踊会で踊るらしい<strong>「あやめ売り」</strong>を習い初めた三味線と歌で。<strong
-                  >「Eyes on Me」</strong
-                >はゲームのファイナル・ファンタジーのエンディングの曲だとかで、確かにとてもキレイな曲でした。<br />
-                「ファイナル・ファンタジー」はゲーム界のベルばらだ！&emsp;とおっしゃっていた京さん。ゲームがお好きなんですね～。
-              </p>
-              <p>
-                <strong>萬</strong>は一幕一番手で「ガイズ＆ドールズ」の<strong
-                  >「LUCK BE A LADY」</strong
-                >を。間奏には期待通りのキザなダンス付きで、大喜び(^_^;)。<strong>「アコーディオン弾き」</strong>は深緑夏代さんが良く歌われていた曲で、憧れていた曲のよう。「歌えて幸せ」とおっしゃっていましたが、「シャンテ・シャンテ・シャンテ」の時も歌われていませんでしたっけ(^_^;)？&emsp;記憶で書いているのですが・・。この時もすごく良い！&emsp;と思ったので、良く覚えているんです。<br />
-                <strong>「最後のダンス」</strong
-                >はまさか萬あきら様で聞けると思っていなかったのでびっくり(^_^;)。色気があって、ムードたっぷりの歌い方でした。
-              </p>
-              <p>
-                そしてやはり圧巻だったのは<strong>矢代</strong>。特にトリの<strong
-                  >「夢 (Dream)」</strong
-                >はコーラスとの連係も素晴らしく、「エンカレッジ」の最後にふさわしい、素晴らしく気持ちよい歌でした。<br />
-                トークで「研3の頃、～先生のジャズの劇団レッスンが好きで、欠かさず受けていた事を思い出しました・・。」とサラリとおっしゃっていた矢代さん。その歌は下級生の頃から目指していたものなのだな～、と感慨深くなります。<br />
-                トークで、矢代、萬、一樹が揃った時、「懐かしいメンバーですね・・」と話していたのですが、さすがに私も、どの時代のどの組で一緒だったメンバーなのか分かりませんでした(^_^;)。<br />
-                本人たちも、「お若い方が多いので、分からないですね・・。」とおっしゃっていたのですが、ご存じの方、教えて下さいませ。(ただ、<strong>客席の年齢層は非常に高かった</strong>と思うのですが・・^_^;)<br />
-                [追記：バウコンサートです。教えて下さった方、ありがとう(*^｡^*)。]
-              </p>
-              <p>
-                <strong>立</strong
-                >が座長格。「一曲丸々歌うのは初めて」とおっしゃっていましたが、そうとは思えない歌でした。一幕トリのさだまさしさんの歌もさることながら、やはり二幕の<strong
-                  >「パリ カナイユ」</strong
-                >が軽快で、ダンス付きで楽しかったです。
-              </p>
-              <p>
-                アンコールで、<strong>「改めて宝塚のお客様は温かいと思いました。芸の道は終わりがありません。これからも専科らしくがんばりたいと思います。」</strong>という言葉に、謙虚だな～、と思うと同時に、すごいプロ意識だな、と思いました。
-              </p>
-              <p>
-                どんどん各組主要スター陣とは年代が離れていっている感のある専科達ですが、その技術を、これからも沢山宝塚の舞台で生かして欲しいな、と、強く思いました。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              宝塚バウホール公演・・8/29～30
+            </p>
+            <p>
+              <strong>専科「エンカレッジ・コンサート」</strong>観てきました！<br>
+              プログラムご紹介しますね。
+            </p>
+            <p>
+              第一部<br>
+              1．オー マイ サンシャイン&emsp;&emsp;全員<br>
+              2．LUCK BE A LADY&emsp;&emsp;萬あきら<br>
+              3．エストレリータ&emsp;&emsp;邦なつき<br>
+              4．I Cain't Say No!&emsp;&emsp;邦<br>
+              5．この愛よ永遠に -TAKARAZUKA FOREVER-&emsp;&emsp;一樹千尋<br>
+              6．あやめ売り&emsp;&emsp;京三紗<br>
+              7．Eyes on Me&emsp;&emsp;京<br>
+              8．筏流し&emsp;&emsp;男役全員<br>
+              9．グラナダ&emsp;&emsp;汝鳥伶<br>
+              10．おお我が人生&emsp;&emsp;箙かおる<br>
+              11．O'l Man River&emsp;&emsp;箙<br>
+              12．想い出のサントロペ&emsp;&emsp;矢代鴻<br>
+              13．愛は君のよう&emsp;&emsp;立ともみ<br>
+              14．風に立つライオン&emsp;&emsp;立
+            </p>
+            <p>
+              第二部<br>
+              1．ああ宝塚 わが宝塚&emsp;&emsp;全員<br>
+              2．ラスト レター&emsp;&emsp;一樹<br>
+              3．空の扉&emsp;&emsp;矢代<br>
+              4．アコーディオン弾き&emsp;&emsp;萬<br>
+              5．最後のダンス&emsp;&emsp;萬<br>
+              6．命の別名&emsp;&emsp;京<br>
+              7．宝塚わが心の故郷&emsp;&emsp;邦<br>
+              8．Over The Rainbow&emsp;&emsp;一樹<br>
+              9．愛の宝石&emsp;&emsp;一樹<br>
+              10．パリ カナイユ&emsp;&emsp;立<br>
+              11．愛・それは…&emsp;&emsp;汝鳥<br>
+              12．THE ROSE&emsp;&emsp;汝鳥<br>
+              13．清く正しく美しく&emsp;&emsp;箙<br>
+              14．You've Got A Friend&emsp;&emsp;矢代<br>
+              15．夢 (Dream)&emsp;&emsp;矢代<br>
+              16．ビューティフル ラブ&emsp;&emsp;全員
+            </p>
+            <p>
+              <strong>いや～、良かった！&emsp;さすが専科</strong>だと見直しました。<br>
+              都合をつけて、当日サバキを目当てに駆けつけましたが、その甲斐がありました。3000円は安い！&emsp;と思います。<br>
+              歌の上手い生徒さんは、各組に沢山いるのですが、やはり見せ方、聞かせ方が違うんですね。<br>
+              <strong>
+                「各々自分の聞かせ方を心得ている」<br>
+                「3回しか公演がないのは残念。もう1回やって、客席に全生徒を座らせて、勉強させたい。」<br> </strong>とは吉崎先生の言葉ですが、本当にその通りだと思いました。
+            </p>
+            <p>
+              曲数は、<strong>矢代、一樹</strong>は4曲、あとのメンバーは3曲でしたが、歌唱力を考えると妥当だと思います。この二人は、さすが何度も本公演で歌を聞いた事があるだけあって、「歌手」だと感じました。<br>
+              多い2曲は、第二部の(2．3．)の<strong>小林公平氏</strong>作詞の新曲。・・作詞、お好きなんですね(^_^;)。
+            </p>
+            <p>
+              一番<strong>「歌が好き！」</strong>という喜びを感じさせてくれたのが<strong>箙</strong>。中でも<strong>「O'l Man River」</strong>はバウ「ショーボート」で聞かせてくれた名曲。再び、たっぷりと聞かせてくれて嬉しかったです。<br>
+              <strong>「清く正しく美しく」</strong>にはびっくり。本来なら娘役さんにソプラノで歌って欲しいナンバーですが、低音でしっかりと歌ってくれたのは目新しく、黒エンビ姿と共に、端正な良さを感じさせてくれました。
+            </p>
+            <p>
+              <strong>一樹</strong>は歌手と言っても、ソロを聴いたのは久しぶりな気がします。しかし、<strong>「ラストレター」</strong>でその歌唱力の確かさを改めて感じました。ナンバーでは、<strong>「Over The Rainbow」</strong>が爽やかで、いかにも一樹に合っているような気がします。
+            </p>
+            <p>
+              <strong>邦</strong>は、開演アナウンスも担当していました。娘役で一番下級生だからでしょうか・・(^_^;)。<br>
+              歌は<strong>「宝塚わが心の故郷」</strong>を歌ったせいか、初風諄を思い出させるような堂々としたソプラノで、びっくりしました。
+            </p>
+            <p>
+              <strong>汝鳥</strong>は<strong>「グラナダ」</strong>が良かったですね。その曲の前のトークから、秘かにバラの花を抱えてスタンバっているのが面白かったです(^_^;)。そのバラを投げるのかと思ったのですが、<strong>「誰も拾ってくれなかったら悲しいしね(←矢代)」</strong>と、抱えたままだったのが残念(^_^;)。私がもらえたら絶対大事にしたのに～。席が後方だったので、絶対もらえなかったと思いますが・・。<br>
+              <strong>「愛・それは…」</strong>は研2の頃に、トップスターさんが歌っていた曲で、憧れていた曲だそうです。「随分時間がかかりましたが、やっと歌う事ができました。」という言葉に、ジーンと来てしまいました。
+            </p>
+            <p>
+              <strong>京</strong>は、舞踊会で踊るらしい<strong>「あやめ売り」</strong>を習い初めた三味線と歌で。<strong>「Eyes on Me」</strong>はゲームのファイナル・ファンタジーのエンディングの曲だとかで、確かにとてもキレイな曲でした。<br>
+              「ファイナル・ファンタジー」はゲーム界のベルばらだ！&emsp;とおっしゃっていた京さん。ゲームがお好きなんですね～。
+            </p>
+            <p>
+              <strong>萬</strong>は一幕一番手で「ガイズ＆ドールズ」の<strong>「LUCK BE A LADY」</strong>を。間奏には期待通りのキザなダンス付きで、大喜び(^_^;)。<strong>「アコーディオン弾き」</strong>は深緑夏代さんが良く歌われていた曲で、憧れていた曲のよう。「歌えて幸せ」とおっしゃっていましたが、「シャンテ・シャンテ・シャンテ」の時も歌われていませんでしたっけ(^_^;)？&emsp;記憶で書いているのですが・・。この時もすごく良い！&emsp;と思ったので、良く覚えているんです。<br>
+              <strong>「最後のダンス」</strong>はまさか萬あきら様で聞けると思っていなかったのでびっくり(^_^;)。色気があって、ムードたっぷりの歌い方でした。
+            </p>
+            <p>
+              そしてやはり圧巻だったのは<strong>矢代</strong>。特にトリの<strong>「夢 (Dream)」</strong>はコーラスとの連係も素晴らしく、「エンカレッジ」の最後にふさわしい、素晴らしく気持ちよい歌でした。<br>
+              トークで「研3の頃、～先生のジャズの劇団レッスンが好きで、欠かさず受けていた事を思い出しました・・。」とサラリとおっしゃっていた矢代さん。その歌は下級生の頃から目指していたものなのだな～、と感慨深くなります。<br>
+              トークで、矢代、萬、一樹が揃った時、「懐かしいメンバーですね・・」と話していたのですが、さすがに私も、どの時代のどの組で一緒だったメンバーなのか分かりませんでした(^_^;)。<br>
+              本人たちも、「お若い方が多いので、分からないですね・・。」とおっしゃっていたのですが、ご存じの方、教えて下さいませ。(ただ、<strong>客席の年齢層は非常に高かった</strong>と思うのですが・・^_^;)<br>
+              [追記：バウコンサートです。教えて下さった方、ありがとう(*^｡^*)。]
+            </p>
+            <p>
+              <strong>立</strong>が座長格。「一曲丸々歌うのは初めて」とおっしゃっていましたが、そうとは思えない歌でした。一幕トリのさだまさしさんの歌もさることながら、やはり二幕の<strong>「パリ カナイユ」</strong>が軽快で、ダンス付きで楽しかったです。
+            </p>
+            <p>
+              アンコールで、<strong>「改めて宝塚のお客様は温かいと思いました。芸の道は終わりがありません。これからも専科らしくがんばりたいと思います。」</strong>という言葉に、謙虚だな～、と思うと同時に、すごいプロ意識だな、と思いました。
+            </p>
+            <p>
+              どんどん各組主要スター陣とは年代が離れていっている感のある専科達ですが、その技術を、これからも沢山宝塚の舞台で生かして欲しいな、と、強く思いました。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

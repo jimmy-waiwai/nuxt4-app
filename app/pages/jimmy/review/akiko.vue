@@ -1,128 +1,120 @@
 <script setup>
-const teamProps = ref({ team: "sonota" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'default',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            アキコ・カンダ レッスン発表会
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              アキコ・カンダ レッスン発表会
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">宝塚大劇場・・11/30</p>
-              <p>
-                <strong>第4回 アキコ・カンダ レッスン発表会</strong
-                >を観てきました！
-              </p>
-              <p>
-                直前に少し雑談掲示板で話題に出しましたが、私が以前に観た発表会は平成4年の<strong>第2回</strong>、<strong>10年前</strong>のものだったようです・・。<br />
-                間、平成9年に第3回があったようですが、なぜだか観に行けなかったんでしょうね～。あった事さえ忘れてしまっていました(^_^;)。
-              </p>
-              <p>
-                10年前はバウホールで行われていましたが今回は大劇場で。色々憂うべき改革の進んでいる宝塚ではありますが(^_^;)、やっぱりファンの人数は増えているんだろうな～、と、その事からも感じられますね。
-              </p>
-              <p>
-                <strong>第一部</strong
-                >は各組数人ずつの出演者が、方々から登場。男役はブラウスに黒のパンツ、娘役はシンプルなドレスでした。<br />
-                最後に登場した<strong>水夏希</strong>が、セットのランプを灯すと音楽が始まり、踊るメンバーがセンターへ出て踊る。次の曲が始まると、次のメンバーがセンターへ出て踊る・・の繰り返し。その間他のメンバーは背景のように静止していて、<strong>どこかのサロンのような良いムード</strong>。<br />
-                ラストは皆がまた方々へ去っていき、一人残った水が、ランプを消して幕・・となりました。<br />
-                この構成は、確か10年前にはなかったと思います。<strong>なかなか宝塚らしくて良かった</strong>ですね。ちなみに演出に<strong>草野先生</strong>が入っておられたので、先生の力かな～、と思いました。
-              </p>
-              <p>
-                一部の出演メンバーは、<br />
-                <strong>
-                  1.大伴れいか&emsp;高翔みず希&emsp;眉月凰&emsp;愛音羽麗<br />
-                  2.花純風香&emsp;澪うらら<br />
-                  3.寿つかさ<br />
-                  4.絵莉千晶&emsp;水月舞&emsp;涼葉らんの&emsp;隼颯希&emsp;桜一花<br />
-                  5.天希かおり&emsp;麻愛めぐる&emsp;牧勢海<br />
-                  6.舞城のどか<br />
-                  7.鈴奈沙也&emsp;月城美咲&emsp;芽映はるか&emsp;織花なるみ&emsp;美羽あさひ&emsp;大海亜呼&emsp;鮎瀬美都<br />
-                  8.水夏希<br />
-                  9.貴羽右京&emsp;天羽珠紀&emsp;悠未ひろ&emsp;夏大海&emsp;巽希和&emsp;風莉じん&emsp;真木薫&emsp;潮和歌&emsp;十輝いりす&emsp;天翔ゆうり</strong
-                ><br />
-                です。
-              </p>
-              <p>
-                皆上手かったですが、中ではやっぱり<strong>舞城</strong>がキレイ！&emsp;<strong>彼女は貴重なダンサーだ～</strong>、と強く思いました。<br />
-                あと、<strong>寿</strong>が赤のブラウスに黒のパンツ姿でソロで踊っていて、かっこ良かったですね。
-              </p>
-              <p>
-                <strong>二部</strong
-                >は<strong>花組</strong>。<strong>「連鎖」</strong>で、10年前星組がやったものとおそらく同作だと思います。<br />
-                衣装は全員ブルーのターバンにレオタードにスカートで、かなり詳しい人でないと、誰が誰だか分からないと思います(^_^;)。<br />
-                <strong>大伴、高翔、絵莉、愛音、桐生園加</strong
-                >などがソロで目につきました。<br />
-                <strong>高翔</strong
-                >はダンスに色気があって、素敵ですね。関係ないですが、翌日花の道でまともにすれ違ったんですよ。「昨日の舞台観ました！&emsp;かっこ良かったです～。」と言いたかったのですが、もちろん言えませんでした(残念^_^;)。<br />
-                <strong>桐生</strong
-                >はレオタードにスカート姿がとっても恐かったですが(^_^;)、動きは良くて、流石ソロで使われているだけの事はあると思いました。
-              </p>
-              <p>
-                <strong>三部</strong
-                >は<strong>雪組</strong>。<strong>「白のコンチェルト」</strong>で、これは前は花組がやっていました。<br />
-                衣装はタイトル通り、白のレオタードにスカートです。<br />
-                最初に<strong>花純</strong>と、<strong>麻愛</strong>が並んで出てきたので、「懐かしい～」と個人的には嬉しくなりました(^_^;)。<br />
-                <strong>花純</strong
-                >が花組に組替えになって随分経ちますが、雪組メンバーに入っているという事は、かなり前から少しずつ練習していたという事でしょうね。もちろんダンスは期待通り、上手いです。<br />
-                ソロで踊っていたのは<strong>天希かおり、麻愛、花純、牧勢、貴船尚、舞咲りん、真波そら</strong>・・で多分間違いないと思うのですが・・全員顔を見て分かってしまった自分が恐いと思いました(^_^;)。<br />
-                <strong>天希</strong
-                >もスタイルも良くて、とてもキレイでしたね。足を上げるポーズにはうっとりさせて頂きました(^_^;)。
-              </p>
-              <p>
-                <strong>四部</strong
-                >は<strong>宙組</strong>の<strong>「ボレロ」</strong>。これは10年前のプログラムにそのタイトルが載っていなかったのですが、多分一部で上演されたものではないかと・・。<br />
-                衣装は黒のレオタードに、スパッツでした。<br />
-                このナンバーは特にソロはなかったです。中では<strong>水</strong>がやはりセンターで目立っていたかな・・。<br />
-                確か大滝愛子先生のバレエ発表会にも出演していた筈ですし、彼女はスターなのに(というのも変ですが・・)とても努力しているんだなぁ、と思います。忙しいでしょうに・・、感心します。
-              </p>
-              <p>
-                二、三、四部全体的に、<strong>群舞も揃っていて、とても迫力があって良かった</strong>です。<br />
-                出演者の皆、舞台の合間に、これだけのダンスの大作を練習していて偉いなぁ・・と。<br />
-                <strong>このままショーの一場面に入れても良いのではないか</strong
-                >、と思う位、どれも見応えがありました。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              宝塚大劇場・・11/30
+            </p>
+            <p><strong>第4回 アキコ・カンダ レッスン発表会</strong>を観てきました！</p>
+            <p>
+              直前に少し雑談掲示板で話題に出しましたが、私が以前に観た発表会は平成4年の<strong>第2回</strong>、<strong>10年前</strong>のものだったようです・・。<br>
+              間、平成9年に第3回があったようですが、なぜだか観に行けなかったんでしょうね～。あった事さえ忘れてしまっていました(^_^;)。
+            </p>
+            <p>
+              10年前はバウホールで行われていましたが今回は大劇場で。色々憂うべき改革の進んでいる宝塚ではありますが(^_^;)、やっぱりファンの人数は増えているんだろうな～、と、その事からも感じられますね。
+            </p>
+            <p>
+              <strong>第一部</strong>は各組数人ずつの出演者が、方々から登場。男役はブラウスに黒のパンツ、娘役はシンプルなドレスでした。<br>
+              最後に登場した<strong>水夏希</strong>が、セットのランプを灯すと音楽が始まり、踊るメンバーがセンターへ出て踊る。次の曲が始まると、次のメンバーがセンターへ出て踊る・・の繰り返し。その間他のメンバーは背景のように静止していて、<strong>どこかのサロンのような良いムード</strong>。<br>
+              ラストは皆がまた方々へ去っていき、一人残った水が、ランプを消して幕・・となりました。<br>
+              この構成は、確か10年前にはなかったと思います。<strong>なかなか宝塚らしくて良かった</strong>ですね。ちなみに演出に<strong>草野先生</strong>が入っておられたので、先生の力かな～、と思いました。
+            </p>
+            <p>
+              一部の出演メンバーは、<br>
+              <strong>
+                1.大伴れいか&emsp;高翔みず希&emsp;眉月凰&emsp;愛音羽麗<br>
+                2.花純風香&emsp;澪うらら<br>
+                3.寿つかさ<br>
+                4.絵莉千晶&emsp;水月舞&emsp;涼葉らんの&emsp;隼颯希&emsp;桜一花<br>
+                5.天希かおり&emsp;麻愛めぐる&emsp;牧勢海<br>
+                6.舞城のどか<br>
+                7.鈴奈沙也&emsp;月城美咲&emsp;芽映はるか&emsp;織花なるみ&emsp;美羽あさひ&emsp;大海亜呼&emsp;鮎瀬美都<br>
+                8.水夏希<br>
+                9.貴羽右京&emsp;天羽珠紀&emsp;悠未ひろ&emsp;夏大海&emsp;巽希和&emsp;風莉じん&emsp;真木薫&emsp;潮和歌&emsp;十輝いりす&emsp;天翔ゆうり</strong><br>
+              です。
+            </p>
+            <p>
+              皆上手かったですが、中ではやっぱり<strong>舞城</strong>がキレイ！&emsp;<strong>彼女は貴重なダンサーだ～</strong>、と強く思いました。<br>
+              あと、<strong>寿</strong>が赤のブラウスに黒のパンツ姿でソロで踊っていて、かっこ良かったですね。
+            </p>
+            <p>
+              <strong>二部</strong>は<strong>花組</strong>。<strong>「連鎖」</strong>で、10年前星組がやったものとおそらく同作だと思います。<br>
+              衣装は全員ブルーのターバンにレオタードにスカートで、かなり詳しい人でないと、誰が誰だか分からないと思います(^_^;)。<br>
+              <strong>大伴、高翔、絵莉、愛音、桐生園加</strong>などがソロで目につきました。<br>
+              <strong>高翔</strong>はダンスに色気があって、素敵ですね。関係ないですが、翌日花の道でまともにすれ違ったんですよ。「昨日の舞台観ました！&emsp;かっこ良かったです～。」と言いたかったのですが、もちろん言えませんでした(残念^_^;)。<br>
+              <strong>桐生</strong>はレオタードにスカート姿がとっても恐かったですが(^_^;)、動きは良くて、流石ソロで使われているだけの事はあると思いました。
+            </p>
+            <p>
+              <strong>三部</strong>は<strong>雪組</strong>。<strong>「白のコンチェルト」</strong>で、これは前は花組がやっていました。<br>
+              衣装はタイトル通り、白のレオタードにスカートです。<br>
+              最初に<strong>花純</strong>と、<strong>麻愛</strong>が並んで出てきたので、「懐かしい～」と個人的には嬉しくなりました(^_^;)。<br>
+              <strong>花純</strong>が花組に組替えになって随分経ちますが、雪組メンバーに入っているという事は、かなり前から少しずつ練習していたという事でしょうね。もちろんダンスは期待通り、上手いです。<br>
+              ソロで踊っていたのは<strong>天希かおり、麻愛、花純、牧勢、貴船尚、舞咲りん、真波そら</strong>・・で多分間違いないと思うのですが・・全員顔を見て分かってしまった自分が恐いと思いました(^_^;)。<br>
+              <strong>天希</strong>もスタイルも良くて、とてもキレイでしたね。足を上げるポーズにはうっとりさせて頂きました(^_^;)。
+            </p>
+            <p>
+              <strong>四部</strong>は<strong>宙組</strong>の<strong>「ボレロ」</strong>。これは10年前のプログラムにそのタイトルが載っていなかったのですが、多分一部で上演されたものではないかと・・。<br>
+              衣装は黒のレオタードに、スパッツでした。<br>
+              このナンバーは特にソロはなかったです。中では<strong>水</strong>がやはりセンターで目立っていたかな・・。<br>
+              確か大滝愛子先生のバレエ発表会にも出演していた筈ですし、彼女はスターなのに(というのも変ですが・・)とても努力しているんだなぁ、と思います。忙しいでしょうに・・、感心します。
+            </p>
+            <p>
+              二、三、四部全体的に、<strong>群舞も揃っていて、とても迫力があって良かった</strong>です。<br>
+              出演者の皆、舞台の合間に、これだけのダンスの大作を練習していて偉いなぁ・・と。<br>
+              <strong>このままショーの一場面に入れても良いのではないか</strong>、と思う位、どれも見応えがありました。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

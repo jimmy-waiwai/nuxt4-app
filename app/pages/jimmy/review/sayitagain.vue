@@ -1,87 +1,87 @@
 <script setup>
-const teamProps = ref({ team: "snow" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'snow',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            SAY IT AGAIN
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              SAY IT AGAIN
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                雪組・バウホール公演・９／１８～１０／３
-              </p>
-              <p>
-                もともと<strong>正塚先生</strong>の舞台が好きで、最近ちょっと魅力がないな、と思いつつも「next
-                one・・。」と信じ続けてきただけに、さすがに堪忍袋の緒が切れてしまったというか(^_^;)・・。やっぱり不調なんだと認めざるを得ないなというのが、正直な所です。
-              </p>
-              <p>
-                といっても、脚本には文句はありません。ちゃんとした話でしたし(^_^;)。一番言いたいのは、<strong>「もっと演りようによっては、面白くなったんじゃないかな～。」</strong>という事なんですね。コメディだと思っていたのですが、あまり面白くないんです。
-              </p>
-              <p>
-                主演の<strong>成瀬こうき</strong>と<strong>朝海ひかる</strong>。とりあえず、二人ともキレイ(^_^;)。スーツが良く似合っていました。おそらく<strong>ピエール(成瀬)</strong>の方が、素直だし、流れ者に好かれたりもするので、人間的に魅力ある二枚目。<strong>ビンス(朝海)</strong>が、口先三寸で調子が良いけど、憎めない二枚目。みたいな設定だったと思うのですが、どうも二人とも明るくないし、口(台詞ですが)も上手くないので、その違いがはっきり出ていません。
-              </p>
-              <p>
-                又、結局ビンスは口では色々言っていても、ピエールには逆らえない、っていう<strong>コンビの言葉にできない信頼感</strong>って言うのでしょうか？&emsp;そんな<strong>呼吸の面白さ</strong>も感じられないんです。例えば、同じ正塚作品の<strong>「メランコリック・ジゴロ」のダニエル(安寿ミラ)とスタン(真矢みき)のような関係が観たい</strong>、というのは、同期とはいっても、二人とも雪組に来て日が浅く、一緒に芝居した経験も少ないし、難しいのでしょうか？&emsp;<strong>二人主演という状況</strong>も、心理的に難しくしているのかもしれません。
-              </p>
-              <p>
-                この・・何というか、<strong>良くいえば押さえた演技</strong>が(^_^;)、<strong>正塚先生の「さりげない芝居」</strong>という指導によるものであるならば、ちょっと目論見違いのような気がします。<strong
-                  >もう少し不器用なりに、テンション高く、一生懸命騙したり、焦ったり、悩んだりする姿を観て、笑いたいなと思いました。</strong
-                >
-              </p>
-              <p>
-                <strong>貴咲美里</strong
-                >も正塚先生同様、不調だと思いつつ応援派だったのですが・・、まだまだですね。かなり痩せたとは思うのですが、姿勢と動きの悪さが気になります。歌は良いし、台詞も心地良いので、ホント、がんばってヒロイン目指して欲しいと思うのですが。
-              </p>
-              <p>
-                <strong>紺野まひる</strong
-                >は大人っぽいドレスや髪型も似合っていて美しかったです(ドレスの時お腹が出て見えたのは衣装のせい？)。もともとドライな所が魅力だと思うのですが、役の為にいつもよりさらに台詞の声が地声になってしまっていて(^_^;)、潤いのないのは気になります。社長令嬢の時も普段とあまり変わらないので、ビンスとの「だましあい」の面白さがあまりなかったのも残念。
-              </p>
-              <p>
-                主役四人に物足りない所があっただけに、脇は非常に面白かったです。まずは<strong>未来優希</strong>と<strong>愛耀子</strong>！&emsp;キャラクターがはっきりと出せていて、笑えました(^_^;)。<strong>未沙のえる</strong>と<strong>森央かずみ</strong>のコンビも、ちょっと不気味な所もあるけど、おかしい。<strong>灯奈美</strong>がいつもとイメージの違う役でしたが、美しいので説得力あるし、良かったです。宝塚では雪組初お目見えの<strong>美郷真也</strong>もほのぼのしたおかしさが、良いですね～。「良く来て下さいました」と言いたいです(^_^;)。どうもすっきりしない(何度もすみません)主演陣の後ろで、<strong>立樹遥</strong>の明るさと覇気ある舞台姿は一際華やかに見えました。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              雪組・バウホール公演・９／１８～１０／３
+            </p>
+            <p>
+              もともと<strong>正塚先生</strong>の舞台が好きで、最近ちょっと魅力がないな、と思いつつも「next
+              one・・。」と信じ続けてきただけに、さすがに堪忍袋の緒が切れてしまったというか(^_^;)・・。やっぱり不調なんだと認めざるを得ないなというのが、正直な所です。
+            </p>
+            <p>
+              といっても、脚本には文句はありません。ちゃんとした話でしたし(^_^;)。一番言いたいのは、<strong>「もっと演りようによっては、面白くなったんじゃないかな～。」</strong>という事なんですね。コメディだと思っていたのですが、あまり面白くないんです。
+            </p>
+            <p>
+              主演の<strong>成瀬こうき</strong>と<strong>朝海ひかる</strong>。とりあえず、二人ともキレイ(^_^;)。スーツが良く似合っていました。おそらく<strong>ピエール(成瀬)</strong>の方が、素直だし、流れ者に好かれたりもするので、人間的に魅力ある二枚目。<strong>ビンス(朝海)</strong>が、口先三寸で調子が良いけど、憎めない二枚目。みたいな設定だったと思うのですが、どうも二人とも明るくないし、口(台詞ですが)も上手くないので、その違いがはっきり出ていません。
+            </p>
+            <p>
+              又、結局ビンスは口では色々言っていても、ピエールには逆らえない、っていう<strong>コンビの言葉にできない信頼感</strong>って言うのでしょうか？&emsp;そんな<strong>呼吸の面白さ</strong>も感じられないんです。例えば、同じ正塚作品の<strong>「メランコリック・ジゴロ」のダニエル(安寿ミラ)とスタン(真矢みき)のような関係が観たい</strong>、というのは、同期とはいっても、二人とも雪組に来て日が浅く、一緒に芝居した経験も少ないし、難しいのでしょうか？&emsp;<strong>二人主演という状況</strong>も、心理的に難しくしているのかもしれません。
+            </p>
+            <p>
+              この・・何というか、<strong>良くいえば押さえた演技</strong>が(^_^;)、<strong>正塚先生の「さりげない芝居」</strong>という指導によるものであるならば、ちょっと目論見違いのような気がします。<strong>もう少し不器用なりに、テンション高く、一生懸命騙したり、焦ったり、悩んだりする姿を観て、笑いたいなと思いました。</strong>
+            </p>
+            <p>
+              <strong>貴咲美里</strong>も正塚先生同様、不調だと思いつつ応援派だったのですが・・、まだまだですね。かなり痩せたとは思うのですが、姿勢と動きの悪さが気になります。歌は良いし、台詞も心地良いので、ホント、がんばってヒロイン目指して欲しいと思うのですが。
+            </p>
+            <p>
+              <strong>紺野まひる</strong>は大人っぽいドレスや髪型も似合っていて美しかったです(ドレスの時お腹が出て見えたのは衣装のせい？)。もともとドライな所が魅力だと思うのですが、役の為にいつもよりさらに台詞の声が地声になってしまっていて(^_^;)、潤いのないのは気になります。社長令嬢の時も普段とあまり変わらないので、ビンスとの「だましあい」の面白さがあまりなかったのも残念。
+            </p>
+            <p>
+              主役四人に物足りない所があっただけに、脇は非常に面白かったです。まずは<strong>未来優希</strong>と<strong>愛耀子</strong>！&emsp;キャラクターがはっきりと出せていて、笑えました(^_^;)。<strong>未沙のえる</strong>と<strong>森央かずみ</strong>のコンビも、ちょっと不気味な所もあるけど、おかしい。<strong>灯奈美</strong>がいつもとイメージの違う役でしたが、美しいので説得力あるし、良かったです。宝塚では雪組初お目見えの<strong>美郷真也</strong>もほのぼのしたおかしさが、良いですね～。「良く来て下さいました」と言いたいです(^_^;)。どうもすっきりしない(何度もすみません)主演陣の後ろで、<strong>立樹遥</strong>の明るさと覇気ある舞台姿は一際華やかに見えました。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

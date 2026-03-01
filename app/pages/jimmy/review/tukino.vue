@@ -1,99 +1,101 @@
 <script setup>
-const teamProps = ref({ team: "flower" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'flower',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            月の燈影
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              月の燈影
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                花組バウホール公演・8/2～11
-              </p>
-              <p>
-                花組バウホール公演<strong>「月の燈影」</strong>。11日11時公演を観てきました！
-              </p>
-              <p>
-                悪くなかったです。上手でした。<br />
-                でも、観た後残るのは<strong>「川向こうって、道理の通らない所なのね・・。」</strong>という何とも言えない空しさばかり(^_^;)。懸命に生きた二人の死はあまりにも無惨で、救いがありませんでした。
-              </p>
-              <p>
-                この作品を通して、大野先生は何を観客に伝えたかったのでしょう？&emsp;そして、この作品を宝塚で上演する意義はあるのでしょうか？&emsp;この作品は、初主演の二人の良さを引き出せていたでしょうか？&emsp;私にはそうは思えませんでした。
-              </p>
-              <p>
-                あまり宝塚にはない題材で、その発想は面白いと思います。<br />
-                日本物を書いて下さる先生は貴重ですし、難しい分野だと思うので、これからを楽しみにしたいと思います。
-              </p>
-              <p>
-                幸蔵の<strong>彩吹真央</strong>。上手でした。ポイントの昔の心の傷も良く伝わってきましたし、若い者を率いる兄貴分的な頼もしさもありました。<br />
-                期待の歌では、特に三味線を弾き語り(?)している所、エンディングでの晴れ晴れとしたソロ、男役を引き連れてのナンバーが好きです。反対に幕開きでの登場のソロに、もっと初主演らしい覇気が見たかったと思いました。
-              </p>
-              <p>
-                次郎吉の<strong>蘭寿とむ</strong>。所作等の実力は彩吹の方が安定していますが、登場のソロの時に、まだ蘭寿の方が彼女なりのムードが出せているかな、と思いました。純粋な犬キャラクターという性格も、彼女らしい良さが出ていましたね。
-              </p>
-              <p>
-                喜の字の<strong>沢樹くるみ</strong>は芸者姿がキレイで良かったです。台詞の声が良いのが好きなんですよ。<br />
-                でも、次郎吉に対する切なさを、もっと出して欲しかったです。大人の女の役なので、あんなものかな、という気もしますが。
-              </p>
-              <p>
-                返って、お壱の<strong>桜一花</strong>の方が、短い場面で幸蔵に対する思いが良く伝わってきました。ビデオで観た「琥珀色の雨にぬれて」新人公演のフランソワーズ役の時も思ったのですが、彼女は結構芝居心があるような気がします。
-              </p>
-              <p>
-                若手では新助の<strong>桐生園加</strong>が良かったです。見た目は大人っぽいですが、「ミケランジェロ」新人公演のメンドリーニ役の時にも思った通り、声がまだ可愛いので、今回のような役の方が無理がなくて、今は合っているのではないかと思いました。<br />
-                それにしても、青天になると、ますます汐美真帆に似ていましたね～(^_^;)。<br />
-                次郎吉を刺しているのに、あまり反省の色が見えないのは？&emsp;演出もあると思いますが・・。
-              </p>
-              <p>
-                青天と言えば、幻想場面で、イマイチ似合っていない青天の若手の男役たちが、ゆらゆら動く振付にはちょっぴり笑えました(^_^;)。特に、二度目、その男達が舞台奥で、板付きポーズで登場したのには、悪いと思いつつ心の中で吹き出してしまいましたよ。
-              </p>
-              <p>
-                若手は全体に経験不足。伝統的に、日本物のお手本になりそうなスターのいない花組なので(^_^;)、仕方ないだろうな、という気がします。<br />
-                それだけに、上級生の<strong>城火呂絵、一樹千尋、夏美よう</strong>とその他の出演者の実力の差が歴然(経験が全然違うけれど^_^;)。<br />
-                ただ、<strong>翔つかさ、幸美杏奈、悠真倫</strong>はさすがに花組生でも安定していて、感心しました。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              花組バウホール公演・8/2～11
+            </p>
+            <p>花組バウホール公演<strong>「月の燈影」</strong>。11日11時公演を観てきました！</p>
+            <p>
+              悪くなかったです。上手でした。<br>
+              でも、観た後残るのは<strong>「川向こうって、道理の通らない所なのね・・。」</strong>という何とも言えない空しさばかり(^_^;)。懸命に生きた二人の死はあまりにも無惨で、救いがありませんでした。
+            </p>
+            <p>
+              この作品を通して、大野先生は何を観客に伝えたかったのでしょう？&emsp;そして、この作品を宝塚で上演する意義はあるのでしょうか？&emsp;この作品は、初主演の二人の良さを引き出せていたでしょうか？&emsp;私にはそうは思えませんでした。
+            </p>
+            <p>
+              あまり宝塚にはない題材で、その発想は面白いと思います。<br>
+              日本物を書いて下さる先生は貴重ですし、難しい分野だと思うので、これからを楽しみにしたいと思います。
+            </p>
+            <p>
+              幸蔵の<strong>彩吹真央</strong>。上手でした。ポイントの昔の心の傷も良く伝わってきましたし、若い者を率いる兄貴分的な頼もしさもありました。<br>
+              期待の歌では、特に三味線を弾き語り(?)している所、エンディングでの晴れ晴れとしたソロ、男役を引き連れてのナンバーが好きです。反対に幕開きでの登場のソロに、もっと初主演らしい覇気が見たかったと思いました。
+            </p>
+            <p>
+              次郎吉の<strong>蘭寿とむ</strong>。所作等の実力は彩吹の方が安定していますが、登場のソロの時に、まだ蘭寿の方が彼女なりのムードが出せているかな、と思いました。純粋な犬キャラクターという性格も、彼女らしい良さが出ていましたね。
+            </p>
+            <p>
+              喜の字の<strong>沢樹くるみ</strong>は芸者姿がキレイで良かったです。台詞の声が良いのが好きなんですよ。<br>
+              でも、次郎吉に対する切なさを、もっと出して欲しかったです。大人の女の役なので、あんなものかな、という気もしますが。
+            </p>
+            <p>
+              返って、お壱の<strong>桜一花</strong>の方が、短い場面で幸蔵に対する思いが良く伝わってきました。ビデオで観た「琥珀色の雨にぬれて」新人公演のフランソワーズ役の時も思ったのですが、彼女は結構芝居心があるような気がします。
+            </p>
+            <p>
+              若手では新助の<strong>桐生園加</strong>が良かったです。見た目は大人っぽいですが、「ミケランジェロ」新人公演のメンドリーニ役の時にも思った通り、声がまだ可愛いので、今回のような役の方が無理がなくて、今は合っているのではないかと思いました。<br>
+              それにしても、青天になると、ますます汐美真帆に似ていましたね～(^_^;)。<br>
+              次郎吉を刺しているのに、あまり反省の色が見えないのは？&emsp;演出もあると思いますが・・。
+            </p>
+            <p>
+              青天と言えば、幻想場面で、イマイチ似合っていない青天の若手の男役たちが、ゆらゆら動く振付にはちょっぴり笑えました(^_^;)。特に、二度目、その男達が舞台奥で、板付きポーズで登場したのには、悪いと思いつつ心の中で吹き出してしまいましたよ。
+            </p>
+            <p>
+              若手は全体に経験不足。伝統的に、日本物のお手本になりそうなスターのいない花組なので(^_^;)、仕方ないだろうな、という気がします。<br>
+              それだけに、上級生の<strong>城火呂絵、一樹千尋、夏美よう</strong>とその他の出演者の実力の差が歴然(経験が全然違うけれど^_^;)。<br>
+              ただ、<strong>翔つかさ、幸美杏奈、悠真倫</strong>はさすがに花組生でも安定していて、感心しました。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

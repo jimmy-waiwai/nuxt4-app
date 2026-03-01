@@ -1,148 +1,135 @@
 <script setup>
-const teamProps = ref({ team: "snow" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'snow',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            愛 燃える／Rose Garden
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              愛 燃える／Rose Garden
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                雪組・大劇場公演・・10/5～11/12
-              </p>
-              <p>
-                <strong>「愛 燃える」</strong
-                >は、途中あまりの展開に脱力、失笑。あらすじを読んで、面白くなりそうだと思っていた私が甘かったです。「砂漠の黒薔薇」に引き続き、サヨナラ大失敗作。<strong>よくも・・よくも再び出てきたな～、酒井先生</strong>！！&emsp;二度と再びオリジナル作りに出てくるなぁ～(怒)。
-              </p>
-              <p>
-                まず許せないのが、<strong>主役にちっとも魅力がない</strong>こと。宝塚なんですから、<strong>轟悠</strong>の雪組トップとしての最後の公演なのですから・・あぁ、もう、ファンが可哀想過ぎて涙が出ます。<strong
-                  >何なんだ、あの夫差という人物は！<br /> </strong
-                >夫差の良かった所と言えば、父の敵、<strong>越王を殺さなかった</strong>という事だけ。それも<strong>台詞だけ</strong>なので、見せ場にはなっていません。<br />
-                西施(<strong>月影瞳</strong>)や伯否(<strong>星原美沙緒</strong>)の言うがままに政治をする。真摯な家臣伍封(<strong>朝海ひかる</strong>)を自害させる。西施を慕う王孫惟(<strong>貴城けい</strong>)を問答無用に切り捨てる。<strong>あれでは悪役</strong>ではないですか。<br />
-                轟も「悪い事と知りながら～」と西施に溺れていく色気でも出れば、魅力が出たのかもしれないですが、<strong>堂々と落ち着くばかり</strong>。<br />
-                こんなに情けない役だとは！&emsp;轟ならではの、力強い王が観たかったのに！&emsp;<strong
-                  >ちゃんとトップスターの持ち味くらい理解して作品を作ってよ！！</strong
-                >
-              </p>
-              <p>
-                最後は「皇帝」の<strong>屋台崩し</strong>と「我が愛は山の彼方に」の<strong>崖っぷち紙吹雪</strong>をミックスしたような演出。植田先生の方が真似でないだけ偉いです。
-              </p>
-              <p>
-                一番楽しみにしていたのが絶世の美女西施を演じる<strong>月影</strong>。しかし残念ながら、<strong>姿の美しさ</strong>には満足できたものの、<strong>流されるだけの女性</strong>になってしまっていて期待外れ。<br />
-                范蠡(<strong>絵麻緒ゆう</strong>)の本心は最初の越の国の場面で思い知らされているのに、夫差に心を奪われているのに、最後まで范蠡(越の国)の為に義務を果たし、夫差を破滅へと導いているのも納得できません。<br />
-                月影ならはっきりと意志を持って、誘惑を仕掛けたり、後宮の女性達に立ち向かったり、思わずに夫差に心を奪われて、自分の使命と葛藤したり・・そんな生きた女性の姿を見たかったです。<strong>「キレイなだけでない強さ」が月影の良さなのですから</strong>。
-              </p>
-              <p>
-                <strong>絵麻緒</strong
-                >の范蠡は最後まで悪役。結局越の国の為に西施や伯否を利用した、という立場を貫いていて、それだけの役になっていました。新鮮と言えば新鮮で、絵麻緒も頼もしい出来でしたが、二枚目としては物足りない気はします。
-              </p>
-              <p>
-                <strong>朝海</strong
-                >の伍封。正義のヒーローで、一番共感できます。<br />
-                朝海のイメージにしては、渋いハードな役でしたが、歌にも頼もしさが増して、思ったより安心して見ていられました。弟役の<strong>音月桂</strong>も素直に上手い。
-              </p>
-              <p>
-                王孫惟の<strong>貴城</strong>は、中盤を過ぎた頃に突然ソロで「西施を愛している～」(←ちょっと違うかも)と歌い出すのでびっくり。<strong>甘いムード</strong>が良いです。その後は上記の通り、西施に迫った挙げ句、夫差にばっさり斬られてしまうのですが、<strong>貴城が真摯で、色悪には見えない</strong>から余計、夫差が悪者に見えるんですよね(^_^;)。
-              </p>
-              <p>
-                <strong>紺野まひる</strong
-                >は踊り子婉華。何度か中心で踊る場面がありましたが、キレイで良かったです。伍封に頼まれ西施の暗殺をしようとするのですが失敗し、引っ立てられていく時の<strong>「畜生！」</strong>の威勢の良さなんて、いかにも紺野っぽい(^_^;)。<br />
-                でも、引っ立てられた後、どうなったの？&emsp;伍封の事はバレなかったの？&emsp;影響もないようですし・・放ったらかし？
-              </p>
-              <p>
-                また、西施の侍女菫花の<strong>白羽ゆり</strong>に、密談を聞かれた伍封に斬られる見せ場がありましたが、これも次場面の西施や芙蓉(<strong>愛田芽久</strong>)には・・放ったらかし。
-              </p>
-              <p>
-                <strong>星原</strong
-                >が芝居を締めていました。<strong>未来優希</strong>は何だったのか？&emsp;見せ場がなくて残念。
-              </p>
-              <p>
-                <strong>立樹遥＆壮一帆</strong
-                >コンビは忠実な家臣でイメージにピッタリ。
-              </p>
-              <p>
-                呉軍のコミカルな兵士、<strong>美郷真也＆風早優</strong>の場面が、回りで芝居していた若手も芸達者揃いで、一番面白かったです(^_^;)。あまりにもイメージ通りの使い方だ、とは思いますけれど。
-              </p>
-              <p>&emsp;&emsp;&emsp;</p>
-              <p>
-                <strong>「Rose Garden」</strong
-                >は<strong>岡田先生</strong>の王道ロマンチック・レビュー。予想通りの構成でまずまずでしたが、<strong>衣装の形、色合いが古臭いものが多い</strong>のが不満でした。<br />
-                特に轟の衣装・・<strong>エリマキトカゲ型(?)の襟</strong>が多すぎます・・。
-              </p>
-              <p>
-                まずは幕前の「Rose
-                Garden」の吊り物の前で、<strong>三銃士(朝海・貴城・音月)</strong>が歌います。パステルのコスチュームが三人とも良く似合っていてキレイ！<br />
-                続く<strong>「薔薇戦争」</strong>は戦う<strong>紺野</strong>が美しく、<strong>朝海</strong>とも似合っていますが、間に入ってウロウロした後に、王冠を受けている<strong>轟</strong>は何者だったのでしょうか？&emsp;二人の屍の上だったので、感じ悪くないですか(^_^;)？&emsp;轟は美しかったですが。
-              </p>
-              <p>
-                <strong>「バラの露」</strong
-                >もお決まりのメルヘン場面。パックの<strong>音月</strong>が可愛い！&emsp;スーツ姿になるとまだまだですが。<br />
-                アフロディテの<strong>月影</strong>は「魅惑2」そっくりのシュツエーションですね。王子様で登場の<strong>貴城</strong>が美しい！&emsp;この配役は嬉しいです。<br />
-                ズボンの中生地をモコモコさせていたのが「かしげちゃん(貴城)」って感じで、スキが見えるんですけれど(^_^;)。お芝居の西施に迫る場面でも、帽子をズラしていましたし・・惜しいっ(笑)。
-              </p>
-              <p>
-                <strong>「間奏曲」</strong
-                >は<strong>朝海</strong>から<strong>絵麻緒</strong>の歌い継ぎ。二人とも上手くなりましたね～。<br />
-                続くタンゴ<strong>「ジェラシー」</strong>を使った場面は黒エンビで文句なし。
-              </p>
-              <p>
-                <strong>「ダンシング・ローズ」</strong
-                >はダンスはかっこ良かったですが、ベージュのスーツがシャツと合っていなくて変。
-              </p>
-              <p>
-                <strong>「ゴールデンハート」</strong
-                >はボレロ調の場面で、「ラ・カンタータ」の「熱愛のボレロ」に雰囲気が似ています。曲は<strong>「ローズ」</strong>で、盛り上がった良い場面でしたが、「Icarus」を思い出して、安蘭けいがいないのに・・と複雑な気分になる私のような人は、まぁ、あまりいないかな(^_^;)。
-              </p>
-              <p>
-                ロケットは退団の<strong>愛田</strong>中心。ロケットで可愛さが良く目立っていた愛田ならではの花むけですね。可愛かったです。
-              </p>
-              <p>
-                次回の観劇が当分先になりそうなので一応、初見の感想を書いておきました。<br />
-                初日すぐの観劇、しかも一回しか観ていないので、もっと公演が練れた頃、もう一度見たらまた変わってくるだろうと思います。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              雪組・大劇場公演・・10/5～11/12
+            </p>
+            <p>
+              <strong>「愛 燃える」</strong>は、途中あまりの展開に脱力、失笑。あらすじを読んで、面白くなりそうだと思っていた私が甘かったです。「砂漠の黒薔薇」に引き続き、サヨナラ大失敗作。<strong>よくも・・よくも再び出てきたな～、酒井先生</strong>！！&emsp;二度と再びオリジナル作りに出てくるなぁ～(怒)。
+            </p>
+            <p>
+              まず許せないのが、<strong>主役にちっとも魅力がない</strong>こと。宝塚なんですから、<strong>轟悠</strong>の雪組トップとしての最後の公演なのですから・・あぁ、もう、ファンが可哀想過ぎて涙が出ます。<strong>何なんだ、あの夫差という人物は！<br> </strong>夫差の良かった所と言えば、父の敵、<strong>越王を殺さなかった</strong>という事だけ。それも<strong>台詞だけ</strong>なので、見せ場にはなっていません。<br>
+              西施(<strong>月影瞳</strong>)や伯否(<strong>星原美沙緒</strong>)の言うがままに政治をする。真摯な家臣伍封(<strong>朝海ひかる</strong>)を自害させる。西施を慕う王孫惟(<strong>貴城けい</strong>)を問答無用に切り捨てる。<strong>あれでは悪役</strong>ではないですか。<br>
+              轟も「悪い事と知りながら～」と西施に溺れていく色気でも出れば、魅力が出たのかもしれないですが、<strong>堂々と落ち着くばかり</strong>。<br>
+              こんなに情けない役だとは！&emsp;轟ならではの、力強い王が観たかったのに！&emsp;<strong>ちゃんとトップスターの持ち味くらい理解して作品を作ってよ！！</strong>
+            </p>
+            <p>
+              最後は「皇帝」の<strong>屋台崩し</strong>と「我が愛は山の彼方に」の<strong>崖っぷち紙吹雪</strong>をミックスしたような演出。植田先生の方が真似でないだけ偉いです。
+            </p>
+            <p>
+              一番楽しみにしていたのが絶世の美女西施を演じる<strong>月影</strong>。しかし残念ながら、<strong>姿の美しさ</strong>には満足できたものの、<strong>流されるだけの女性</strong>になってしまっていて期待外れ。<br>
+              范蠡(<strong>絵麻緒ゆう</strong>)の本心は最初の越の国の場面で思い知らされているのに、夫差に心を奪われているのに、最後まで范蠡(越の国)の為に義務を果たし、夫差を破滅へと導いているのも納得できません。<br>
+              月影ならはっきりと意志を持って、誘惑を仕掛けたり、後宮の女性達に立ち向かったり、思わずに夫差に心を奪われて、自分の使命と葛藤したり・・そんな生きた女性の姿を見たかったです。<strong>「キレイなだけでない強さ」が月影の良さなのですから</strong>。
+            </p>
+            <p>
+              <strong>絵麻緒</strong>の范蠡は最後まで悪役。結局越の国の為に西施や伯否を利用した、という立場を貫いていて、それだけの役になっていました。新鮮と言えば新鮮で、絵麻緒も頼もしい出来でしたが、二枚目としては物足りない気はします。
+            </p>
+            <p>
+              <strong>朝海</strong>の伍封。正義のヒーローで、一番共感できます。<br>
+              朝海のイメージにしては、渋いハードな役でしたが、歌にも頼もしさが増して、思ったより安心して見ていられました。弟役の<strong>音月桂</strong>も素直に上手い。
+            </p>
+            <p>
+              王孫惟の<strong>貴城</strong>は、中盤を過ぎた頃に突然ソロで「西施を愛している～」(←ちょっと違うかも)と歌い出すのでびっくり。<strong>甘いムード</strong>が良いです。その後は上記の通り、西施に迫った挙げ句、夫差にばっさり斬られてしまうのですが、<strong>貴城が真摯で、色悪には見えない</strong>から余計、夫差が悪者に見えるんですよね(^_^;)。
+            </p>
+            <p>
+              <strong>紺野まひる</strong>は踊り子婉華。何度か中心で踊る場面がありましたが、キレイで良かったです。伍封に頼まれ西施の暗殺をしようとするのですが失敗し、引っ立てられていく時の<strong>「畜生！」</strong>の威勢の良さなんて、いかにも紺野っぽい(^_^;)。<br>
+              でも、引っ立てられた後、どうなったの？&emsp;伍封の事はバレなかったの？&emsp;影響もないようですし・・放ったらかし？
+            </p>
+            <p>
+              また、西施の侍女菫花の<strong>白羽ゆり</strong>に、密談を聞かれた伍封に斬られる見せ場がありましたが、これも次場面の西施や芙蓉(<strong>愛田芽久</strong>)には・・放ったらかし。
+            </p>
+            <p>
+              <strong>星原</strong>が芝居を締めていました。<strong>未来優希</strong>は何だったのか？&emsp;見せ場がなくて残念。
+            </p>
+            <p><strong>立樹遥＆壮一帆</strong>コンビは忠実な家臣でイメージにピッタリ。</p>
+            <p>
+              呉軍のコミカルな兵士、<strong>美郷真也＆風早優</strong>の場面が、回りで芝居していた若手も芸達者揃いで、一番面白かったです(^_^;)。あまりにもイメージ通りの使い方だ、とは思いますけれど。
+            </p>
+            <p>&emsp;&emsp;&emsp;</p>
+            <p>
+              <strong>「Rose Garden」</strong>は<strong>岡田先生</strong>の王道ロマンチック・レビュー。予想通りの構成でまずまずでしたが、<strong>衣装の形、色合いが古臭いものが多い</strong>のが不満でした。<br>
+              特に轟の衣装・・<strong>エリマキトカゲ型(?)の襟</strong>が多すぎます・・。
+            </p>
+            <p>
+              まずは幕前の「Rose
+              Garden」の吊り物の前で、<strong>三銃士(朝海・貴城・音月)</strong>が歌います。パステルのコスチュームが三人とも良く似合っていてキレイ！<br>
+              続く<strong>「薔薇戦争」</strong>は戦う<strong>紺野</strong>が美しく、<strong>朝海</strong>とも似合っていますが、間に入ってウロウロした後に、王冠を受けている<strong>轟</strong>は何者だったのでしょうか？&emsp;二人の屍の上だったので、感じ悪くないですか(^_^;)？&emsp;轟は美しかったですが。
+            </p>
+            <p>
+              <strong>「バラの露」</strong>もお決まりのメルヘン場面。パックの<strong>音月</strong>が可愛い！&emsp;スーツ姿になるとまだまだですが。<br>
+              アフロディテの<strong>月影</strong>は「魅惑2」そっくりのシュツエーションですね。王子様で登場の<strong>貴城</strong>が美しい！&emsp;この配役は嬉しいです。<br>
+              ズボンの中生地をモコモコさせていたのが「かしげちゃん(貴城)」って感じで、スキが見えるんですけれど(^_^;)。お芝居の西施に迫る場面でも、帽子をズラしていましたし・・惜しいっ(笑)。
+            </p>
+            <p>
+              <strong>「間奏曲」</strong>は<strong>朝海</strong>から<strong>絵麻緒</strong>の歌い継ぎ。二人とも上手くなりましたね～。<br>
+              続くタンゴ<strong>「ジェラシー」</strong>を使った場面は黒エンビで文句なし。
+            </p>
+            <p>
+              <strong>「ダンシング・ローズ」</strong>はダンスはかっこ良かったですが、ベージュのスーツがシャツと合っていなくて変。
+            </p>
+            <p>
+              <strong>「ゴールデンハート」</strong>はボレロ調の場面で、「ラ・カンタータ」の「熱愛のボレロ」に雰囲気が似ています。曲は<strong>「ローズ」</strong>で、盛り上がった良い場面でしたが、「Icarus」を思い出して、安蘭けいがいないのに・・と複雑な気分になる私のような人は、まぁ、あまりいないかな(^_^;)。
+            </p>
+            <p>
+              ロケットは退団の<strong>愛田</strong>中心。ロケットで可愛さが良く目立っていた愛田ならではの花むけですね。可愛かったです。
+            </p>
+            <p>
+              次回の観劇が当分先になりそうなので一応、初見の感想を書いておきました。<br>
+              初日すぐの観劇、しかも一回しか観ていないので、もっと公演が練れた頃、もう一度見たらまた変わってくるだろうと思います。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

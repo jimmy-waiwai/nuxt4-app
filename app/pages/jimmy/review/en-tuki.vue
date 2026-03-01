@@ -1,157 +1,153 @@
 <script setup>
-const teamProps = ref({ team: "moon" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'moon',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            月組 エンカレッジ コンサート
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              月組 エンカレッジ コンサート
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                月組・バウホール公演・・7/6～8
-              </p>
-              <p>
-                <strong>月組「エンカレッジ・コンサート」</strong
-                >観てきました。<br />
-                プログラムご紹介しますね。
-              </p>
-              <p>
-                <strong>第一部</strong><br />
-                １．'S Wonderful&emsp;全員<br />
-                ２．アマール・アマール&emsp;研ルイス<br />
-                ３．イヴのテーマ&emsp;北翔海莉<br />
-                ４．ジュテーム&emsp;楠恵華<br />
-                ５．夢&emsp;アモール&emsp;椎名葵・研ルイス<br />
-                ６．インディアン・ラブ・コール&emsp;叶千佳<br />
-                ７．失礼な冗談ね&emsp;花瀬みずか<br />
-                ８．The Last Night Of The World&emsp;霧矢大夢・西條三恵<br />
-                ９．アイ・ガット・リズム&emsp;西條三恵＆男役<br />
-                10．唯ひとたびの&emsp;穂波亜莉亜<br />
-                11．朝日の昇る前に&emsp;大樹槙<br />
-                12．Saved&emsp;瀧川末子<br />
-                13．CONFRONTATION&emsp;嘉月絵理<br />
-                14．旅立ち&emsp;北嶋麻実・西條三恵<br />
-                15．Sometimes I feel like a motherless child&emsp;美々杏里<br />
-                16．シナ－マン&emsp;霧矢大夢＆全員
-              </p>
-              <p>
-                <strong>第二部</strong><br />
-                １．プリテンド&emsp;全員<br />
-                ２．夜のメロディー&emsp;北翔海莉<br />
-                ３．小さな花がひらいた～もう涙とはおさらばさ&emsp;叶千佳<br />
-                ４．Con Los Anos Que Me Quedan&emsp;椎名葵<br />
-                ５．Don't Cry for Me Argentina&emsp;西條三恵<br />
-                ６．Love Can't Happen&emsp;美々杏里・嘉月絵理<br />
-                ７．明日になれば&emsp;穂波亜莉亜<br />
-                ８．Season of Love&emsp;全員<br />
-                ９．そして、今&emsp;楠恵華<br />
-                10．ル・ポアゾン&emsp;北嶋麻実<br />
-                11．新しく生きる時&emsp;研ルイス<br />
-                12．ザッツ・ライフ&emsp;大樹槙<br />
-                13．It's A DANGEROUS GAME&emsp;瀧川末子・嘉月絵理<br />
-                14．Wishing You Were Somehow Here Again&emsp;花瀬みずか<br />
-                15．I'd Give My Life for You&emsp;美々杏里<br />
-                16．The Music of The Night&emsp;霧矢大夢<br />
-                17．Climb Ev'ry Mountain&emsp;全員
-              </p>
-              <p>
-                花組、雪組に引き続き、今回の月組も運良く千秋楽を、同じような席で観る事ができたのですが、今回の月組、<strong>レベルは非常に高かった</strong>のではないかと思いました。
-              </p>
-              <p>
-                何というか、<strong>プロっぽかった</strong>ですね(^_^;)。順に歌を歌う発表会的ニュアンスの域を越え、聞かせる事を考えている人が多いと思いました。
-              </p>
-              <p>
-                メンバーにある程度本公演で活躍しているスターが多かったのもありますが、<strong>月組カラーかな</strong>、とも思います。
-              </p>
-              <p>
-                中心の<strong>美々、嘉月、霧矢、西條</strong>・・がいずれも迫力たっぷりの実力派で、しかも残りのメンバーも予想以上に声量があって、二幕は特に、聞いていてぐったり疲れてしまいました(^_^;)。
-              </p>
-              <p>
-                公演の主旨を考えると、曲目に強弱つけている場合ではなく、皆ここ一番の派手なナンバーを選んでくるのは当然ですよね。これで良いとは思うのですが。
-              </p>
-              <p>
-                あと、<strong>ますます宝塚の名曲を選ぶ人が減っていた</strong>のも、宝塚ファンとしては寂しかったなぁ。その意味で、やはり初回の花組エンカレッジのムードが私は好きです。
-              </p>
-              <p>
-                宝塚の作品の中で歌ってみたい歌とか、ないのかな～？&emsp;何かもう、<strong>宝塚の中で夢は持っていないのではないか</strong>、という気が、あまりにも<strong>宝塚を離れた歌いっぷり</strong>だったもので(^_^;)、してしまいました。
-              </p>
-              <p>
-                ナンバーでは<strong>嘉月</strong>と<strong>美々</strong>の「グランドホテル」から「Love
-                Can't
-                Happen」のデュエットが演技付きで嬉しかった～。<strong>嘉月</strong>は一部の二重人格の歌い分けといい、MCの上手さといい、改めて本当に達者な人なんだな～、と感心。
-              </p>
-              <p>
-                <strong>大樹</strong
-                >は、「朝日の昇る前に」はギャツビーの日記朗読付きでしたし、「ザッツ・ライフ」も振り付けを少し真似ていたのではないでしょうか？&emsp;ウケてしまいました(^_^;)。
-              </p>
-              <p>
-                <strong>北嶋</strong
-                >は、「ル・ポアゾン」では髪をハネさせて、キザる北嶋を初めて見た気がしました(おだやかなイメージがあるんですよね^_^;)。
-              </p>
-              <p>
-                どの歌も本当に良かったです。個々では挙げにくいですね。今回は特に。それ位、聞き応えある歌ばかりでした。
-              </p>
-              <p>
-                驚いたのは<strong>瀧川</strong>かな。地声での「Saved」も堂々としたもので、「愛のソナタ」新公でも演技が目についた所だったので、実力ある子なんだ～、と認識。これからの活躍が楽しみです。
-              </p>
-              <p>
-                <strong>研</strong>は、若手ながらかなり色気のある子で面白い。
-              </p>
-              <p>
-                <strong>花瀬</strong
-                >の「失礼な冗談ね」は、ウィーンCDでの純名里沙の歌が印象に残っていたので、どうかな？&emsp;と思っていたのですが、上手かったですね～。綺麗な声です。
-              </p>
-              <p>
-                <strong>叶</strong
-                >も随分上手くなっていて驚きました。レッスンしているから、選ばれたのでしょうね。成長が見えるのは嬉しいです。
-              </p>
-              <p>
-                <strong>北翔</strong
-                >は元々とても楽しみにしている男役なのですが、まだ男役になりきれていない印象があっただけに、思いの外低い男役の声で二曲とも歌っていて、二枚目らしい雰囲気を感じさせてくれたのが大収穫でした。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              月組・バウホール公演・・7/6～8
+            </p>
+            <p>
+              <strong>月組「エンカレッジ・コンサート」</strong>観てきました。<br>
+              プログラムご紹介しますね。
+            </p>
+            <p>
+              <strong>第一部</strong><br>
+              １．'S Wonderful&emsp;全員<br>
+              ２．アマール・アマール&emsp;研ルイス<br>
+              ３．イヴのテーマ&emsp;北翔海莉<br>
+              ４．ジュテーム&emsp;楠恵華<br>
+              ５．夢&emsp;アモール&emsp;椎名葵・研ルイス<br>
+              ６．インディアン・ラブ・コール&emsp;叶千佳<br>
+              ７．失礼な冗談ね&emsp;花瀬みずか<br>
+              ８．The Last Night Of The World&emsp;霧矢大夢・西條三恵<br>
+              ９．アイ・ガット・リズム&emsp;西條三恵＆男役<br>
+              10．唯ひとたびの&emsp;穂波亜莉亜<br>
+              11．朝日の昇る前に&emsp;大樹槙<br>
+              12．Saved&emsp;瀧川末子<br>
+              13．CONFRONTATION&emsp;嘉月絵理<br>
+              14．旅立ち&emsp;北嶋麻実・西條三恵<br>
+              15．Sometimes I feel like a motherless child&emsp;美々杏里<br>
+              16．シナ－マン&emsp;霧矢大夢＆全員
+            </p>
+            <p>
+              <strong>第二部</strong><br>
+              １．プリテンド&emsp;全員<br>
+              ２．夜のメロディー&emsp;北翔海莉<br>
+              ３．小さな花がひらいた～もう涙とはおさらばさ&emsp;叶千佳<br>
+              ４．Con Los Anos Que Me Quedan&emsp;椎名葵<br>
+              ５．Don't Cry for Me Argentina&emsp;西條三恵<br>
+              ６．Love Can't Happen&emsp;美々杏里・嘉月絵理<br>
+              ７．明日になれば&emsp;穂波亜莉亜<br>
+              ８．Season of Love&emsp;全員<br>
+              ９．そして、今&emsp;楠恵華<br>
+              10．ル・ポアゾン&emsp;北嶋麻実<br>
+              11．新しく生きる時&emsp;研ルイス<br>
+              12．ザッツ・ライフ&emsp;大樹槙<br>
+              13．It's A DANGEROUS GAME&emsp;瀧川末子・嘉月絵理<br>
+              14．Wishing You Were Somehow Here Again&emsp;花瀬みずか<br>
+              15．I'd Give My Life for You&emsp;美々杏里<br>
+              16．The Music of The Night&emsp;霧矢大夢<br>
+              17．Climb Ev'ry Mountain&emsp;全員
+            </p>
+            <p>
+              花組、雪組に引き続き、今回の月組も運良く千秋楽を、同じような席で観る事ができたのですが、今回の月組、<strong>レベルは非常に高かった</strong>のではないかと思いました。
+            </p>
+            <p>
+              何というか、<strong>プロっぽかった</strong>ですね(^_^;)。順に歌を歌う発表会的ニュアンスの域を越え、聞かせる事を考えている人が多いと思いました。
+            </p>
+            <p>
+              メンバーにある程度本公演で活躍しているスターが多かったのもありますが、<strong>月組カラーかな</strong>、とも思います。
+            </p>
+            <p>
+              中心の<strong>美々、嘉月、霧矢、西條</strong>・・がいずれも迫力たっぷりの実力派で、しかも残りのメンバーも予想以上に声量があって、二幕は特に、聞いていてぐったり疲れてしまいました(^_^;)。
+            </p>
+            <p>
+              公演の主旨を考えると、曲目に強弱つけている場合ではなく、皆ここ一番の派手なナンバーを選んでくるのは当然ですよね。これで良いとは思うのですが。
+            </p>
+            <p>
+              あと、<strong>ますます宝塚の名曲を選ぶ人が減っていた</strong>のも、宝塚ファンとしては寂しかったなぁ。その意味で、やはり初回の花組エンカレッジのムードが私は好きです。
+            </p>
+            <p>
+              宝塚の作品の中で歌ってみたい歌とか、ないのかな～？&emsp;何かもう、<strong>宝塚の中で夢は持っていないのではないか</strong>、という気が、あまりにも<strong>宝塚を離れた歌いっぷり</strong>だったもので(^_^;)、してしまいました。
+            </p>
+            <p>
+              ナンバーでは<strong>嘉月</strong>と<strong>美々</strong>の「グランドホテル」から「Love
+              Can't
+              Happen」のデュエットが演技付きで嬉しかった～。<strong>嘉月</strong>は一部の二重人格の歌い分けといい、MCの上手さといい、改めて本当に達者な人なんだな～、と感心。
+            </p>
+            <p>
+              <strong>大樹</strong>は、「朝日の昇る前に」はギャツビーの日記朗読付きでしたし、「ザッツ・ライフ」も振り付けを少し真似ていたのではないでしょうか？&emsp;ウケてしまいました(^_^;)。
+            </p>
+            <p>
+              <strong>北嶋</strong>は、「ル・ポアゾン」では髪をハネさせて、キザる北嶋を初めて見た気がしました(おだやかなイメージがあるんですよね^_^;)。
+            </p>
+            <p>
+              どの歌も本当に良かったです。個々では挙げにくいですね。今回は特に。それ位、聞き応えある歌ばかりでした。
+            </p>
+            <p>
+              驚いたのは<strong>瀧川</strong>かな。地声での「Saved」も堂々としたもので、「愛のソナタ」新公でも演技が目についた所だったので、実力ある子なんだ～、と認識。これからの活躍が楽しみです。
+            </p>
+            <p><strong>研</strong>は、若手ながらかなり色気のある子で面白い。</p>
+            <p>
+              <strong>花瀬</strong>の「失礼な冗談ね」は、ウィーンCDでの純名里沙の歌が印象に残っていたので、どうかな？&emsp;と思っていたのですが、上手かったですね～。綺麗な声です。
+            </p>
+            <p>
+              <strong>叶</strong>も随分上手くなっていて驚きました。レッスンしているから、選ばれたのでしょうね。成長が見えるのは嬉しいです。
+            </p>
+            <p>
+              <strong>北翔</strong>は元々とても楽しみにしている男役なのですが、まだ男役になりきれていない印象があっただけに、思いの外低い男役の声で二曲とも歌っていて、二枚目らしい雰囲気を感じさせてくれたのが大収穫でした。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

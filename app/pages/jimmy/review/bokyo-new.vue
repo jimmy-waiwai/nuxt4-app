@@ -1,98 +1,99 @@
 <script setup>
-const teamProps = ref({ team: "cosmos" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'cosmos',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            望郷は海を越えて
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              望郷は海を越えて
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                宙組大劇場新人公演・9/12
-              </p>
-              <p>
-                <strong>久遠麻耶</strong
-                >主演、宙組新人公演「望郷は海を越えて」を観てきました。
-              </p>
-              <p>
-                海人の<strong>久遠</strong>。主演三度目、今回が最後の新公です。初主演「激情」の時「まだまだ上手くはないけれど、魅力ある！」と思って注目し始めたのですが(^_^;)、それから一作毎に着々と実力をつけて、今回堂々と舞台を引っ張るまでに成長していたのが頼もしい。歌も幕開けからしっかりと声が出ていて舞台度胸の良さを感じました。台詞が明瞭なのも良いですね。
-              </p>
-              <p>
-                役柄としては、仲間を引っ張る九鬼一族の若様が、新公を引っ張る久遠そのもの、といった雰囲気で、前二作よりは作らずに、持っている華と品をそのまま生かして、のびのびと演じているように見えました。
-              </p>
-              <p>
-                新公の出来の良さの点ではこれで十二分に満足ですが、男役としての魅力は、これからあのほっぺが落ちて(^_^;)、大きな三白眼が効くようになってからがスタートかな、という感じで、まだまだ幼さが残ります。しかし将来が非常に楽しみな逸材である事は間違いありません。
-              </p>
-              <p>
-                初ヒロインの<strong>美羽あさひ</strong>。ここ数回宙組の新公を観ていて思うのですが、花總まりの役をする人は可哀想ですね(^_^;)。トップ娘役は未熟な若手が抜擢される事が多々あるので、場合によって新公のヒロインの方が上手かったりする事もありますが、花總だとそういう訳にはいきません。美羽はまず、どうしても見た目にヒロインらしい華やかさがないのが辛かったです。
-              </p>
-              <p>
-                しかし台詞の声がキレイで、歌も良く、抜擢される理由は分かる実力の持ち主だと思いました。エカテリーナ2世の方は思いの外すっきりとドレス、髪型等つけられていて、雑な人ではないんだろうな、とも思いました。まだ研二ですし、これから化ける事が出来るか、ですね。
-              </p>
-              <p>
-                蔵人の<strong>華宮あいり</strong>。本役の湖月わたるとの身長差で、どうしようもない事ですが見劣りしてしまいます。ただ、銀橋でのソロナンバーに湖月とは全く別の色気があって、良く言うとヤンさん(安寿ミラ)っぽい雰囲気が感じられたのが面白かったです(^_^;)。でも、歌、台詞ともに非常に弱いのも確か。ダンサーの割に姿勢があまり良くないのも気になります。
-              </p>
-              <p>
-                源九郎の<strong>初嶺まよ</strong>。意外と芝居が熱いですね(^_^;)。久遠と同期で最後の新公だけに、蔵人役で観たかったです。
-              </p>
-              <p>
-                アレクセイの<strong>速水リキ</strong>が台詞、歌とも迫力あって目立ちました。見た目もキレイでしたね。
-              </p>
-              <p>
-                伊三は研一の<strong>和涼華</strong>。見た目はまだまだですが、研一であれだけしっかり台詞が言えれば大したもの。
-              </p>
-              <p>
-                その他で良かったのは、何と言っても唐戸の<strong>久路あかり</strong>。弥太郎＆ボロディン伯爵の<strong>苑みかげ</strong>共々抜群に上手い。本公演では埋もれている印象があるだけに、もっと台詞のある役が観てみたいです。<strong>毬穂えりな</strong>は今回4場の歌手だけで残念でしたが、上手かったです。
-              </p>
-              <p>
-                ハバロフの<strong>悠未ひろ</strong>は前新公よりスッキリとして、ロシア人に見えて良かったです。妻役達含めアドリブを入れてくれた姿勢も嬉しい。
-              </p>
-              <p>
-                最後の挨拶で、<strong>久遠</strong>が、前回の新公まではしっかりと挨拶していただけに、涙していたのが意外でした。全然泣く必要のない出来だったのに(^_^;)。最後の新公をやり遂げて、初めて少し安心して素顔が出せたのではないかな、と思います。今までのしっかりした舞台とは裏腹に、ふに～っとなってしまうのが可愛かったです(^_^;)。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              宙組大劇場新人公演・9/12
+            </p>
+            <p><strong>久遠麻耶</strong>主演、宙組新人公演「望郷は海を越えて」を観てきました。</p>
+            <p>
+              海人の<strong>久遠</strong>。主演三度目、今回が最後の新公です。初主演「激情」の時「まだまだ上手くはないけれど、魅力ある！」と思って注目し始めたのですが(^_^;)、それから一作毎に着々と実力をつけて、今回堂々と舞台を引っ張るまでに成長していたのが頼もしい。歌も幕開けからしっかりと声が出ていて舞台度胸の良さを感じました。台詞が明瞭なのも良いですね。
+            </p>
+            <p>
+              役柄としては、仲間を引っ張る九鬼一族の若様が、新公を引っ張る久遠そのもの、といった雰囲気で、前二作よりは作らずに、持っている華と品をそのまま生かして、のびのびと演じているように見えました。
+            </p>
+            <p>
+              新公の出来の良さの点ではこれで十二分に満足ですが、男役としての魅力は、これからあのほっぺが落ちて(^_^;)、大きな三白眼が効くようになってからがスタートかな、という感じで、まだまだ幼さが残ります。しかし将来が非常に楽しみな逸材である事は間違いありません。
+            </p>
+            <p>
+              初ヒロインの<strong>美羽あさひ</strong>。ここ数回宙組の新公を観ていて思うのですが、花總まりの役をする人は可哀想ですね(^_^;)。トップ娘役は未熟な若手が抜擢される事が多々あるので、場合によって新公のヒロインの方が上手かったりする事もありますが、花總だとそういう訳にはいきません。美羽はまず、どうしても見た目にヒロインらしい華やかさがないのが辛かったです。
+            </p>
+            <p>
+              しかし台詞の声がキレイで、歌も良く、抜擢される理由は分かる実力の持ち主だと思いました。エカテリーナ2世の方は思いの外すっきりとドレス、髪型等つけられていて、雑な人ではないんだろうな、とも思いました。まだ研二ですし、これから化ける事が出来るか、ですね。
+            </p>
+            <p>
+              蔵人の<strong>華宮あいり</strong>。本役の湖月わたるとの身長差で、どうしようもない事ですが見劣りしてしまいます。ただ、銀橋でのソロナンバーに湖月とは全く別の色気があって、良く言うとヤンさん(安寿ミラ)っぽい雰囲気が感じられたのが面白かったです(^_^;)。でも、歌、台詞ともに非常に弱いのも確か。ダンサーの割に姿勢があまり良くないのも気になります。
+            </p>
+            <p>
+              源九郎の<strong>初嶺まよ</strong>。意外と芝居が熱いですね(^_^;)。久遠と同期で最後の新公だけに、蔵人役で観たかったです。
+            </p>
+            <p>
+              アレクセイの<strong>速水リキ</strong>が台詞、歌とも迫力あって目立ちました。見た目もキレイでしたね。
+            </p>
+            <p>
+              伊三は研一の<strong>和涼華</strong>。見た目はまだまだですが、研一であれだけしっかり台詞が言えれば大したもの。
+            </p>
+            <p>
+              その他で良かったのは、何と言っても唐戸の<strong>久路あかり</strong>。弥太郎＆ボロディン伯爵の<strong>苑みかげ</strong>共々抜群に上手い。本公演では埋もれている印象があるだけに、もっと台詞のある役が観てみたいです。<strong>毬穂えりな</strong>は今回4場の歌手だけで残念でしたが、上手かったです。
+            </p>
+            <p>
+              ハバロフの<strong>悠未ひろ</strong>は前新公よりスッキリとして、ロシア人に見えて良かったです。妻役達含めアドリブを入れてくれた姿勢も嬉しい。
+            </p>
+            <p>
+              最後の挨拶で、<strong>久遠</strong>が、前回の新公まではしっかりと挨拶していただけに、涙していたのが意外でした。全然泣く必要のない出来だったのに(^_^;)。最後の新公をやり遂げて、初めて少し安心して素顔が出せたのではないかな、と思います。今までのしっかりした舞台とは裏腹に、ふに～っとなってしまうのが可愛かったです(^_^;)。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

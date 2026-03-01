@@ -1,118 +1,117 @@
 <script setup>
-const teamProps = ref({ team: "cosmos" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'cosmos',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            おーい春風さん／春ふたたび
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              おーい春風さん／春ふたたび
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                宙組バウホール公演・・1/2～10
-              </p>
-              <p>
-                <strong
-                  >宙組バウ・ワークショップ「おーい春風さん／春ふたたび」</strong
-                >を、1/3と1/5の2回、観てきました。<br />
-                2回も観るつもりはなかったのですが、余ったチケットが売れなかったんです・・(^_^;)。<br />
-                でも思ったより面白かったので、退屈はしませんでした。
-              </p>
-              <p>
-                <strong>「春ふたたび」</strong
-                >は観た事があるのですが、<strong>「おーい春風さん」</strong>の方は初めてです。<br />
-                実は脚本だけ家にあったので、観る前に読んでみたのですが、角兵衛獅子の子供たちとお地蔵様の物語。「これを本当に今の宝塚でやるの？」と思いました。
-              </p>
-              <p>
-                でも、<strong>観てみて意外と良かった</strong>です。何より子役をしている若手たちが可愛くて、それがちゃんと作品の魅力になっていました。「春ふたたび」より好きな位です。<br />
-                <strong
-                  >「昔の宝塚って、こんな作品をしていたんだな～。こういう役をしているタカラジェンヌも良いものだな～。」</strong
-                >とほのぼのした気分になりました。
-              </p>
-              <p>
-                もちろん「春ふたたび」は名作です。でも<strong>道忠(遼河はるひ)</strong>と<strong>やす(出雲綾)</strong>以外、あまり見どころのある役はないですし、「歌う歌わない」「名乗る名乗らない」のせめぎあいがひたすら長くて(^_^;)、ちょっと退屈しました。この作品って、いつも1時間もありましたっけ？
-              </p>
-              <p>
-                内容的には文字通りの若手奮闘公演で、新人公演レベル。専科の助演陣との差は歴然、と言った感じでしたが、本公演ではなかなか見られない若手たちの台詞や歌が聴けて、発表会感覚で面白かったです。<br />
-                でも、例年の若手主演の新作公演と同じ料金というのはどうかな～？&emsp;「春ふたたび」を45分にして、「恋天狗」も加えて、全組3作品とも上演してくれたら良いのに、と思いました。
-              </p>
-              <p>
-                出演者では、まず清太の<strong>華宮あいり</strong>。基本的に可愛らしくて、子役も違和感なかったですし、ちょっと拗ねた役柄も良く合っていました。「歌が一番上手い」子供の役という事で、どうかと思いましたが(^_^;)、まずまず歌えていましたね。
-              </p>
-              <p>
-                妹の<strong>彩乃かなみ</strong>も、今更驚く役柄ですが、子役の格好をしていても非常に愛らしく、華やか。芝居も上手くて流石です。<br />
-                目立ったのが角三の<strong>悠未ひろ</strong>。鼻タレ小僧役で、大きな体を生かして思い切り良く演じていたのに感心しました。<br />
-                信助の<strong>珠洲春希</strong>もしっかりした男の子役を素直に演じていて可愛かったです。
-              </p>
-              <p>
-                そしてお地蔵様の<strong>一樹千尋</strong>！&emsp;面白かったです～。この役の専科の人の共演も、見ものです。<br />
-                親方の<strong>箙かおる</strong>は楽々と。
-              </p>
-              <p>
-                前半の船待ちの大人達のコーナー(?)では、<strong>十輝いりす</strong>が猿回しの役で、初めて台詞や歌も聞けて嬉しかったです。結構伸び伸びできていたような気が・・。背中の猿も可愛かったです(^_^;)。<br />
-                船頭の<strong>風莉じん</strong>の「舟が出るよ～」の声、その後の歌も、良い声ですね～。
-              </p>
-              <p>
-                「春ふたたび」の道忠の<strong>遼河</strong>。長身に装束が映えて、「おーい春風さん」より主役らしく、芝居の点でも重量の大きな役ですね。難しかったと思いますが、良く演じていたと思います。朝香じゅんとの比較は・・もうあまり記憶にないのでできないのですが(^_^;)、優しい感じがするのが、遼河らしいのかな。
-              </p>
-              <p>
-                やすは<strong>出雲</strong>。出演者が発表になった時から、この役は出雲だと思っていました。大役なので、プレッシャーがあったでしょうね～。さすが上手い人だけあって、役に徹していて見事でした。
-              </p>
-              <p>
-                他ではかつらの<strong>美風舞良</strong>の台詞の声の良さ(また箙と夫婦役なんですね^_^;)、<strong>高宮里菜</strong>の歌声(流石高宮千夏の妹さん・・でしたよね？)が印象的。
-              </p>
-              <p>
-                家臣役の研一の<strong>蓮水ゆうや</strong>と<strong>鳳翔大</strong>はもともと注目の男役さんだったのですが、やっぱり二人ともかっこ良くて楽しみ。特に<strong>鳳翔</strong>は昔の一路真輝に似ていて、元ファンとしては、観ていて腰抜かしそうです(^_^;)。
-              </p>
-              <p>
-                出演者が少ないので、全員一言ずつくらい台詞が聞けるかな・・と思っていたのですが、そうでもなくて残念でした。
-              </p>
-              <p>
-                演出は「おーい春風さん」が<strong>小柳奈穂子</strong>。「春ふたたび」がデビューの<strong>川上正和</strong>。<br />
-                続く4組の公演の演出家との違いが観られるのか？&emsp;若手作家育成を強調した公演でもあるので、その点からも次組の公演が楽しみです。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              宙組バウホール公演・・1/2～10
+            </p>
+            <p>
+              <strong>宙組バウ・ワークショップ「おーい春風さん／春ふたたび」</strong>を、1/3と1/5の2回、観てきました。<br>
+              2回も観るつもりはなかったのですが、余ったチケットが売れなかったんです・・(^_^;)。<br>
+              でも思ったより面白かったので、退屈はしませんでした。
+            </p>
+            <p>
+              <strong>「春ふたたび」</strong>は観た事があるのですが、<strong>「おーい春風さん」</strong>の方は初めてです。<br>
+              実は脚本だけ家にあったので、観る前に読んでみたのですが、角兵衛獅子の子供たちとお地蔵様の物語。「これを本当に今の宝塚でやるの？」と思いました。
+            </p>
+            <p>
+              でも、<strong>観てみて意外と良かった</strong>です。何より子役をしている若手たちが可愛くて、それがちゃんと作品の魅力になっていました。「春ふたたび」より好きな位です。<br>
+              <strong>「昔の宝塚って、こんな作品をしていたんだな～。こういう役をしているタカラジェンヌも良いものだな～。」</strong>とほのぼのした気分になりました。
+            </p>
+            <p>
+              もちろん「春ふたたび」は名作です。でも<strong>道忠(遼河はるひ)</strong>と<strong>やす(出雲綾)</strong>以外、あまり見どころのある役はないですし、「歌う歌わない」「名乗る名乗らない」のせめぎあいがひたすら長くて(^_^;)、ちょっと退屈しました。この作品って、いつも1時間もありましたっけ？
+            </p>
+            <p>
+              内容的には文字通りの若手奮闘公演で、新人公演レベル。専科の助演陣との差は歴然、と言った感じでしたが、本公演ではなかなか見られない若手たちの台詞や歌が聴けて、発表会感覚で面白かったです。<br>
+              でも、例年の若手主演の新作公演と同じ料金というのはどうかな～？&emsp;「春ふたたび」を45分にして、「恋天狗」も加えて、全組3作品とも上演してくれたら良いのに、と思いました。
+            </p>
+            <p>
+              出演者では、まず清太の<strong>華宮あいり</strong>。基本的に可愛らしくて、子役も違和感なかったですし、ちょっと拗ねた役柄も良く合っていました。「歌が一番上手い」子供の役という事で、どうかと思いましたが(^_^;)、まずまず歌えていましたね。
+            </p>
+            <p>
+              妹の<strong>彩乃かなみ</strong>も、今更驚く役柄ですが、子役の格好をしていても非常に愛らしく、華やか。芝居も上手くて流石です。<br>
+              目立ったのが角三の<strong>悠未ひろ</strong>。鼻タレ小僧役で、大きな体を生かして思い切り良く演じていたのに感心しました。<br>
+              信助の<strong>珠洲春希</strong>もしっかりした男の子役を素直に演じていて可愛かったです。
+            </p>
+            <p>
+              そしてお地蔵様の<strong>一樹千尋</strong>！&emsp;面白かったです～。この役の専科の人の共演も、見ものです。<br>
+              親方の<strong>箙かおる</strong>は楽々と。
+            </p>
+            <p>
+              前半の船待ちの大人達のコーナー(?)では、<strong>十輝いりす</strong>が猿回しの役で、初めて台詞や歌も聞けて嬉しかったです。結構伸び伸びできていたような気が・・。背中の猿も可愛かったです(^_^;)。<br>
+              船頭の<strong>風莉じん</strong>の「舟が出るよ～」の声、その後の歌も、良い声ですね～。
+            </p>
+            <p>
+              「春ふたたび」の道忠の<strong>遼河</strong>。長身に装束が映えて、「おーい春風さん」より主役らしく、芝居の点でも重量の大きな役ですね。難しかったと思いますが、良く演じていたと思います。朝香じゅんとの比較は・・もうあまり記憶にないのでできないのですが(^_^;)、優しい感じがするのが、遼河らしいのかな。
+            </p>
+            <p>
+              やすは<strong>出雲</strong>。出演者が発表になった時から、この役は出雲だと思っていました。大役なので、プレッシャーがあったでしょうね～。さすが上手い人だけあって、役に徹していて見事でした。
+            </p>
+            <p>
+              他ではかつらの<strong>美風舞良</strong>の台詞の声の良さ(また箙と夫婦役なんですね^_^;)、<strong>高宮里菜</strong>の歌声(流石高宮千夏の妹さん・・でしたよね？)が印象的。
+            </p>
+            <p>
+              家臣役の研一の<strong>蓮水ゆうや</strong>と<strong>鳳翔大</strong>はもともと注目の男役さんだったのですが、やっぱり二人ともかっこ良くて楽しみ。特に<strong>鳳翔</strong>は昔の一路真輝に似ていて、元ファンとしては、観ていて腰抜かしそうです(^_^;)。
+            </p>
+            <p>
+              出演者が少ないので、全員一言ずつくらい台詞が聞けるかな・・と思っていたのですが、そうでもなくて残念でした。
+            </p>
+            <p>
+              演出は「おーい春風さん」が<strong>小柳奈穂子</strong>。「春ふたたび」がデビューの<strong>川上正和</strong>。<br>
+              続く4組の公演の演出家との違いが観られるのか？&emsp;若手作家育成を強調した公演でもあるので、その点からも次組の公演が楽しみです。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

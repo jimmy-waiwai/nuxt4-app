@@ -1,74 +1,77 @@
 <script setup>
-const teamProps = ref({ team: "moon" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'moon',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            十二夜－またはお望みのもの－
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              十二夜－またはお望みのもの－
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                月組バウホール公演・７／１７～２７
-              </p>
-              <p>
-                まず印象に残ったのは、<strong>大和悠河</strong>の美しさですね～。数々のキレイな衣装を来て、マントをひるがえして登場する度に、<strong>「チャララ～ン」</strong>というバックミュージックと、背中に<strong>バラ</strong>を背負っているのが見えました(^_^;)。少女マンガに出てくる<strong>理想の王子様</strong>のような雰囲気で、<strong>すごーく宝塚っぽい</strong>(^_^;)。演出も、くどい位大和扮するオーシーノー公爵を二枚目に作ってあって(^_^;)、両手で剣を出すサマなんて、シュツエーションがかっこ良すぎて、あまり決まっていなかったんですが(^_^;)、それさえも愛らしいんですよ。歌が弱いとか、思わず苦笑してしまうような所もあるんですが、もともと喜劇ですし、笑って流せるムードが今回はありました。
-              </p>
-              <p>
-                事実上物語の中心は<strong>花瀬みずか</strong>のヴァイオラ。愛らしい容姿と澄んだ歌声で、上手かったです。サー・トービーの<strong>大空祐飛</strong>はすっきりした二枚目で、やはり上級生だけあって、安定感がありました。
-              </p>
-              <p>
-                そして、今回すごかったのは<strong>立組長</strong>でしょう(^_^;)。ラブレターの場面、最高でした(^_^;)。<strong>夏河ゆら</strong>も最初は大和の思い人・・という、ちょっとびっくりな役でしたが・・実はいかにも夏河らしいキャラクターで・・、笑いましたね～。<strong>恐ろし気においでおいで(?)をするオリヴィアと夢遊病者のように引き寄せられていくセバスチャン(華路ゆうき)</strong>のおかしさは・・かなりツボに来ました(^_^;)。<strong>真山葉瑠</strong>も文句なく上手い。<strong>穂波亜莉亜</strong>も美しい助演者として、目立ってきましたね。
-              </p>
-              <p>
-                後は、頭の軽い騎士を演じた<strong>紫城るい</strong>。とっても可愛かったですが・・「シンデレラ・ロック」から続いているあの声は・・地声なの(^_^;)？&emsp;<strong>鳴海じゅん</strong>が腕の立つ騎士を演じて、なかなか二枚目な所を見せてくれました。
-              </p>
-              <p>
-                <strong>木村先生</strong
-                >、ＮＹ留学後第一段、という事で、とっても楽しみにしていた今回の「十二夜」。向こうではシェイクスピアの勉強もされていたらしいし・・、ひょっとして今年の「シェイクスピア」シリーズって、木村先生の為の趣向なのでは・・とまで思っていました。期待に違わぬ楽しい舞台でしたが、どちらかと言うと、木村先生よりも、大和の美しさと、助演陣の達者さが目立った公演でした。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              月組バウホール公演・７／１７～２７
+            </p>
+            <p>
+              まず印象に残ったのは、<strong>大和悠河</strong>の美しさですね～。数々のキレイな衣装を来て、マントをひるがえして登場する度に、<strong>「チャララ～ン」</strong>というバックミュージックと、背中に<strong>バラ</strong>を背負っているのが見えました(^_^;)。少女マンガに出てくる<strong>理想の王子様</strong>のような雰囲気で、<strong>すごーく宝塚っぽい</strong>(^_^;)。演出も、くどい位大和扮するオーシーノー公爵を二枚目に作ってあって(^_^;)、両手で剣を出すサマなんて、シュツエーションがかっこ良すぎて、あまり決まっていなかったんですが(^_^;)、それさえも愛らしいんですよ。歌が弱いとか、思わず苦笑してしまうような所もあるんですが、もともと喜劇ですし、笑って流せるムードが今回はありました。
+            </p>
+            <p>
+              事実上物語の中心は<strong>花瀬みずか</strong>のヴァイオラ。愛らしい容姿と澄んだ歌声で、上手かったです。サー・トービーの<strong>大空祐飛</strong>はすっきりした二枚目で、やはり上級生だけあって、安定感がありました。
+            </p>
+            <p>
+              そして、今回すごかったのは<strong>立組長</strong>でしょう(^_^;)。ラブレターの場面、最高でした(^_^;)。<strong>夏河ゆら</strong>も最初は大和の思い人・・という、ちょっとびっくりな役でしたが・・実はいかにも夏河らしいキャラクターで・・、笑いましたね～。<strong>恐ろし気においでおいで(?)をするオリヴィアと夢遊病者のように引き寄せられていくセバスチャン(華路ゆうき)</strong>のおかしさは・・かなりツボに来ました(^_^;)。<strong>真山葉瑠</strong>も文句なく上手い。<strong>穂波亜莉亜</strong>も美しい助演者として、目立ってきましたね。
+            </p>
+            <p>
+              後は、頭の軽い騎士を演じた<strong>紫城るい</strong>。とっても可愛かったですが・・「シンデレラ・ロック」から続いているあの声は・・地声なの(^_^;)？&emsp;<strong>鳴海じゅん</strong>が腕の立つ騎士を演じて、なかなか二枚目な所を見せてくれました。
+            </p>
+            <p>
+              <strong>木村先生</strong>、ＮＹ留学後第一段、という事で、とっても楽しみにしていた今回の「十二夜」。向こうではシェイクスピアの勉強もされていたらしいし・・、ひょっとして今年の「シェイクスピア」シリーズって、木村先生の為の趣向なのでは・・とまで思っていました。期待に違わぬ楽しい舞台でしたが、どちらかと言うと、木村先生よりも、大和の美しさと、助演陣の達者さが目立った公演でした。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

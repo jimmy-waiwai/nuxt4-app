@@ -1,95 +1,93 @@
 <script setup>
-const teamProps = ref({ team: "moon" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'moon',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            黒い瞳
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              黒い瞳
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                月組新人公演・１０／６
-              </p>
-              <p>
-                私、大和悠河主演の新公を観るのは初めてでしたので、と～っても楽しみにしていたのですが・・、う～ん、他の皆様はどんな感想を書くんだろう・・。あの新公を観て・・。
-              </p>
-              <p>
-                何か、<strong>新公らしい、新公</strong>でしたね(^_^;)。最近、レベルの高い新公が多かったせいか「今すぐ本公演でできそうだ」と思う事が多かったのですが、今回はとてもとても・・(^_^;)。
-              </p>
-              <p>
-                と、全体ではそんな感想でしたが、やはり<strong>主役の大和悠河(ニコライ)は光ってました</strong>(^_^;)。単に美しいだけではなく、<strong>愛嬌</strong>がありますね、彼女には。こんな言い方はどうかと思いますが、<strong>とーってもかわいらしかった</strong>です(^_^;)。<strong>白のブラウスや軍服が良く似合っていました</strong>。芝居の方は、台詞には感情がこもっていて悪くないけれど、かなり歌が弱いのがつらい。ここさえもう少しどうにかなれば(^_^;)、ぐっと舞台に迫力が出てくると思うのですが・・、まだまだ危なっかしくて仕方がないですね。これが若手ホープくらいの役所なら、キレイで文句ない所なのでしょうけれど(^_^;)。
-              </p>
-              <p>
-                <strong>大空祐飛(プガチョフ)</strong
-                >も台詞や歌の声が前に出ていなくて全体的に迫力不足。でも、メイクやカツラを上手く工夫していて、見た目に<strong>精悍な雰囲気</strong>は良く出ていました。本役の紫吹淳が、かなり従来の宝塚の二枚目像を越えた怪演をみせているので、この役は本当に難しかっただろうと思いますが・・。大空の方が、無難に、宝塚の二枚目っぽくはありました(^_^;)。
-              </p>
-              <p>
-                <strong>花瀬みずか(マーシャ)</strong
-                >はなかなか良かったですよ。始め雪の少女で踊り出てくる所などの動きも良く、歌の人だと思っていたので、かなり感心しました。反対に歌では声はきれいだったけれど、息継ぎ等、うまく聞こえるための技術をもっとつけて欲しいですね。でも、<strong
-                  >なかなかの実力派のようで、これからに期待がもてました。</strong
-                >
-              </p>
-              <p>
-                <strong>霧矢大夢(シヴァーブリン)</strong
-                >は上手かったですね～。全体に歌や台詞がイマイチの人が多かったので、<strong>霧矢の堂々とした台詞や歌はかなり目立ちました</strong>。もう少し見た目がスッキリすれば、もっと良い役もまわってくると思うのですが・・。
-              </p>
-              <p>
-                <strong>西條三恵(エカテリーナ二世)</strong
-                >は見た目があまりにもアントワネットをした時の毬藻えりに似ていたのでびっくりしました(^_^;)。上手かったですが、本役の千紘れいかがすばらしい出来なので、やはり少し見劣りがしました。
-              </p>
-              <p>
-                その他では、本公演の時から感じていたのですが、<strong>越乃リュウ(ミロノフ大尉)</strong>が見た目もすっきりと美しくなって、芝居での安定感も抜きん出ていて、目立ちました。<strong>鳴海じゅん(マクシームィチ)</strong>も安定した出来。見た目がミキちゃん(真矢みき)の若い頃にちょっと似ていて(^_^;)、なかなかかわいらしいです。後は、<strong>苑宮令奈(ヴァシリーサ)、大樹槙(ベロボロードフ)、楠恵華(トリオ・勇気)、紫城るい(トリオ・祈り)</strong>くらいが目につきました。
-              </p>
-              <p>
-                でも台詞の良い人、美しい人、共々全体的に少なかったのは残念です。やはり月組は大和が独走しているので、若手が育ちにくいのでしょうか・・。
-              </p>
-              <p>&emsp;</p>
-              <p>
-                こんな辛口評、宝塚ＨＰにはとても投稿できませんので(^_^;)、<strong>このＨＰだけの限定版</strong>とさせて頂きます。ファンの皆様、ごめんなさい・・。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★<span class="text-gray-400">★★★</span>)
-              </p>
-            </div>
+              月組新人公演・１０／６
+            </p>
+            <p>
+              私、大和悠河主演の新公を観るのは初めてでしたので、と～っても楽しみにしていたのですが・・、う～ん、他の皆様はどんな感想を書くんだろう・・。あの新公を観て・・。
+            </p>
+            <p>
+              何か、<strong>新公らしい、新公</strong>でしたね(^_^;)。最近、レベルの高い新公が多かったせいか「今すぐ本公演でできそうだ」と思う事が多かったのですが、今回はとてもとても・・(^_^;)。
+            </p>
+            <p>
+              と、全体ではそんな感想でしたが、やはり<strong>主役の大和悠河(ニコライ)は光ってました</strong>(^_^;)。単に美しいだけではなく、<strong>愛嬌</strong>がありますね、彼女には。こんな言い方はどうかと思いますが、<strong>とーってもかわいらしかった</strong>です(^_^;)。<strong>白のブラウスや軍服が良く似合っていました</strong>。芝居の方は、台詞には感情がこもっていて悪くないけれど、かなり歌が弱いのがつらい。ここさえもう少しどうにかなれば(^_^;)、ぐっと舞台に迫力が出てくると思うのですが・・、まだまだ危なっかしくて仕方がないですね。これが若手ホープくらいの役所なら、キレイで文句ない所なのでしょうけれど(^_^;)。
+            </p>
+            <p>
+              <strong>大空祐飛(プガチョフ)</strong>も台詞や歌の声が前に出ていなくて全体的に迫力不足。でも、メイクやカツラを上手く工夫していて、見た目に<strong>精悍な雰囲気</strong>は良く出ていました。本役の紫吹淳が、かなり従来の宝塚の二枚目像を越えた怪演をみせているので、この役は本当に難しかっただろうと思いますが・・。大空の方が、無難に、宝塚の二枚目っぽくはありました(^_^;)。
+            </p>
+            <p>
+              <strong>花瀬みずか(マーシャ)</strong>はなかなか良かったですよ。始め雪の少女で踊り出てくる所などの動きも良く、歌の人だと思っていたので、かなり感心しました。反対に歌では声はきれいだったけれど、息継ぎ等、うまく聞こえるための技術をもっとつけて欲しいですね。でも、<strong>なかなかの実力派のようで、これからに期待がもてました。</strong>
+            </p>
+            <p>
+              <strong>霧矢大夢(シヴァーブリン)</strong>は上手かったですね～。全体に歌や台詞がイマイチの人が多かったので、<strong>霧矢の堂々とした台詞や歌はかなり目立ちました</strong>。もう少し見た目がスッキリすれば、もっと良い役もまわってくると思うのですが・・。
+            </p>
+            <p>
+              <strong>西條三恵(エカテリーナ二世)</strong>は見た目があまりにもアントワネットをした時の毬藻えりに似ていたのでびっくりしました(^_^;)。上手かったですが、本役の千紘れいかがすばらしい出来なので、やはり少し見劣りがしました。
+            </p>
+            <p>
+              その他では、本公演の時から感じていたのですが、<strong>越乃リュウ(ミロノフ大尉)</strong>が見た目もすっきりと美しくなって、芝居での安定感も抜きん出ていて、目立ちました。<strong>鳴海じゅん(マクシームィチ)</strong>も安定した出来。見た目がミキちゃん(真矢みき)の若い頃にちょっと似ていて(^_^;)、なかなかかわいらしいです。後は、<strong>苑宮令奈(ヴァシリーサ)、大樹槙(ベロボロードフ)、楠恵華(トリオ・勇気)、紫城るい(トリオ・祈り)</strong>くらいが目につきました。
+            </p>
+            <p>
+              でも台詞の良い人、美しい人、共々全体的に少なかったのは残念です。やはり月組は大和が独走しているので、若手が育ちにくいのでしょうか・・。
+            </p>
+            <p>&emsp;</p>
+            <p>
+              こんな辛口評、宝塚ＨＰにはとても投稿できませんので(^_^;)、<strong>このＨＰだけの限定版</strong>とさせて頂きます。ファンの皆様、ごめんなさい・・。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★<span class="text-gray-400">★★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

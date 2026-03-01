@@ -1,87 +1,89 @@
 <script setup>
-const teamProps = ref({ team: "sonota" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'default',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            一路真輝ファーストコンサート・I's
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              一路真輝ファーストコンサート・I's
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                ドラマシティ・５／２６～５／２８
-              </p>
-              <p>
-                金銭的理由から、極力外部の舞台までは手を出さないようにしているのですが(^_^;)、<strong
-                  >一路真輝様は別よね！</strong
-                >
-                という事で、行ってまいりました。３日計５回のコンサートでしたが、超盛り上がった２８日夜、千秋楽(？)の公演です。
-              </p>
-              <p>
-                「エリザベート」大劇場公演<strong>前楽</strong>以来(^_^;)、<strong>２年２ヶ月振り</strong>のイチロ様の、<strong>変わらぬ美しさ</strong>(スラリとしたドレスがあんなに綺麗に着こなせるとは、勿論知りませんでしたが(^_^;))、<strong>楽しいお喋り</strong>(トップの頃よりも、やはり随分肩の力が抜けた感じがします)、そしてそして！
-                <strong>全くあの頃と変わらぬ力強い歌声</strong>に大感激でした！
-              </p>
-              <p>
-                ロビーで放映されていた、<strong>ウィーン公演千秋楽のビデオ</strong>(アンコールに特別出演したんです)も、ニュースを全部見逃した私としては、嬉しかったです。<strong>全然手抜きなしの、予想外にキザキザモードのトート閣下</strong>に、モニター前で固まってしまいました(^_^;)。
-              </p>
-              <p>
-                それもそのはず、その時は、突然現れた日本人の<strong>小娘</strong>(byイチロさん)トートに、<strong>サーッと引いてしまった観客</strong>(冷静に考えるとそりゃそうだ)を取り戻すために、宝塚時代にも使わなかった<strong>「メンチ切っちゃった」</strong>そうですよ(^_^;)。
-              </p>
-              <p>
-                「こんな目ができるんだったら、どうして宝塚時代にやっとかなかったんだろう・・。<strong>いやいや、私は正統派</strong>(←記憶を頼りに書いているので、このままではありませんが)」に、私達も、<strong>イチロさんも</strong>(^_^;)、大ウケでした(^_^;)。
-              </p>
-              <p>
-                そのメンチ切っちゃった(^_^;)<strong>振り</strong>を、ちょうど私たちの座っていた上手側で演ってくれたので、<strong>トークだっていうのに</strong>、またまた壊れてしまいました(^_^;)。
-              </p>
-              <p>
-                その後、アンコールでは、そのまさかの<strong>「最後のダンス」</strong>を熱唱して下さり、感無量。本当にカッコ良いですー。
-              </p>
-              <p>
-                <strong>やっぱりイチロさんのトートは良い</strong>です！
-                思い出として取っておきたい気もしますが、少しも衰えぬ歌声と姿を見ると、<strong>どうして退めちゃったのー、勿体無いー、又演ってー、</strong>と思ってしまいます(^_^;)。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
-              </p>
-            </div>
+              ドラマシティ・５／２６～５／２８
+            </p>
+            <p>
+              金銭的理由から、極力外部の舞台までは手を出さないようにしているのですが(^_^;)、<strong>一路真輝様は別よね！</strong>
+              という事で、行ってまいりました。３日計５回のコンサートでしたが、超盛り上がった２８日夜、千秋楽(？)の公演です。
+            </p>
+            <p>
+              「エリザベート」大劇場公演<strong>前楽</strong>以来(^_^;)、<strong>２年２ヶ月振り</strong>のイチロ様の、<strong>変わらぬ美しさ</strong>(スラリとしたドレスがあんなに綺麗に着こなせるとは、勿論知りませんでしたが(^_^;))、<strong>楽しいお喋り</strong>(トップの頃よりも、やはり随分肩の力が抜けた感じがします)、そしてそして！
+              <strong>全くあの頃と変わらぬ力強い歌声</strong>に大感激でした！
+            </p>
+            <p>
+              ロビーで放映されていた、<strong>ウィーン公演千秋楽のビデオ</strong>(アンコールに特別出演したんです)も、ニュースを全部見逃した私としては、嬉しかったです。<strong>全然手抜きなしの、予想外にキザキザモードのトート閣下</strong>に、モニター前で固まってしまいました(^_^;)。
+            </p>
+            <p>
+              それもそのはず、その時は、突然現れた日本人の<strong>小娘</strong>(byイチロさん)トートに、<strong>サーッと引いてしまった観客</strong>(冷静に考えるとそりゃそうだ)を取り戻すために、宝塚時代にも使わなかった<strong>「メンチ切っちゃった」</strong>そうですよ(^_^;)。
+            </p>
+            <p>
+              「こんな目ができるんだったら、どうして宝塚時代にやっとかなかったんだろう・・。<strong>いやいや、私は正統派</strong>(←記憶を頼りに書いているので、このままではありませんが)」に、私達も、<strong>イチロさんも</strong>(^_^;)、大ウケでした(^_^;)。
+            </p>
+            <p>
+              そのメンチ切っちゃった(^_^;)<strong>振り</strong>を、ちょうど私たちの座っていた上手側で演ってくれたので、<strong>トークだっていうのに</strong>、またまた壊れてしまいました(^_^;)。
+            </p>
+            <p>
+              その後、アンコールでは、そのまさかの<strong>「最後のダンス」</strong>を熱唱して下さり、感無量。本当にカッコ良いですー。
+            </p>
+            <p>
+              <strong>やっぱりイチロさんのトートは良い</strong>です！
+              思い出として取っておきたい気もしますが、少しも衰えぬ歌声と姿を見ると、<strong>どうして退めちゃったのー、勿体無いー、又演ってー、</strong>と思ってしまいます(^_^;)。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★★<span class="text-gray-400">★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 

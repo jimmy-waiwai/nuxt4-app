@@ -1,134 +1,130 @@
 <script setup>
-const teamProps = ref({ team: "star" });
-const textTitle = ref("text-slate-600");
-if (teamProps.value.team === "flower") {
-  textTitle.value = "text-pink-700";
-}
-if (teamProps.value.team === "moon") {
-  textTitle.value = "text-yellow-700";
-}
-if (teamProps.value.team === "snow") {
-  textTitle.value = "text-green-700";
-}
-if (teamProps.value.team === "star") {
-  textTitle.value = "text-sky-700";
-}
-if (teamProps.value.team === "cosmos") {
-  textTitle.value = "text-purple-700";
-}
+definePageMeta({
+  layout: 'jimmy',
+  team: 'star',
+});
+
+// レイアウトから提供された 'pageTheme' を受け取る
+const themeRaw = inject('jimmyColor', null);
+
+// 2. computed を使って安全に中身を取り出す
+// .value が存在しない場合（default）のフォールバックを用意する
+const themeConfig = computed(() => {
+  return themeRaw?.value || {
+    bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
+    bgcolor: 'bg-slate-200',
+    bar: 'bg-slate-400',
+    map: 'bg-slate-500',
+    barborder: 'border-slate-500',
+    texttitle: 'text-slate-600',
+    textlink: 'text-slate-500',
+  };
+});
 </script>
 
 <template>
   <div>
-    <NuxtLayout name="jimmy" :team="teamProps.team">
-      <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
-        <div class="w-48 flex-none pb-16 hidden lg:block">
-          <JimmyMenu :team="teamProps.team" />
-        </div>
-        <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
-          <div class="pt-8">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
-              :class="textTitle"
+    <div class="flex justify-center pl-4 lg:pl-8 pr-4 lg:pr-8 pt-20">
+      <div class="w-48 flex-none pb-16 hidden lg:block">
+        <JimmyMenu />
+      </div>
+      <div class="flex-1 pl-2 md:pl-8 xl:pl-16 pr-2 md:pr-8 xl:pr-16 pb-16">
+        <div class="pt-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
+            :class="themeConfig.texttitle"
+          >
+            皇&emsp;帝
+          </h2>
+          <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
+            <p
+              class="text-right"
+              :class="themeConfig.texttitle"
             >
-              皇&emsp;帝
-            </h2>
-            <div
-              class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4"
-            >
-              <p class="text-right" :class="textTitle">
-                星組・宝塚大劇場新人公演・７／１４
-              </p>
-              <p>
-                おとこちゃん(音羽椋)主演の新人公演。最後にして、ようやく見ることが出来ました(^_^;)。
-              </p>
-              <p>
-                前売の時も感じましたが、当日もすごいさばき待ちの人がいて、<strong>「う～む、恐るべきおとこちゃん人気！！」</strong>と感心しきり(^_^;)。公演内容も、大きなミスなく、<strong>非常にレベルの高い</strong>ものでしたよ。
-              </p>
-              <p>&emsp;</p>
-              <p>
-                その<strong>おとこちゃん</strong>は、登場から持ち前の目線の強さが効いていて、とっても恐い(^_^;)。
-              </p>
-              <p>
-                歌はかなり改善の余地がありますが(^_^;)、あれだけ難しい台詞を、<strong>ノーミスで言い切った</strong>のは立派です。
-              </p>
-              <p>
-                サビナを蹴る所も、結構思いっきりやっていて(^_^;)、マリコさん(麻路さき)よりも、かなり<strong>悪役的な要素が強かった</strong>ように思います。
-              </p>
-              <p>
-                しかし、<strong>セネカ(司祐輝)</strong>と語る本音の部分で、本公演よりも「本当は苦しいんだぞ」っていう所をかなり<strong>表情豊かに</strong>見せていたので、結構繊細な心の持ち主として、<strong>共感できる</strong>皇帝に思えました。
-              </p>
-              <p>
-                これは<strong>演出(大野拓史)</strong>による所も大きかったと思います。<strong>かなり本公演とは違う</strong>みせ方をしていました。
-              </p>
-              <p>
-                セネカとの芝居は、<strong>大芝居的な台詞まわしを捨てて</strong>、リアルに見せていましたね。説得力があって、良かったように思います。
-              </p>
-              <p>
-                <strong
-                  >悪を演じている部分と、本音を見せる部分とのギャップがかなりありました。</strong
-                >
-              </p>
-              <p>
-                又、印象に残ったのが<strong>アグリッピナ(羽純るい)</strong>とのくだり。<strong>ネロは母をかなり好きなようでした</strong>(^_^;)。といっても、羽純に本役(邦なつき)のような毒がないこともあり、<strong>本公演のように「艶」な雰囲気が漂うのではなく(^_^;)、本当に、好きなんだなぁ、という感じ</strong>(?)でした。母を殺しに行く前の歌も、かなり苦しそうな感情が入っていました。<strong
-                  >羽純は立派で、とてもキレイ。</strong
-                >
-              </p>
-              <p>&emsp;</p>
-              <p>
-                <strong>オクタヴィアの秋園美緒</strong
-                >は、<strong>台詞や歌の声がキレイ</strong>で聞き惚れました。とても儚気に見えて、上手かったと思います。
-              </p>
-              <p>
-                <strong>シーラヌスの朝澄けい</strong
-                >は、立ち姿がスッキリして美しく、幕開きの歌もまずまず。でも、ちょっと大人しすぎるかなぁ。オクタヴィアの所へ忍んでいく所なんかにも、もうすこし、ドキッとさせる色気が欲しいですね(^_^;)。<strong>総合点がかなり良いだけに</strong>、目覚めるのを期待しています(^_^;)。
-              </p>
-              <p>
-                <strong>ブッスルの真飛聖</strong
-                >は、ソロの歌い始めが緊張していたようで、ちょっとハラハラしましたが(^_^;)、すぐに持ち直し、<strong>キレイで覇気があって、好感が持てました</strong>。本公演の時から感じていたのですが、真飛って、とっても張り切っていて、可愛いですよね(^_^;)。
-              </p>
-              <p>
-                他では、音羽椋の役をしていた<strong>椿火呂花</strong>がとてもキレイでプロローグから目につきました。雪組の檀れいが男装したみたいです(^_^;)。これから注目したいです。
-              </p>
-              <p>
-                娘役も<strong>妃里梨江、美椰エリカ、美乃杏花</strong>とキレイで上手い人が多くて、星組娘役は激戦ですね。
-              </p>
-              <p>&emsp;</p>
-              <p>
-                最近大人しい男役が多い中、音羽は結構攻めに出ていますよね。でも、<strong>終演後の挨拶はまるで別人のように可愛らしくなってしまって</strong>、そのギャップが、又、笑えました(^_^;)。
-              </p>
-              <p>
-                何か、<strong>とっても面白い男役さんです</strong>。これから、どんな風になっていくのか、楽しみですね(^_^;)。
-              </p>
-              <p>&emsp;</p>
-              <p>＜おまけ＞</p>
-              <p>
-                ＪＩＭＭＹ注目の研2、<strong>真汐薪</strong>は親衛隊メンバーに入ってました。何と<strong>ほほに傷を付けていました</strong>(^_^;)。カッコ良かったです。横には話題の研1、<strong>音月桂</strong>もいましたよ。
-              </p>
-              <p>
-                第十三場では、「申し上げま～す」等といいながら、報告に来る兵士の数、<strong>2倍</strong>(^_^;)。
-              </p>
-              <p>
-                <strong>研1生たちが1人分の台詞を2人で分けて発してくれて</strong
-                >(^_^;)、嬉しかったです。<strong>なかなか粋な計らいです、大野先生</strong>(^_^;)。
-              </p>
-              <p>
-                ＪＩＭＭＹ注目の研1、<strong>真木薫</strong>も、初台詞(だと思う)をしっかり決めてくれました(^_^;)。
-              </p>
-              <p :class="textTitle">
-                (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
-              </p>
-            </div>
+              星組・宝塚大劇場新人公演・７／１４
+            </p>
+            <p>
+              おとこちゃん(音羽椋)主演の新人公演。最後にして、ようやく見ることが出来ました(^_^;)。
+            </p>
+            <p>
+              前売の時も感じましたが、当日もすごいさばき待ちの人がいて、<strong>「う～む、恐るべきおとこちゃん人気！！」</strong>と感心しきり(^_^;)。公演内容も、大きなミスなく、<strong>非常にレベルの高い</strong>ものでしたよ。
+            </p>
+            <p>&emsp;</p>
+            <p>
+              その<strong>おとこちゃん</strong>は、登場から持ち前の目線の強さが効いていて、とっても恐い(^_^;)。
+            </p>
+            <p>
+              歌はかなり改善の余地がありますが(^_^;)、あれだけ難しい台詞を、<strong>ノーミスで言い切った</strong>のは立派です。
+            </p>
+            <p>
+              サビナを蹴る所も、結構思いっきりやっていて(^_^;)、マリコさん(麻路さき)よりも、かなり<strong>悪役的な要素が強かった</strong>ように思います。
+            </p>
+            <p>
+              しかし、<strong>セネカ(司祐輝)</strong>と語る本音の部分で、本公演よりも「本当は苦しいんだぞ」っていう所をかなり<strong>表情豊かに</strong>見せていたので、結構繊細な心の持ち主として、<strong>共感できる</strong>皇帝に思えました。
+            </p>
+            <p>
+              これは<strong>演出(大野拓史)</strong>による所も大きかったと思います。<strong>かなり本公演とは違う</strong>みせ方をしていました。
+            </p>
+            <p>
+              セネカとの芝居は、<strong>大芝居的な台詞まわしを捨てて</strong>、リアルに見せていましたね。説得力があって、良かったように思います。
+            </p>
+            <p>
+              <strong>悪を演じている部分と、本音を見せる部分とのギャップがかなりありました。</strong>
+            </p>
+            <p>
+              又、印象に残ったのが<strong>アグリッピナ(羽純るい)</strong>とのくだり。<strong>ネロは母をかなり好きなようでした</strong>(^_^;)。といっても、羽純に本役(邦なつき)のような毒がないこともあり、<strong>本公演のように「艶」な雰囲気が漂うのではなく(^_^;)、本当に、好きなんだなぁ、という感じ</strong>(?)でした。母を殺しに行く前の歌も、かなり苦しそうな感情が入っていました。<strong>羽純は立派で、とてもキレイ。</strong>
+            </p>
+            <p>&emsp;</p>
+            <p>
+              <strong>オクタヴィアの秋園美緒</strong>は、<strong>台詞や歌の声がキレイ</strong>で聞き惚れました。とても儚気に見えて、上手かったと思います。
+            </p>
+            <p>
+              <strong>シーラヌスの朝澄けい</strong>は、立ち姿がスッキリして美しく、幕開きの歌もまずまず。でも、ちょっと大人しすぎるかなぁ。オクタヴィアの所へ忍んでいく所なんかにも、もうすこし、ドキッとさせる色気が欲しいですね(^_^;)。<strong>総合点がかなり良いだけに</strong>、目覚めるのを期待しています(^_^;)。
+            </p>
+            <p>
+              <strong>ブッスルの真飛聖</strong>は、ソロの歌い始めが緊張していたようで、ちょっとハラハラしましたが(^_^;)、すぐに持ち直し、<strong>キレイで覇気があって、好感が持てました</strong>。本公演の時から感じていたのですが、真飛って、とっても張り切っていて、可愛いですよね(^_^;)。
+            </p>
+            <p>
+              他では、音羽椋の役をしていた<strong>椿火呂花</strong>がとてもキレイでプロローグから目につきました。雪組の檀れいが男装したみたいです(^_^;)。これから注目したいです。
+            </p>
+            <p>
+              娘役も<strong>妃里梨江、美椰エリカ、美乃杏花</strong>とキレイで上手い人が多くて、星組娘役は激戦ですね。
+            </p>
+            <p>&emsp;</p>
+            <p>
+              最近大人しい男役が多い中、音羽は結構攻めに出ていますよね。でも、<strong>終演後の挨拶はまるで別人のように可愛らしくなってしまって</strong>、そのギャップが、又、笑えました(^_^;)。
+            </p>
+            <p>
+              何か、<strong>とっても面白い男役さんです</strong>。これから、どんな風になっていくのか、楽しみですね(^_^;)。
+            </p>
+            <p>&emsp;</p>
+            <p>＜おまけ＞</p>
+            <p>
+              ＪＩＭＭＹ注目の研2、<strong>真汐薪</strong>は親衛隊メンバーに入ってました。何と<strong>ほほに傷を付けていました</strong>(^_^;)。カッコ良かったです。横には話題の研1、<strong>音月桂</strong>もいましたよ。
+            </p>
+            <p>
+              第十三場では、「申し上げま～す」等といいながら、報告に来る兵士の数、<strong>2倍</strong>(^_^;)。
+            </p>
+            <p>
+              <strong>研1生たちが1人分の台詞を2人で分けて発してくれて</strong>(^_^;)、嬉しかったです。<strong>なかなか粋な計らいです、大野先生</strong>(^_^;)。
+            </p>
+            <p>
+              ＪＩＭＭＹ注目の研1、<strong>真木薫</strong>も、初台詞(だと思う)をしっかり決めてくれました(^_^;)。
+            </p>
+            <p :class="themeConfig.texttitle">
+              (満足度&emsp;★★★<span class="text-gray-400">★★</span>)
+            </p>
           </div>
         </div>
-        <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
-          <JimmyReviewList :team="teamProps.team" />
-        </div>
       </div>
-      <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
-        <JimmyReviewList :team="teamProps.team" />
+      <div class="w-80 flex-none pt-8 pb-16 hidden lg:block">
+        <JimmyReviewList />
       </div>
-    </NuxtLayout>
+    </div>
+    <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
+      <JimmyReviewList />
+    </div>
+    
   </div>
 </template>
 
