@@ -167,7 +167,6 @@ const themeConfig = computed(() => {
     <div class="w-full flex-none pt-8 pb-16 lg:hidden pl-8 pr-8">
       <JimmyReviewList />
     </div>
-    
   </div>
 </template>
 

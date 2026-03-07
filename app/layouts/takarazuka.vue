@@ -76,31 +76,6 @@ function barOpen(toggle) {
           <div>
             <slot />
           </div>
-          <div class="p-8 bg-pink-600 bg-opacity-20">
-            <div class="mb-4">
-              <h5 class="font-bold text-pink-900 block mb-4">
-                Sitemap
-              </h5>
-              <nav>
-                <NuxtLink
-                  to="/takarazuka/"
-                  class="text-pink-800 block mb-2 hover:underline"
-                >TOP</NuxtLink>
-                <NuxtLink
-                  to="/takarazuka/blog/index"
-                  class="text-pink-800 block mb-2 hover:underline"
-                >BLOG</NuxtLink>
-                <NuxtLink
-                  to="/takarazuka/review/index"
-                  class="text-pink-800 block mb-2 hover:underline"
-                >REVIEW</NuxtLink>
-                <NuxtLink
-                  to="/takarazuka/actress/index"
-                  class="text-pink-800 block mb-2 hover:underline"
-                >ACTRESS</NuxtLink>
-              </nav>
-            </div>
-          </div>
           <div class="w-full bg-pink-700 p-4 text-center">
             <p class="text-white">
               このＨＰで書かれた文章の無断転載を禁じます。 Copyright &copy; 2005-2018 JIMMY. All

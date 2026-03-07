@@ -12,13 +12,6 @@ function menuOpen(toggle) {
 </script>
 
 <template>
-  <!-- <h2 class="text-3xl">JIMMY's WEB SITE</h2>
-  <h2 class="text-3xl noto-sans">JIMMY's WEB SITE</h2>
-  <h2 class="text-3xl noto-serif">JIMMY's WEB SITE</h2>
-  <h2 class="text-3xl klee-one">人権の無視及び軽侮が</h2>
-  <Icon name="fa6-solid:house" />
-  <Icon name="fa6-brands:github" /> -->
-
   <div class="relative">
     <div
       class="absolute top-0 left-0 w-full h-screen bg-[url(/images/back-left.png)] bg-no-repeat bg-left bg-fixed bg-contain"
@@ -59,6 +52,12 @@ function menuOpen(toggle) {
           </li>
           <li
             class="w-full block border border-white my-4 py-4 text-center cursor-pointer hover:bg-lime-500"
+            @click="menuOpen('takarazuka')"
+          >
+            <span class="text-2xl block">Takarazuka</span><span class="block text-sm">昔の趣味のページ</span>
+          </li>
+          <li
+            class="w-full block border border-white my-4 py-4 text-center cursor-pointer hover:bg-lime-500"
             @click="menuOpen('archive')"
           >
             <span class="text-2xl block">Archive</span><span class="block text-sm">過去のページ</span>
@@ -73,7 +72,7 @@ function menuOpen(toggle) {
       class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
     >
       <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70">
-        <div class="absolute top-[25%] w-full text-center">
+        <div class="absolute top-[10%] lg:top-[25%] w-full text-center">
           <h1 class="text-3xl sm:text-5xl">
             JIMMY's WEB SITE
           </h1>
@@ -83,13 +82,19 @@ function menuOpen(toggle) {
             >JIMMYのホームページです。
           </p>
         </div>
-        <nav class="absolute top-[45%] w-full text-center">
+        <nav class="absolute top-[32%] lg:top-[45%] w-full text-center">
           <ul class="flex flex-wrap justify-center w-full">
             <li
               class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
               @click="menuOpen('top')"
             >
               <span class="text-2xl block">Top</span><span class="block text-sm">トップ</span>
+            </li>
+            <li
+              class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
+              @click="menuOpen('takarazuka')"
+            >
+              <span class="text-2xl block">Takarazuka</span><span class="block text-sm">昔の趣味のページ</span>
             </li>
             <li
               class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
@@ -114,17 +119,17 @@ function menuOpen(toggle) {
     </div>
 
     <div
-      v-if="menu === 'archive'"
-      id="archive"
+      v-if="menu === 'takarazuka'"
+      id="takarazuka"
       class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
     >
       <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70 flex items-center">
         <div class="w-full h-[90vh] text-center overflow-scroll">
           <h2 class="text-3xl sm:text-5xl">
-            Archive
+            Takarazuka
           </h2>
           <p class="mt-6">
-            過去の JIMMY の WEB SITE を<br class="block sm:hidden">保存しています。
+            過去の趣味のページです。
           </p>
           <div class="flex justify-center flex-wrap sm:mt-[20px] px-4 py-4 sm:px-16">
             <div class="w-[400px] py-4 sm:p-6">
@@ -144,10 +149,7 @@ function menuOpen(toggle) {
               </NuxtLink>
             </div>
             <div class="w-[400px] py-4 sm:p-6">
-              <a
-                href=""
-                class=""
-              >
+              <NuxtLink to="/">
                 <img
                   src="/images/waiwai_image.jpg"
                   alt="WAIWAI TAKARAZUKA"
@@ -160,13 +162,10 @@ function menuOpen(toggle) {
                   >WAIWAI TAKARAZUKA
                 </h2>
                 <p>宝塚ファンによる会員制掲示板を<br>運営していました。</p>
-              </a>
+              </NuxtLink>
             </div>
             <div class="w-[400px] py-4 sm:p-6">
-              <a
-                href=""
-                class=""
-              >
+              <NuxtLink to="/jimmy">
                 <img
                   src="/images/jimmy_image.jpg"
                   alt="JIMMY&#39;s Homepage"
@@ -179,13 +178,28 @@ function menuOpen(toggle) {
                   >JIMMY&#39;s Homepage
                 </h2>
                 <p>JIMMYの過去の公演評などの記事を<br>まとめました。</p>
-              </a>
+              </NuxtLink>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="menu === 'archive'"
+      id="archive"
+      class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
+    >
+      <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70 flex items-center">
+        <div class="w-full h-[90vh] text-center overflow-scroll">
+          <h2 class="text-3xl sm:text-5xl">
+            Archive
+          </h2>
+          <p class="mt-6">
+            過去のページです。
+          </p>
+          <div class="flex justify-center flex-wrap sm:mt-[20px] px-4 py-4 sm:px-16">
             <div class="w-[400px] py-4 sm:p-6">
-              <a
-                href=""
-                class=""
-              >
+              <NuxtLink to="/">
                 <img
                   src="/images/designimage.jpg"
                   alt="WAIWAI WEB &amp; DTP"
@@ -198,13 +212,10 @@ function menuOpen(toggle) {
                   >WAIWAI WEB &amp; DTP
                 </h2>
                 <p>WEB &amp; DTPデザイナーであるJIMMYの<br>お仕事ページです。</p>
-              </a>
+              </NuxtLink>
             </div>
             <div class="w-[400px] py-4 sm:p-6">
-              <a
-                href=""
-                class=""
-              >
+              <NuxtLink to="/">
                 <img
                   src="/images/everyimage.jpg"
                   alt="WAIWAI EVERY DAY"
@@ -217,7 +228,7 @@ function menuOpen(toggle) {
                   >WAIWAI EVERY DAY
                 </h2>
                 <p>JIMMYの日常の様子を<br>アップしています。</p>
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>

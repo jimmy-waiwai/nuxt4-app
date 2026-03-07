@@ -47,17 +47,17 @@ const themeConfig = computed(() => {
         :class="themeConfig.map"
       ><span :class="themeConfig.textlink">CONTRIBUTION</span></NuxtLink>
       <NuxtLink
-        to="/jimmy/"
+        to="/jimmy/topic"
         class="bg-opacity-20 w-full p-4 block mb-4 hover:opacity-80"
         :class="themeConfig.map"
       ><span :class="themeConfig.textlink">TOPICS</span></NuxtLink>
       <NuxtLink
-        to="/jimmy/"
+        to="/jimmy/actress"
         class="bg-opacity-20 w-full p-4 block mb-4 hover:opacity-80"
         :class="themeConfig.map"
       ><span :class="themeConfig.textlink">ACTRESS</span></NuxtLink>
       <NuxtLink
-        to="/jimmy/"
+        to="/jimmy/gallery"
         class="bg-opacity-20 w-full p-4 block mb-4 hover:opacity-80"
         :class="themeConfig.map"
       ><span :class="themeConfig.textlink">GALLERY</span></NuxtLink>
@@ -75,15 +75,15 @@ const themeConfig = computed(() => {
         :class="themeConfig.textlink"
       >WAIWAI TAKARAZUKA（会員制掲示板）</NuxtLink>
       <NuxtLink
-        to="/"
+        to="/takarazuka"
         class="block mb-4 hover:underline"
         :class="themeConfig.textlink"
-      >JIMMY's Homepage</NuxtLink>
+      >WAIWAI TAKARAZUKA（ブログ）</NuxtLink>
       <NuxtLink
         to="/"
         class="block mb-4 hover:underline"
         :class="themeConfig.textlink"
-      >WAIWAI WEB PAGE</NuxtLink>
+      >JIMMY's Homepage</NuxtLink>
     </nav>
   </div>
 </template>

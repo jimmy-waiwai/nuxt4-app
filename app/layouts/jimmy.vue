@@ -8,25 +8,6 @@ useHead({
         '「歌劇」誌「高声低声」や、以前存在した「宝塚公式HP」の「お便りコーナー」、「WAIWAI TAKARAZUKA」にアップした公演評をまとめました。',
     },
   ],
-  link: [
-    {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      href: '/img/takarazuka/apple-touch-icon-180x180.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/img/takarazuka/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '96x96',
-      href: '/img/takarazuka/favicon-96x96.png',
-    },
-  ],
 });
 
 const hamburger = ref('close');
@@ -47,7 +28,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-pink-100',
       bar: 'bg-pink-500',
       map: 'bg-pink-600',
-      barborder: 'border-pink-600',
+      barborder: 'border-pink-700',
       texttitle: 'text-pink-700',
       textlink: 'text-pink-600',
     },
@@ -56,7 +37,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-yellow-100',
       bar: 'bg-yellow-500',
       map: 'bg-yellow-600',
-      barborder: 'border-yellow-600',
+      barborder: 'border-yellow-700',
       texttitle: 'text-yellow-700',
       textlink: 'text-yellow-600',
     },
@@ -65,7 +46,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-green-100',
       bar: 'bg-green-500',
       map: 'bg-green-600',
-      barborder: 'border-green-600',
+      barborder: 'border-green-700',
       texttitle: 'text-green-700',
       textlink: 'text-green-600',
     },
@@ -74,7 +55,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-sky-100',
       bar: 'bg-sky-500',
       map: 'bg-sky-600',
-      barborder: 'border-sky-600',
+      barborder: 'border-sky-700',
       texttitle: 'text-sky-700',
       textlink: 'text-sky-600',
     },
@@ -83,7 +64,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-purple-100',
       bar: 'bg-purple-500',
       map: 'bg-purple-600',
-      barborder: 'border-purple-600',
+      barborder: 'border-purple-700',
       texttitle: 'text-purple-700',
       textlink: 'text-purple-600',
     },
@@ -92,7 +73,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-rose-100',
       bar: 'bg-rose-400',
       map: 'bg-rose-600',
-      barborder: 'border-rose-500',
+      barborder: 'border-rose-700',
       texttitle: 'text-rose-700',
       textlink: 'text-rose-600',
     },
@@ -101,7 +82,7 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-fuchsia-100',
       bar: 'bg-fuchsia-400',
       map: 'bg-fuchsia-600',
-      barborder: 'border-fuchsia-500',
+      barborder: 'border-fuchsia-700',
       texttitle: 'text-fuchsia-700',
       textlink: 'text-fuchsia-600',
     },
@@ -110,16 +91,79 @@ const themeConfig = computed(() => {
       bgcolor: 'bg-orange-100',
       bar: 'bg-orange-400',
       map: 'bg-orange-600',
-      barborder: 'border-orange-500',
+      barborder: 'border-orange-700',
       texttitle: 'text-orange-700',
       textlink: 'text-orange-600',
+    },
+    gallery: {
+      bgimg: 'bg-[url(/images/jimmy/gallery/back.gif)]',
+      bgcolor: 'bg-cyan-100',
+      bar: 'bg-cyan-400',
+      map: 'bg-cyan-600',
+      barborder: 'border-cyan-700',
+      texttitle: 'text-cyan-700',
+      textlink: 'text-cyan-600',
+    },
+    hana: {
+      bgimg: 'bg-[url(/images/jimmy/actress/hana.gif)]',
+      bgcolor: 'bg-pink-100',
+      bar: 'bg-pink-500',
+      map: 'bg-pink-600',
+      barborder: 'border-pink-700',
+      texttitle: 'text-pink-700',
+      textlink: 'text-pink-600',
+    },
+    tuki: {
+      bgimg: 'bg-[url(/images/jimmy/actress/tuki.gif)]',
+      bgcolor: 'bg-yellow-100',
+      bar: 'bg-yellow-500',
+      map: 'bg-yellow-600',
+      barborder: 'border-yellow-700',
+      texttitle: 'text-yellow-700',
+      textlink: 'text-yellow-600',
+    },
+    yuki: {
+      bgimg: 'bg-[url(/images/jimmy/actress/yuki.gif)]',
+      bgcolor: 'bg-green-100',
+      bar: 'bg-green-500',
+      map: 'bg-green-600',
+      barborder: 'border-green-700',
+      texttitle: 'text-green-700',
+      textlink: 'text-green-600',
+    },
+    hosi: {
+      bgimg: 'bg-[url(/images/jimmy/actress/hosi.gif)]',
+      bgcolor: 'bg-sky-100',
+      bar: 'bg-sky-500',
+      map: 'bg-sky-600',
+      barborder: 'border-sky-700',
+      texttitle: 'text-sky-700',
+      textlink: 'text-sky-600',
+    },
+    sora: {
+      bgimg: 'bg-[url(/images/jimmy/actress/sora.gif)]',
+      bgcolor: 'bg-purple-100',
+      bar: 'bg-purple-500',
+      map: 'bg-purple-600',
+      barborder: 'border-purple-700',
+      texttitle: 'text-purple-700',
+      textlink: 'text-purple-600',
+    },
+    sonota: {
+      bgimg: 'bg-[url(/images/jimmy/actress/sonota.gif)]',
+      bgcolor: 'bg-slate-200',
+      bar: 'bg-slate-400',
+      map: 'bg-slate-500',
+      barborder: 'border-slate-600',
+      texttitle: 'text-slate-600',
+      textlink: 'text-slate-500',
     },
     default: {
       bgimg: 'bg-[url(/images/jimmy/review/sonota.gif)]',
       bgcolor: 'bg-slate-200',
       bar: 'bg-slate-400',
       map: 'bg-slate-500',
-      barborder: 'border-slate-500',
+      barborder: 'border-slate-600',
       texttitle: 'text-slate-600',
       textlink: 'text-slate-500',
     },
@@ -171,21 +215,21 @@ provide('jimmyColor', themeConfig);
               CONTRIBUTION
             </NuxtLink>
             <NuxtLink
-              to="/jimmy/"
+              to="/jimmy/topic"
               class="text-white px-4 py-2 mr-4 border-b-2 border-r-2"
               :class="themeConfig.barborder"
             >
               TOPICS
             </NuxtLink>
             <NuxtLink
-              to="/jimmy/"
+              to="/jimmy/actress"
               class="text-white px-4 py-2 mr-4 border-b-2 border-r-2"
               :class="themeConfig.barborder"
             >
               ACTRESS
             </NuxtLink>
             <NuxtLink
-              to="/jimmy/"
+              to="/jimmy/gallery"
               class="text-white px-4 py-2 mr-4 border-b-2 border-r-2"
               :class="themeConfig.barborder"
             >
@@ -202,63 +246,6 @@ provide('jimmyColor', themeConfig);
         </div>
         <div>
           <slot />
-        </div>
-        <div
-          class="p-8 bg-opacity-20"
-          :class="themeConfig.map"
-        >
-          <div class="mb-4">
-            <h5
-              class="font-bold block mb-4"
-              :class="themeConfig.texttitle"
-            >
-              Sitemap
-            </h5>
-            <nav>
-              <NuxtLink
-                to="/jimmy/introduction"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                INTRODUCTION
-              </NuxtLink>
-              <NuxtLink
-                to="/jimmy/review"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                REVIEW
-              </NuxtLink>
-              <NuxtLink
-                to="/jimmy/contribution"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                CONTRIBUTION
-              </NuxtLink>
-              <NuxtLink
-                to="/jimmy/"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                TOPICS
-              </NuxtLink>
-              <NuxtLink
-                to="/jimmy/"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                ACTRESS
-              </NuxtLink>
-              <NuxtLink
-                to="/jimmy/"
-                class="block mb-2 hover:underline"
-                :class="themeConfig.textlink"
-              >
-                GALLERY
-              </NuxtLink>
-            </nav>
-          </div>
         </div>
         <div
           class="w-full p-4 text-center"

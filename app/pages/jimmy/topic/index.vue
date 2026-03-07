@@ -1,5 +1,6 @@
 <script setup>
 definePageMeta({
+  title: 'TOPICS',
   layout: 'jimmy',
   team: 'topics',
 });
@@ -34,12 +35,12 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            CONTRIBUTION
+            TOPICS
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p>
-              「歌劇」誌「高声低声」やその他書籍、雑誌に投稿した文章を、ボツを含めてこっそり公開します。<br>
-              本文の末尾に書いてあるコメントは、このＨＰにアップする際、足したものです。
+              その時々の話題のページです。ほとんどケロちゃん(汐美真帆)報告ばかりですね(^_^;)。<br>
+              最新の初舞台生さん等の話題はプログページ。宝塚全般の話題は「WAIWAI TAKARAZUKA」の「雑談掲示板」をご覧下さい。
             </p>
           </div>
         </div>

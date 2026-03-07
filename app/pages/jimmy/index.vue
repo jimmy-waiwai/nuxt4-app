@@ -8,25 +8,6 @@ useHead({
         '「歌劇」誌「高声低声」や、以前存在した「宝塚公式HP」の「お便りコーナー」、「WAIWAI TAKARAZUKA」にアップした公演評をまとめました。',
     },
   ],
-  link: [
-    {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      href: '/img/takarazuka/apple-touch-icon-180x180.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/img/takarazuka/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '96x96',
-      href: '/img/takarazuka/favicon-96x96.png',
-    },
-  ],
 });
 </script>
 
@@ -58,10 +39,10 @@ useHead({
               <NuxtLink to="/jimmy/topic"><strong class="text-lime-600 text-xl">TOPICS</strong>&emsp;話題</NuxtLink>
             </h3>
             <h3 class="text-stone-600 mb-4">
-              <NuxtLink to="/jimmy/"><strong class="text-lime-600 text-xl">ACTRESS</strong>&emsp;生徒評</NuxtLink>
+              <NuxtLink to="/jimmy/actress"><strong class="text-lime-600 text-xl">ACTRESS</strong>&emsp;生徒評</NuxtLink>
             </h3>
             <h3 class="text-stone-600 mb-4">
-              <NuxtLink to="/jimmy/"><strong class="text-lime-600 text-xl">GALLERY</strong>&emsp;表紙ギャラリー</NuxtLink>
+              <NuxtLink to="/jimmy/gallery"><strong class="text-lime-600 text-xl">GALLERY</strong>&emsp;表紙ギャラリー</NuxtLink>
             </h3>
           </div>
           <div class="mb-4">

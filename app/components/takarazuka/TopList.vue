@@ -8,7 +8,7 @@
       class="text-pink-800 block mb-1 hover:underline border-b border-b-gray-400 p-2"
     >過去の会員制掲示板ページ<span class="text-sm block text-slate-500">2000-2006</span></NuxtLink>
     <NuxtLink
-      to="/"
+      to="/jimmy"
       class="text-pink-800 block mb-1 hover:underline border-b border-b-gray-400 p-2"
     >過去のJIMMYの公演評などのページ<span class="text-sm block text-slate-500">1994-2004</span></NuxtLink>
   </nav>
@@ -17,11 +17,11 @@
   </h4>
   <nav class="mb-16">
     <NuxtLink
-      to="/"
+      to="/jimmy/introduction/watasi"
       class="text-pink-800 block mb-1 hover:underline border-b border-b-gray-400 p-2"
     >宝塚と私と公演評。<span class="text-sm block text-slate-500">2005-02-15</span></NuxtLink>
     <NuxtLink
-      to="/"
+      to="/jimmy/introduction/100faq"
       class="text-pink-800 block mb-1 hover:underline border-b border-b-gray-400 p-2"
     >タカラヅカファンに100の質問<span class="text-sm block text-slate-500">2002-08-18</span></NuxtLink>
   </nav>

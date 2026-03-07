@@ -30,13 +30,13 @@
         class="text-pink-800 block mb-4 hover:underline"
       >WAIWAI TAKARAZUKA（会員制掲示板）</NuxtLink>
       <NuxtLink
-        to="/"
+        to="/jimmy"
         class="text-pink-800 block mb-4 hover:underline"
-      >JIMMY's Homepage</NuxtLink>
+      >JIMMY's Homepage（宝塚）</NuxtLink>
       <NuxtLink
         to="/"
         class="text-pink-800 block mb-4 hover:underline"
-      >WAIWAI WEB PAGE</NuxtLink>
+      >JIMMY's Homepage（総合）</NuxtLink>
     </nav>
   </div>
 </template>
