@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            龍　真咲
+            龍&emsp;真咲
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -47,7 +47,7 @@ const themeConfig = computed(() => {
               どこから仕入れたのか忘れましたが、モデルのようにキレイな子だと聞いていた<strong>真咲ちゃん</strong>。初認識は<strong>「ガイズ＆ドールズ」の新人公演</strong>で、<strong>クバーナの男S</strong>としてダンス場面で目立っていた位置を与えられており、確かに頭が小さくて、キレイな子だな・・注目の子なんだろうな・・と思った覚えがあります。
             </p><p>その後<strong>「SLAPSTICK」</strong>でも良い役をしていましたね。これも頭が小さくてキレイだけれど・・まだまだ魅力は感じないな～、と思いました。</p>
             <p>先日<strong>ゆうひ君(大空祐飛)のディナーショー</strong>で彼女が出演しているのをCSで観ましたが、何故か<strong>勘違いお嬢キャラ</strong>に徹していた真咲ちゃん・・。あのキャラは石田先生が作り上げたものなのか、やはり<strong>何か所以のある</strong>キャラクターなのか・・？！</p>
-            <p> 何かこれから面白い所が出てくるのでしょうか？　注目しています。 </p>
+            <p> 何かこれから面白い所が出てくるのでしょうか？&emsp;注目しています。 </p>
             <p :class="themeConfig.texttitle">
               (お気に入り度★★★<span class="text-gray-400">★★</span>)
             </p>

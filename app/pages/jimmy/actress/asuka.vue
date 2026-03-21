@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            飛鳥　裕
+            飛鳥&emsp;裕
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -50,8 +50,8 @@ const themeConfig = computed(() => {
             <p>しかし最近、やはり芝居なども頼もしくなったな～、と思います。<strong>「Icarus」</strong>の<strong>父親</strong>など、重要な役でしたがながさんで良かったと思いましたし、<strong>「再会」全国ツアー</strong>の<strong>銀行頭取</strong>役も落ち着いた演技で良かったです。</p>
             <p>最近の<strong>「春麗～」</strong>の<strong>北の方</strong>役も、女役だったのに、違和感がありませんでしたよね。</p>
             <p>
-              CSの「組長の系譜」を見た時のJIMMY母娘一致の感想。<strong>「私が組子だったら、組長はながさんが良いよね(^_^;)。」</strong><br>
-              いや～、実際は知らないですよ。でも、優しい雰囲気で、悩みごとも聞いてくれそう(^_^;)。<br>
+              CSの「組長の系譜」を見た時のJIMMY母娘一致の感想。<strong>「私が組子だったら、組長はながさんが良いよね（^_^;）。」</strong><br>
+              いや～、実際は知らないですよ。でも、優しい雰囲気で、悩みごとも聞いてくれそう（^_^;）。<br>
               そういえば、何かの公演で雪組のスターが一緒に観劇していた際、群がるファンに対して「すみません・・」としっかり遮っていたのが、組長らしくてかっこ良かったなぁ～。(曖昧な記憶ですみません・・。)
             </p>
             <p>昔の雪組を知っているながさん、これからもがんばって下さいね(*^｡^*)。</p>

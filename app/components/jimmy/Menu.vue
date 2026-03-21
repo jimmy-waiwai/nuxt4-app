@@ -70,7 +70,7 @@ const themeConfig = computed(() => {
     </h3>
     <nav class="mb-12">
       <NuxtLink
-        to="/"
+        to="/waiwai"
         class="block mb-4 hover:underline"
         :class="themeConfig.textlink"
       >WAIWAI TAKARAZUKA（会員制掲示板）</NuxtLink>
@@ -80,7 +80,7 @@ const themeConfig = computed(() => {
         :class="themeConfig.textlink"
       >WAIWAI TAKARAZUKA（ブログ）</NuxtLink>
       <NuxtLink
-        to="/"
+        to="/jimmy"
         class="block mb-4 hover:underline"
         :class="themeConfig.textlink"
       >JIMMY's Homepage</NuxtLink>

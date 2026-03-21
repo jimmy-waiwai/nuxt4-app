@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            綾月　せり
+            綾月&emsp;せり
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -45,12 +45,12 @@ const themeConfig = computed(() => {
             </p>
             <p>
               <strong>綾月せり</strong>ちゃんの初認識は、ちあきちゃん(白鳥かすが)と同じ、バウ<strong>「血と砂」</strong>。ちあきちゃんの件で語りましたが、最下級生で入っていた綾月せりちゃん。<br>
-              <strong>トロ(牛)のダンス</strong>をしている所は、同じく出演されていた<strong>嘉月絵理</strong>ちゃんだと・・ずっと勘違いしていました。<strong>バウ公演中勘違いし続けていた</strong>かも(^_^;)。<br>
+              <strong>トロ(牛)のダンス</strong>をしている所は、同じく出演されていた<strong>嘉月絵理</strong>ちゃんだと・・ずっと勘違いしていました。<strong>バウ公演中勘違いし続けていた</strong>かも（^_^;）。<br>
               今も思いますが、<strong>似ている</strong>んですよ～。
             </p><p>
               その後は<strong>「長い春の果てに」</strong>で、<strong>ケロちゃん(汐美真帆)</strong>演じるジャンと台詞を交わす<strong>ウエイター役</strong>をしていました。これもしっかり演っていて、さすがに成績の良い子なんだな、と。<br>
-              そして、<strong>「なみだ橋 えがお橋」</strong>の<strong>「結果的美原志帆さんの相手役」</strong>ですよね(^_^;)！　演りがいのある良い役で、これもますます上手かった～。<br>
-              これからも活躍してくれそう・・かな？　楽しみにしています！
+              そして、<strong>「なみだ橋 えがお橋」</strong>の<strong>「結果的美原志帆さんの相手役」</strong>ですよね（^_^;）！&emsp;演りがいのある良い役で、これもますます上手かった～。<br>
+              これからも活躍してくれそう・・かな？&emsp;楽しみにしています！
             </p>
             <p :class="themeConfig.texttitle">
               (お気に入り度★★★<span class="text-gray-400">★★</span>)

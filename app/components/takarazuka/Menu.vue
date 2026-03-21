@@ -26,7 +26,7 @@
     </h3>
     <nav class="mb-12">
       <NuxtLink
-        to="/"
+        to="/waiwai"
         class="text-pink-800 block mb-4 hover:underline"
       >WAIWAI TAKARAZUKA（会員制掲示板）</NuxtLink>
       <NuxtLink

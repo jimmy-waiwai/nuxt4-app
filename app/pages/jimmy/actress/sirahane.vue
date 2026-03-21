@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            白羽　ゆり
+            白羽&emsp;ゆり
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -47,9 +47,9 @@ const themeConfig = computed(() => {
             <p>その後<strong>「更に狂はじ」</strong>でいきなりヒロインに抜擢。<strong>既に堂々としていて、華やか</strong>。なるほど、これは良いぞと思いなおしました。</p>
             <p>
               <strong>「追憶のバルセロナ」</strong>では、主役の許嫁役。<strong>華やかさ、品、色気に圧倒</strong>。ショー<strong>「ON
-                THE 5th」</strong>も<strong>ダルマ姿がキレイ！</strong>　観るのが楽しみでした。
+                THE 5th」</strong>も<strong>ダルマ姿がキレイ！</strong>&emsp;観るのが楽しみでした。
             </p>
-            <p>今回の<strong>「Joyful!」</strong>でも、<strong>中詰のメドレー</strong>の際、正直言って、<strong>その辺りの若手男役よりも、となみちゃんのパートが楽しみだった</strong>位です(^_^;)。男役を従えて踊る・・白城あやかちゃんや、星奈優里ちゃんのような貫禄には、学年＆経験値的にまだまだでしたが、<strong>将来きっとそんな場面を見せてくれる娘役さん</strong>だと思います。</p>
+            <p>今回の<strong>「Joyful!」</strong>でも、<strong>中詰のメドレー</strong>の際、正直言って、<strong>その辺りの若手男役よりも、となみちゃんのパートが楽しみだった</strong>位です（^_^;）。男役を従えて踊る・・白城あやかちゃんや、星奈優里ちゃんのような貫禄には、学年＆経験値的にまだまだでしたが、<strong>将来きっとそんな場面を見せてくれる娘役さん</strong>だと思います。</p>
             <p>
               <strong>「風と共に去りぬ」のスカーレット2</strong>も押し出しが強く、綺麗で良かったですよね。<br>
               これからがとっても楽しみな娘役さんです。<strong>かしげちゃん(貴城けい)との美形コンビ</strong>、是非とも実現して欲しいと思っているのは、私だけではないはず・・。

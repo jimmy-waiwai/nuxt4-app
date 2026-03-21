@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            美穂　圭子
+            美穂&emsp;圭子
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -63,7 +63,7 @@ const themeConfig = computed(() => {
             </p>
 
             <p>
-              今現在、広～く宝塚を見渡して、一番好きな歌手は？　と聞かれたら、<strong>私ならけいこさんだと答える</strong>でしょう。<br>
+              今現在、広～く宝塚を見渡して、一番好きな歌手は？&emsp;と聞かれたら、<strong>私ならけいこさんだと答える</strong>でしょう。<br>
               デビュー作(?)の「マダム・ヴォルフのコレクション」もそうですが、<strong>地声の歌</strong>が、宝塚では独特で、特に好きです。<br>
               「ON THE 5th」の<strong>「GOD Bless America」</strong>も、彼女の歌ありきの場面でしたね。
             </p>

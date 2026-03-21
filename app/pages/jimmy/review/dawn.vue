@@ -68,7 +68,7 @@ const themeConfig = computed(() => {
             </p>
             <p>
               現代に生きる女性、ダイアン役で見せる<strong>白のスーツ姿</strong>。<strong>ロウソクの炎に照らされる様子</strong>は本当に素敵でした。<br>
-              あーあ、ホントに切ないですねぇ～。観るのではなかった、と思う位です(^_^;)。
+              あーあ、ホントに切ないですねぇ～。観るのではなかった、と思う位です（^_^;）。
             </p>
             <p :class="themeConfig.texttitle">
               (満足度&emsp;★★★<span class="text-gray-400">★★</span>)

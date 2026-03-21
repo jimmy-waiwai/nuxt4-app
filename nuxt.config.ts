@@ -30,6 +30,14 @@ export default defineNuxtConfig({
 
   // 2025年の互換性日付（最新機能を使用）
   compatibilityDate: '2025-07-15',
+  // Vite のタイムアウト設定を増やす
+  vite: {
+    server: {
+      hmr: {
+        overlay: false, // エラーオーバーレイ自体がハングの原因になることがあるため
+      },
+    },
+  },
   eslint: {
     config: {
       // これを true にすることで、Prettier 不要でコードが綺麗になります

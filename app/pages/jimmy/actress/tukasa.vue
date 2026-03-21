@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            司　祐輝
+            司&emsp;祐輝
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -43,9 +43,9 @@ const themeConfig = computed(() => {
             >
               98/04/15 up
             </p>
-            <p><strong>平成４年度初舞台生のお披露目</strong>の時、抜群に目立っていたのが彼女でした(^_^;)。私の周りでは大評判だったんです(^_^;)。</p>
+            <p><strong>平成４年度初舞台生のお披露目</strong>の時、抜群に目立っていたのが彼女でした（^_^;）。私の周りでは大評判だったんです（^_^;）。</p>
             <p>絶対スターになると思っていましたが、渋い脇役系へとなりつつありますね。新人公演では、夏美ようの役が多く、なかなか力のある所を見せていますし、本公演でも芝居心のある表情で、群集の中でも一際目立ちます。</p>
-            <p>華やかな人だけに、<strong>一度二の線の役を見てみたい</strong>のですが、次の新人公演あたり、回ってこないかしら。まだまだ、諦めきれない私です(^_^;)。</p>
+            <p>華やかな人だけに、<strong>一度二の線の役を見てみたい</strong>のですが、次の新人公演あたり、回ってこないかしら。まだまだ、諦めきれない私です（^_^;）。</p>
             <p :class="themeConfig.texttitle">
               (お気に入り度★★★★<span class="text-gray-400">★</span>)
             </p>

@@ -39,7 +39,7 @@ const themeConfig = computed(() => {
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p>
-              その時々の話題のページです。ほとんどケロちゃん(汐美真帆)報告ばかりですね(^_^;)。<br>
+              その時々の話題のページです。ほとんどケロちゃん(汐美真帆)報告ばかりですね（^_^;）。<br>
               最新の初舞台生さん等の話題はプログページ。宝塚全般の話題は「WAIWAI TAKARAZUKA」の「雑談掲示板」をご覧下さい。
             </p>
           </div>

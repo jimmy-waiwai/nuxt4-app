@@ -34,7 +34,7 @@ const themeConfig = computed(() => {
             class="text-2xl sm:text-3xl md:text-4xl klee-one font-[400] mb-8"
             :class="themeConfig.texttitle"
           >
-            安城　志紀
+            安城&emsp;志紀
           </h2>
           <div class="text-gray-800 text-base md:text-lg leading-8 [&>p]:mb-4">
             <p
@@ -43,13 +43,13 @@ const themeConfig = computed(() => {
             >
               2003/06/29 up
             </p>
-            <p><strong>しきこちゃん(安城志紀)</strong>の初認識は、<strong>雪組「エンカレッジ・コンサート」</strong>。一部は<strong>「万朶の桜」</strong>を重厚に、そして二部では<strong>「Time to say goodbye」</strong>を<strong>女声</strong>で歌っていました。<strong>「今すぐドレスを着せて本公演で歌わせてあげたい」</strong>と書いたのを覚えています。しかしその時の印象は、<strong>歌の上手い、ごっつい若手男役さん</strong>でした(^_^;)。</p>
+            <p><strong>しきこちゃん(安城志紀)</strong>の初認識は、<strong>雪組「エンカレッジ・コンサート」</strong>。一部は<strong>「万朶の桜」</strong>を重厚に、そして二部では<strong>「Time to say goodbye」</strong>を<strong>女声</strong>で歌っていました。<strong>「今すぐドレスを着せて本公演で歌わせてあげたい」</strong>と書いたのを覚えています。しかしその時の印象は、<strong>歌の上手い、ごっつい若手男役さん</strong>でした（^_^;）。</p>
             <p>
-              次に浮かぶのはショーの<strong>「ON THE 5th」</strong>。プロローグの<strong>ウェルカムダンサー</strong>の中で、<strong>唯一顔と名前が一致しなかったのが安城志紀</strong>。消去法で名前を覚えました(^_^;)。<br>
+              次に浮かぶのはショーの<strong>「ON THE 5th」</strong>。プロローグの<strong>ウェルカムダンサー</strong>の中で、<strong>唯一顔と名前が一致しなかったのが安城志紀</strong>。消去法で名前を覚えました（^_^;）。<br>
               <strong>「ゆうかちゃん(椿火呂花)のように綺麗な人だな～。」</strong>と。<strong>思ったより小柄で線が細く</strong>、「エンカレッジ」の時とは随分印象が違いましたね。
             </p>
             <p>
-              続いてヒットしたのが<strong>全国ツアーの「再会」</strong>。風早優が演っていた<strong>カメラ小僧(?)の観光客</strong>の役を、<strong>長髪オタク系青年</strong>として思い切り良く演っていて、しかもその長髪姿が<strong>なかなかの美形だった</strong>のがポイント高(^_^;)。<br>
+              続いてヒットしたのが<strong>全国ツアーの「再会」</strong>。風早優が演っていた<strong>カメラ小僧(?)の観光客</strong>の役を、<strong>長髪オタク系青年</strong>として思い切り良く演っていて、しかもその長髪姿が<strong>なかなかの美形だった</strong>のがポイント高（^_^;）。<br>
               以来、「Joyful!」でもバックで踊っている<strong>秘かに美形なしきこちゃん</strong>を、良く目で追っていました。
             </p>
             <p>

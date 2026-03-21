@@ -193,7 +193,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    長所は幅広く観ている事。短所はその割に何でも喜んで観ていない所(^_^;)。
+                    長所は幅広く観ている事。短所はその割に何でも喜んで観ていない所（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -309,7 +309,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    駄作でもチケット代くらいは楽しみを見つけて観ている(^_^;)。<br>
+                    駄作でもチケット代くらいは楽しみを見つけて観ている（^_^;）。<br>
                     でも、最近のTCAはチケット代に見合わない内容だと思う。
                   </td>
                 </tr>
@@ -381,7 +381,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    ・・ないなぁ。親に言えない事はしてません(^_^;)。
+                    ・・ないなぁ。親に言えない事はしてません（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -575,7 +575,7 @@ const themeConfig = computed(() => {
                     class="bg-rose-50 text-right px-4 py-2"
                   >
                     どちらもあるけれど、最近はひとりで行っても、<br>
-                    誰か友達と遭遇している気がする(^_^;)。
+                    誰か友達と遭遇している気がする（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -1184,7 +1184,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    好きです。負けないで下さい(^_^;)。
+                    好きです。負けないで下さい（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -1276,7 +1276,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    沢山ありますが、意外な所では(^_^;)、<br>
+                    沢山ありますが、意外な所では（^_^;）、<br>
                     月組の中国公演生中継の「ブラボー・タカラヅカ！」。
                   </td>
                 </tr>
@@ -1300,7 +1300,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    ？気に入らない公演は、封印しなくても見ないし(^_^;)。
+                    ？気に入らない公演は、封印しなくても見ないし（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -2011,7 +2011,7 @@ const themeConfig = computed(() => {
                     class="bg-rose-50 text-right px-4 py-2"
                   >
                     難しいなぁ・・。どれもいただけないけれど、<br>
-                    それを補って余りあるものがあれば、許せる事もある(^_^;)。
+                    それを補って余りあるものがあれば、許せる事もある（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -2149,7 +2149,7 @@ const themeConfig = computed(() => {
                     :class="themeConfig.textlink"
                     class="bg-rose-50 text-right px-4 py-2"
                   >
-                    済み。でないと、私の休日の行動、説明できない(^_^;)。
+                    済み。でないと、私の休日の行動、説明できない（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -2196,7 +2196,7 @@ const themeConfig = computed(() => {
                     class="bg-rose-50 text-right px-4 py-2"
                   >
                     いまはいないけれど、昔の彼氏には皆言っていた。<br>
-                    でないと、私の生活、説明できないから(^_^;)。
+                    でないと、私の生活、説明できないから（^_^;）。
                   </td>
                 </tr>
                 <tr>
@@ -2409,7 +2409,7 @@ const themeConfig = computed(() => {
                 </tr>
               </tbody>
             </table>
-            <p>・・おぉっとクールに終わってしまいました(^_^;)。</p>
+            <p>・・おぉっとクールに終わってしまいました（^_^;）。</p>
           </div>
         </div>
       </div>
