@@ -49,7 +49,7 @@ definePageMeta({
     </div>
     <div class="flex justify-center items-end my-4">
       <NuxtLink
-        to="/"
+        to="/waiwai/annai"
         class="m-8"
       >
         <h3 class="whitespace-nowrap">
@@ -70,7 +70,7 @@ definePageMeta({
         </p>
       </NuxtLink>
       <NuxtLink
-        to="/"
+        to="/waiwai/syokai"
         class="m-6"
       >
         <h3 class="whitespace-nowrap">

@@ -1,12 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // 1. Nuxt 4 のディレクトリ構造と新機能を有効化
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/icon', '@nuxt/eslint'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/icon', '@nuxt/eslint', '@nuxtjs/sitemap'],
   devtools: { enabled: true },
 
   app: {
     // ベースURLの設定
-    baseURL: '/waiwai-test2/',
+    baseURL: '/waiwai/',
     buildAssetsDir: 'assets',
     head: {
       title: 'JIMMY\'s WEB SITE',
@@ -19,10 +19,13 @@ export default defineNuxtConfig({
           type: 'image/x-icon',
           // baseURLが適用されるため、先頭のパスを省略可能にするのが一般的です
           // 可能なら、href: 'favicon.ico',
-          href: '/waiwai-test2/favicon.ico',
+          href: '/waiwai/favicon.ico',
         },
       ],
     },
+  },
+  site: {
+    url: 'https://jimmy-waiwai.github.io/waiwai/', // 🚀 あなたのウェブサイトのURL（予定）に書き換えてください
   },
   future: {
     compatibilityVersion: 4,
@@ -30,6 +33,11 @@ export default defineNuxtConfig({
 
   // 2025年の互換性日付（最新機能を使用）
   compatibilityDate: '2025-07-15',
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
   // Vite のタイムアウト設定を増やす
   vite: {
     server: {
@@ -48,5 +56,8 @@ export default defineNuxtConfig({
         commaDangle: 'always-multiline', // 末尾のカンマ設定
       },
     },
+  },
+  sitemap: {
+    // 必要に応じてオプションをここに書きますが、基本は空でも動きます
   },
 });

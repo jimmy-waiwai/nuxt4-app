@@ -149,7 +149,7 @@ function menuOpen(toggle) {
               </NuxtLink>
             </div>
             <div class="w-[400px] py-4 sm:p-6">
-              <NuxtLink to="/">
+              <NuxtLink to="/waiwai">
                 <img
                   src="/images/waiwai_image.jpg"
                   alt="WAIWAI TAKARAZUKA"
@@ -199,7 +199,7 @@ function menuOpen(toggle) {
           </p>
           <div class="flex justify-center flex-wrap sm:mt-[20px] px-4 py-4 sm:px-16">
             <div class="w-[400px] py-4 sm:p-6">
-              <NuxtLink to="/">
+              <NuxtLink to="https://jimmy-waiwai.github.io/waiwai-sub/design/">
                 <img
                   src="/images/designimage.jpg"
                   alt="WAIWAI WEB &amp; DTP"
@@ -215,7 +215,7 @@ function menuOpen(toggle) {
               </NuxtLink>
             </div>
             <div class="w-[400px] py-4 sm:p-6">
-              <NuxtLink to="/">
+              <NuxtLink to="https://jimmy-waiwai.github.io/waiwai-sub/everyday/">
                 <img
                   src="/images/everyimage.jpg"
                   alt="WAIWAI EVERY DAY"
