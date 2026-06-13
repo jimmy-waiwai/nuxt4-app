@@ -62,6 +62,13 @@ function menuOpen(toggle) {
           >
             <span class="text-2xl block">Archive</span><span class="block text-sm">過去のページ</span>
           </li>
+          <li
+            class="w-full block border border-white my-4 py-4 text-center cursor-pointer hover:bg-lime-500"
+          >
+            <NuxtLink to="/sitemap">
+              <span class="text-2xl block">Site Map</span><span class="block text-sm">サイトマップ</span>
+            </NuxtLink>
+          </li>
         </ul>
       </nav>
     </div>
@@ -72,17 +79,17 @@ function menuOpen(toggle) {
       class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
     >
       <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70">
-        <div class="absolute top-[10%] lg:top-[25%] w-full text-center">
-          <h1 class="text-3xl sm:text-5xl">
+        <div class="relative sm:absolute sm:top-[10%] lg:top-[25%] w-full text-center">
+          <h1 class="text-3xl sm:text-5xl mb-4">
             JIMMY's WEB SITE
           </h1>
-          <p class="mt-6">
+          <p class="mt-6 mb-4">
             waiwai.ciao.jp より移転しました。<br
               class="inline sm:hidden"
             >JIMMYのホームページです。
           </p>
         </div>
-        <nav class="absolute top-[32%] lg:top-[45%] w-full text-center">
+        <nav class="relative sm:absolute sm:top-[32%] lg:top-[45%] w-full text-center mb-4">
           <ul class="flex flex-wrap justify-center w-full">
             <li
               class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
@@ -102,6 +109,13 @@ function menuOpen(toggle) {
             >
               <span class="text-2xl block">Archive</span><span class="block text-sm">過去のページ</span>
             </li>
+            <li
+              class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
+            >
+              <NuxtLink to="/sitemap">
+                <span class="text-2xl block">Site Map</span><span class="block text-sm">サイトマップ</span>
+              </NuxtLink>
+            </li>
             <!-- <li><span>SNS</span><span class="block text-sm">投稿</span></li>
             <li><span>Map</span><span class="block text-sm">地図</span></li>
             <li><span>Schedule</span><span class="block text-sm">スケジュール</span></li>
@@ -111,7 +125,7 @@ function menuOpen(toggle) {
         </nav>
         <div
           id="footer"
-          class="absolute bottom-12 w-full text-center"
+          class="relative sm:absolute sm:bottom-12 w-full text-center"
         >
           <p>Copyright © JIMMY. All Rights Reserved.</p>
         </div>

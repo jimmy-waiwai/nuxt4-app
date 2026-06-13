@@ -40,11 +40,16 @@ definePageMeta({
           class="text-violet-700 underline hover:no-underline"
         >「WAIWAI TAKARAZUKA（ブログ）」</NuxtLink>はこちらです。
       </p>
-      <p class="text-center">
+      <p class="text-center mb-6">
         JIMMYのお仕事ページ<NuxtLink
           to="/"
           class="text-violet-700 underline hover:no-underline"
         >「JIMMY's Homepage」</NuxtLink>はこちらです。
+      </p>
+      <p class="text-center mb-6">
+        （2026年追記）移転、ファイル整理しながら軽く読み返しましたが、本当に暖かい書き込みが多くて、素晴らしいHPを運営していたんだなぁ・・と改めて感動しています。<br>
+        メールアドレスなどの情報は削除しましたので、2000年～2006年くらいまでの短い期間ですが、ファンの公演評を知れる貴重な資料として、こっそり残すことをお許しくださると幸いです。<br>
+        当時書き込みをしてくださった方、本当にありがとうございました！
       </p>
     </div>
     <div class="flex justify-center items-end my-4">
