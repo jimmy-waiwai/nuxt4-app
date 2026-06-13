@@ -79,7 +79,7 @@ function menuOpen(toggle) {
       class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
     >
       <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70">
-        <div class="relative sm:absolute sm:top-[10%] lg:top-[25%] w-full text-center">
+        <div class="relative sm:absolute sm:top-[10%] lg:top-[25%] w-full text-center mt-8 sm:mt-0">
           <h1 class="text-3xl sm:text-5xl mb-4">
             JIMMY's WEB SITE
           </h1>
