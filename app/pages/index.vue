@@ -13,12 +13,7 @@ function menuOpen(toggle) {
 
 <template>
   <div class="relative">
-    <div
-      class="absolute top-0 left-0 w-full h-screen bg-[url(/images/back-left.png)] bg-no-repeat bg-left bg-fixed bg-contain"
-    />
-    <div
-      class="absolute top-0 right-0 w-full h-screen bg-[url(/images/back-right.png)] bg-no-repeat bg-right bg-fixed bg-contain"
-    />
+    <BackAni />
     <div
       v-if="hamburger === 'close'"
       class="absolute text-5xl top-0 right-0 px-4 py-2 sm:px-8 sm:py-6 bg-lime-400 text-white z-[100]"
@@ -61,6 +56,12 @@ function menuOpen(toggle) {
             @click="menuOpen('archive')"
           >
             <span class="text-2xl block">Archive</span><span class="block text-sm">過去のページ</span>
+          </li>
+          <li
+            class="w-full block border border-white my-4 py-4 text-center cursor-pointer hover:bg-lime-500"
+            @click="menuOpen('map')"
+          >
+            <span class="text-2xl block">Map</span><span class="block text-sm">地図</span>
           </li>
           <li
             class="w-full block border border-white my-4 py-4 text-center cursor-pointer hover:bg-lime-500"
@@ -111,13 +112,18 @@ function menuOpen(toggle) {
             </li>
             <li
               class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
+              @click="menuOpen('map')"
+            >
+              <span class="text-2xl block">Map</span><span class="block text-sm">地図</span>
+            </li>
+            <li
+              class="border border-black m-2 py-4 w-[270px] cursor-pointer hover:bg-slate-100"
             >
               <NuxtLink to="/sitemap">
                 <span class="text-2xl block">Site Map</span><span class="block text-sm">サイトマップ</span>
               </NuxtLink>
             </li>
             <!-- <li><span>SNS</span><span class="block text-sm">投稿</span></li>
-            <li><span>Map</span><span class="block text-sm">地図</span></li>
             <li><span>Schedule</span><span class="block text-sm">スケジュール</span></li>
             <li><span>Graph</span><span class="block text-sm">グラフ</span></li>
             <li><span>Weather</span><span class="block text-sm">天気</span></li> -->
@@ -248,7 +254,36 @@ function menuOpen(toggle) {
         </div>
       </div>
     </div>
+    <div
+      v-if="menu === 'map'"
+      id="archive"
+      class="absolute top-0 left-0 w-full h-screen flex justify-center items-center"
+    >
+      <div class="relative w-[90%] sm:min-w-[600px] h-[90vh] bg-white/70 flex items-center">
+        <div class="w-full h-[90vh] text-center overflow-scroll">
+          <h2 class="text-3xl sm:text-5xl">
+            Map
+          </h2>
+          <p class="mt-6">
+            GoogleMapのデモです。
+          </p>
+          <div class="flex justify-center flex-wrap sm:mt-[20px] px-4 py-4 sm:px-16">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.256865410841!2d135.02423831170907!3d34.622948587267274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000824134f53bcd%3A0xaeaac1c733d78c3f!2z5piO55-z5rW35bOh5aSn5qmL!5e0!3m2!1sja!2sjp!4v1781793231146!5m2!1sja!2sjp"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -5,7 +5,7 @@ useHead({
     {
       name: 'description',
       content:
-        'waiwai.ciao.jp より移転しました。JIMMYのホームページです。WEBデザイン・コーディング・ライティング等ご相談ください。',
+        'waiwai.ciao.jp より移転しました。JIMMYのホームページです。WEBデザイン・コーディング・ライティング・システムについて等ご相談ください。',
     },
   ],
   link: [

@@ -14,14 +14,15 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/waiwai/favicon.ico' }],
     },
   },
-
   future: {
     compatibilityVersion: 4,
   },
 
   compatibilityDate: '2025-07-15',
   nitro: {
-    prerender: { failOnError: false },
+    prerender: {
+      failOnError: false,
+    },
   },
   vite: {
     server: { hmr: { overlay: false } },
