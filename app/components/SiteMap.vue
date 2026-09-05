@@ -2,6 +2,16 @@
 import takarazukaBlogJson from '~/assets/json/takarazuka-blog.json';
 import takarazukaReviewJson from '~/assets/json/takarazuka-review.json';
 import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
+
+const siteBar = ref('close');
+function siteBarOpen(toggle) {
+  if (siteBar.value === toggle) {
+    siteBar.value = 'close';
+  }
+  else {
+    siteBar.value = toggle;
+  }
+}
 </script>
 
 <template>
@@ -39,13 +49,13 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
           />
           JIMMY's Homepage（宝塚）
         </NuxtLink>
-        <ul class="flex flex-wrap text-left ml-4">
+        <ul class="flex flex-wrap text-left ml-4 mr-2">
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/introduction"
-              class="block w-full px-8 py-2 underline"
+              class="bblock px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -53,7 +63,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               INTRODUCTION
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-introduction'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-introduction')"
+            >
+              <Icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-introduction'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-introduction'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/introduction/watasi"
@@ -81,11 +114,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/review"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -93,7 +126,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               REVIEW
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-review'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-review')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-review'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-review'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/review/hanamauto"
@@ -2533,11 +2589,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/contribution"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -2545,7 +2601,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               CONTRIBUTION
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-contribution'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-contribution')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-contribution'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-contribution'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/contribution/66kyosokyoku7"
@@ -3341,11 +3420,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/topic"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -3353,7 +3432,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               TOPICS
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-topic'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-topic')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-topic'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-topic'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/topic/20041230"
@@ -5157,11 +5259,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/actress"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -5169,7 +5271,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               ACTRESS
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-actress'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-actress')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-actress'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-actress'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/actress/hanagumi"
@@ -6289,11 +6414,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/jimmy/gallery"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -6301,7 +6426,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               GALLERY
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'jimmy-gallery'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('jimmy-gallery')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'jimmy-gallery'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'jimmy-gallery'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/jimmy/gallery/musasi"
@@ -6669,13 +6817,13 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
           />
           WAIWAI TAKARAZUKA（会員制掲示板）
         </NuxtLink>
-        <ul class="flex flex-wrap text-left ml-4">
+        <ul class="flex flex-wrap text-left ml-4 mr-2">
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/waiwai/annai"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -6685,11 +6833,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </NuxtLink>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/waiwai/syokai"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -6699,9 +6847,41 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </NuxtLink>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
-            <ul class="flex flex-wrap text-left ml-4">
+            <span
+              class="inline-block px-4 py-2 underline"
+            >
+              <Icon
+                name="fa6-solid:caret-right"
+                class="mr-2"
+              />
+              公演評掲示板
+            </span>
+            <button
+              v-if="siteBar !== 'waiwai-syokai'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('waiwai-syokai')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'waiwai-syokai'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'waiwai-syokai'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <li>
                 <NuxtLink
                   to="/waiwai/back/hcord"
@@ -8325,13 +8505,13 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
           />
           WAIWAI TAKARAZUKA（ブログ）
         </NuxtLink>
-        <ul class="flex flex-wrap text-left ml-4">
+        <ul class="flex flex-wrap text-left ml-4 mr-2">
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/takarazuka/blog/index"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -8339,7 +8519,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               BLOG
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'takarazuka-blog'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('takarazuka-blog')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'takarazuka-blog'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'takarazuka-blog'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <template
                 v-for="data in takarazukaBlogJson.data"
                 :key="data.slug"
@@ -8362,11 +8565,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/takarazuka/review/index"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -8374,7 +8577,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               REVIEW
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'takarazuka-review'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('takarazuka-review')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'takarazuka-review'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'takarazuka-review'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <template
                 v-for="data in takarazukaReviewJson.data"
                 :key="data.slug"
@@ -8397,11 +8623,11 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
             </ul>
           </li>
           <li
-            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2"
+            class="w-full border border-solid border-gray-400 rounded-md bg-white/50 py-2 px-4 mb-2 flex flex-wrap justify-between items-center"
           >
             <NuxtLink
               to="/takarazuka/actress/index"
-              class="block w-full px-8 py-2 underline"
+              class="inline-block px-4 py-2 underline"
             >
               <Icon
                 name="fa6-solid:caret-right"
@@ -8409,7 +8635,30 @@ import takarazukaActressJson from '~/assets/json/takarazuka-actress.json';
               />
               ACTRESS
             </NuxtLink>
-            <ul class="flex flex-wrap text-left ml-4">
+            <button
+              v-if="siteBar !== 'takarazuka-actress'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('takarazuka-actress')"
+            >
+              <icon
+                name="fa6-solid:caret-down"
+              />
+              Open
+            </button>
+            <button
+              v-if="siteBar === 'takarazuka-actress'"
+              class="inline-block px-2 py-1 border border-solid border-gray-400 hover:bg-gray-400/10 text-xs"
+              @click="siteBarOpen('close')"
+            >
+              <icon
+                name="fa6-solid:caret-up"
+              />
+              Close
+            </button>
+            <ul
+              v-if="siteBar === 'takarazuka-actress'"
+              class="w-full flex flex-wrap text-left ml-4 mr-2"
+            >
               <template
                 v-for="data in takarazukaActressJson.data"
                 :key="data.slug"

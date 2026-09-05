@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'waiwai.ciao.jp より移転しました。宝塚歌劇団の舞台の感想や話題を雑談。',
+      content: 'WAIWAI TAKARAZUKA（ブログ）。JIMMYが宝塚ファンによる会員制の掲示板を閉鎖後、公演評、生徒評などを投稿していたブログです。旧サイトwaiwai.ciao.jp/takarazukaから移転しました。',
     },
   ],
   link: [

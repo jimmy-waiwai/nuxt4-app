@@ -2,6 +2,14 @@
 definePageMeta({
   layout: 'takarazuka',
 });
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://jimmy-waiwai.github.io/waiwai/takarazuka/',
+    },
+  ],
+});
 </script>
 
 <template>

@@ -107,9 +107,9 @@ function barOpen(toggle) {
           >JIMMYのホームページです。
         </p>
         <nav class="w-full">
-          <ul class="flex flex-wrap justify-center w-full gap-2">
+          <ul class="flex flex-wrap justify-center w-full gap-3">
             <li
-              class="border border-black m-2 py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
+              class="border border-black py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
             >
               <NuxtLink
                 to="#top"
@@ -119,7 +119,7 @@ function barOpen(toggle) {
               </NuxtLink>
             </li>
             <li
-              class="border border-black m-2 py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
+              class="border border-black py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
             >
               <NuxtLink
                 to="#takarazuka"
@@ -129,7 +129,7 @@ function barOpen(toggle) {
               </NuxtLink>
             </li>
             <li
-              class="border border-black m-2 py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
+              class="border border-black py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
             >
               <NuxtLink
                 to="#archive"
@@ -139,7 +139,7 @@ function barOpen(toggle) {
               </NuxtLink>
             </li>
             <li
-              class="border border-black m-2 py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
+              class="border border-black py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
             >
               <NuxtLink
                 to="#map"
@@ -149,7 +149,7 @@ function barOpen(toggle) {
               </NuxtLink>
             </li>
             <li
-              class="border border-black m-2 py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
+              class="border border-black py-4 cursor-pointer hover:bg-slate-100 w-[220px] text-center px-4"
             >
               <NuxtLink
                 to="#sitemap"
@@ -170,7 +170,7 @@ function barOpen(toggle) {
         id="takarazuka"
         class="w-full text-center py-24"
       >
-        <h2 class="text-3xl sm:text-5xl mb-6">
+        <h2 class="text-3xl sm:text-5xl mb-4 sm:mb-6">
           Takarazuka
         </h2>
         <p class="mb-8">
@@ -181,14 +181,14 @@ function barOpen(toggle) {
             <NuxtLink to="/takarazuka">
               <img
                 src="/images/takaraimage.jpg"
-                alt="WAIWAI TAKARAZUKA"
+                alt="WAIWAI TAKARAZUKA（ブログ）"
               >
               <h2 class="text-lg sm:text-xl">
                 <img
                   src="/images/logota.png"
                   alt="WAIWAI TAKARAZUKA"
-                  class="size-[30px] inline m-2"
-                >WAIWAI TAKARAZUKA
+                  class="size-[30px] inline mr-2 mb-2"
+                >WAIWAI TAKARAZUKA（ブログ）
               </h2>
               <p>掲示板を閉じてからの<br>JIMMYのブログです。</p>
             </NuxtLink>
@@ -197,13 +197,13 @@ function barOpen(toggle) {
             <NuxtLink to="/waiwai">
               <img
                 src="/images/waiwai_image.jpg"
-                alt="WAIWAI TAKARAZUKA"
+                alt="WAIWAI TAKARAZUKA（掲示板）"
               >
               <h2 class="text-lg sm:text-xl">
                 <img
                   src="/images/logota.png"
-                  alt="WAIWAI TAKARAZUKA"
-                  class="size-[30px] inline m-2"
+                  alt="WAIWAI TAKARAZUKA（掲示板）"
+                  class="size-[30px] inline mr-2 mb-2"
                 >WAIWAI TAKARAZUKA
               </h2>
               <p>宝塚ファンによる会員制掲示板を<br>運営していました。</p>
@@ -219,7 +219,7 @@ function barOpen(toggle) {
                 <img
                   src="/images/logota.png"
                   alt="WAIWAI TAKARAZUKA"
-                  class="size-[30px] inline m-2"
+                  class="size-[30px] inline mr-2 mb-2"
                 >JIMMY&#39;s Homepage
               </h2>
               <p>JIMMYの過去の公演評などの記事を<br>まとめました。</p>
@@ -232,7 +232,7 @@ function barOpen(toggle) {
         id="archive"
         class="w-full text-center py-24"
       >
-        <h2 class="text-3xl sm:text-5xl mb-6">
+        <h2 class="text-3xl sm:text-5xl mb-4 sm:mb-6">
           Archive
         </h2>
         <p class="mb-8">
@@ -249,7 +249,7 @@ function barOpen(toggle) {
                 <img
                   src="/images/logode.png"
                   alt="WAIWAI WEB &amp; DTP"
-                  class="size-[30px] inline m-2"
+                  class="size-[30px] inline mr-2 mb-2"
                 >WAIWAI WEB &amp; DTP
               </h2>
               <p>WEB &amp; DTPデザイナーであるJIMMYの<br>お仕事ページです。</p>
@@ -265,7 +265,7 @@ function barOpen(toggle) {
                 <img
                   src="/images/logoev.png"
                   alt="WAIWAI EVERY DAY"
-                  class="size-[30px] inline m-2"
+                  class="size-[30px] inline mr-2 mb-2"
                 >WAIWAI EVERY DAY
               </h2>
               <p>JIMMYの日常の様子を<br>アップしています。</p>
@@ -278,7 +278,7 @@ function barOpen(toggle) {
         id="map"
         class="w-full text-center py-24"
       >
-        <h2 class="text-3xl sm:text-5xl mb-6">
+        <h2 class="text-3xl sm:text-5xl mb-4 sm:mb-6">
           Map
         </h2>
         <p class="mb-8">
@@ -301,7 +301,7 @@ function barOpen(toggle) {
 
       <div
         id="footer"
-        class="w-full text-center py-24"
+        class="w-full text-center pb-24"
       >
         <p>Copyright © JIMMY. All Rights Reserved.</p>
       </div>
