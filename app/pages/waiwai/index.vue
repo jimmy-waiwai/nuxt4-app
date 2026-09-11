@@ -2,6 +2,14 @@
 definePageMeta({
   layout: 'waiwai',
 });
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://jimmy-waiwai.github.io/waiwai/waiwai/',
+    },
+  ],
+});
 </script>
 
 <template>

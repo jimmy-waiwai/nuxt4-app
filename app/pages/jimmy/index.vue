@@ -5,7 +5,13 @@ useHead({
     {
       name: 'description',
       content:
-        '「歌劇」誌「高声低声」や、以前存在した「宝塚公式HP」の「お便りコーナー」、「WAIWAI TAKARAZUKA」にアップした公演評をまとめました。',
+        'JIMMYの公演評まとめサイト。「歌劇」誌「高声低声」や、以前存在した「宝塚公式HP」の「お便りコーナー」、会員制掲示板「WAIWAI TAKARAZUKA」に投稿した公演評をまとめました。',
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://jimmy-waiwai.github.io/waiwai/jimmy/',
     },
   ],
 });
@@ -53,6 +59,20 @@ useHead({
               2005年以降の記事は、全てプログに移行しました。<br>
               最新記事はそちらをご覧下さい。
             </p>
+            <nav class="mb-6">
+              <NuxtLink
+                to="/takarazuka"
+                class="block my-2 underline"
+              >WAIWAI TAKARAZUKA（ブログ）</NuxtLink>
+              <NuxtLink
+                to="/waiwai"
+                class="block my-2 underline"
+              >WAIWAI TAKARAZUKA（会員制掲示板）</NuxtLink>
+              <NuxtLink
+                to="/jimmy"
+                class="block my-2 underline"
+              >JIMMY's Homepage（総合）</NuxtLink>
+            </nav>
           </div>
           <div>
             <h3 class="text-lime-600 text-xl">

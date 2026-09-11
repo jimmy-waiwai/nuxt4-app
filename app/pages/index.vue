@@ -1,4 +1,12 @@
 <script setup>
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://jimmy-waiwai.github.io/waiwai/',
+    },
+  ],
+});
 const hamburger = ref('close');
 function barOpen(toggle) {
   hamburger.value = toggle;
