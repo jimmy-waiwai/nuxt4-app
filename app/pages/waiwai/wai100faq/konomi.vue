@@ -1494,9 +1494,7 @@ definePageMeta({
         <td class="bg-fuchsia-200" />
         <td class="bg-rose-50 text-right px-4 py-2">
           宝塚の話題が中心のホームページを持っています(^^)<br>
-          この回答を読んで興味を持たれたたら、是非お立ち寄り下さい！<br>
-          「木ノ実のひとりごと」<br>
-          <a href="http://homepage2.nifty.com/konomi-k/">http://homepage2.nifty.com/konomi-k/</a>
+          この回答を読んで興味を持たれたたら、是非お立ち寄り下さい！
         </td>
       </tr>
       <tr>

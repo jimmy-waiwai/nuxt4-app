@@ -1,11 +1,33 @@
 <script setup>
+const route = useRoute();
+
 useSeoMeta({
   title: 'JIMMY\'s WEB SITE',
   ogTitle: 'JIMMY\'s WEB SITE',
   description: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
   ogDescription: 'waiwai.ciao.jp より移転しました。JIMMYのホームページです。',
-  ogImage: 'https://jimmy-waiwai.github.io//waiwai-test2/images/takaraimage.jpg',
+  ogImage: 'https://jimmy-waiwai.github.io/waiwai/images/jimmy_hp_og.webp',
   twitterCard: 'summary_large_image',
+});
+
+// canonical URLを自動生成
+const canonicalUrl = computed(() => {
+  const base = 'https://jimmy-waiwai.github.io/waiwai';
+
+  const path = route.path === '/'
+    ? '/'
+    : `${route.path.replace(/\/+$/, '')}/`;
+
+  return `${base}${path}`;
+});
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: canonicalUrl,
+    },
+  ],
 });
 </script>
 

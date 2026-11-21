@@ -1,0 +1,21 @@
+export default defineNitroPlugin((nitroApp) => {
+  nitroApp.hooks.hook('sitemap:resolved', (ctx) => {
+    for (const url of ctx.urls) {
+      const parsedUrl = new URL(url.loc);
+
+      // 自分のサイトのURLだけを対象にする
+      if (parsedUrl.hostname !== 'jimmy-waiwai.github.io') {
+        continue;
+      }
+
+      // HTMLページなど、拡張子のないURLだけ末尾に / を付ける
+      const lastSegment = parsedUrl.pathname.split('/').pop() || '';
+
+      if (lastSegment && !lastSegment.includes('.')) {
+        parsedUrl.pathname += '/';
+      }
+
+      url.loc = parsedUrl.toString();
+    }
+  });
+});
